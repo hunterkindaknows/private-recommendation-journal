@@ -1,0 +1,7 @@
+prefix=/home/bobo/Documents/projects/affiliat_editorial_website/.conda/env
+includedir=${prefix}/include
+ 
+Name: DRI2Proto
+Description: DRI2 extension headers
+Version: 2.8
+Cflags: -I${includedir}

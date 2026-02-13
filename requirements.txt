@@ -1,0 +1,2 @@
+# Python dependencies for local scripts and automation.
+# Add one package per line as needed.

@@ -1,0 +1,5 @@
+#!/home/bobo/Documents/projects/affiliat_editorial_website/.conda/env/bin/python3.11
+
+import pydoc
+if __name__ == '__main__':
+    pydoc.cli()
