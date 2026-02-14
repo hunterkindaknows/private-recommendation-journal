@@ -37,6 +37,14 @@ export function SiteHeader() {
           ))}
           <li>
             <Link
+              href="/notes"
+              className="persona-badge text-muted-foreground editorial-link hover:text-foreground"
+            >
+              Notes
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/archive"
               className="persona-badge text-muted-foreground editorial-link hover:text-foreground"
             >
@@ -74,6 +82,15 @@ export function SiteHeader() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/notes"
+                className="persona-badge text-lg text-foreground"
+                onClick={() => setMobileOpen(false)}
+              >
+                Notes
+              </Link>
+            </li>
             <li>
               <Link
                 href="/archive"

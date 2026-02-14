@@ -186,9 +186,9 @@ export const editorials: Editorial[] = [
       "Popular black tees chase softness first, then collapse at the collar. This pick keeps shape under repeat washing.",
     primaryPick: {
       product: {
-        asin: "B0C3Q4X7B8",
+        asin: "B085HQD385",
         brand: "Calvin Klein",
-        productName: "Cotton Classics Crew Neck T-Shirt (Black)",
+        productName: "Men's Cotton Classics 3-Pack Undershirts",
         priceBand: "$$",
         merchant: "amazon",
         imageSourceType: "amazon-official",
@@ -206,9 +206,9 @@ export const editorials: Editorial[] = [
     },
     secondaryPick: {
       product: {
-        asin: "B09V3R6L2Q",
+        asin: "B00JUM78PO",
         brand: "Hanes",
-        productName: "Beefy-T Crewneck T-Shirt (Black)",
+        productName: "Men's Short Sleeve Beefy-T",
         priceBand: "$$$",
         merchant: "amazon",
         imageSourceType: "amazon-official",
@@ -264,9 +264,10 @@ export const editorials: Editorial[] = [
       "Most popular belts optimize for low price and reversible gimmicks, not edge construction that survives wear.",
     primaryPick: {
       product: {
-        asin: "B08L5Q9R2N",
+        asin: "B01M26TKID",
         brand: "Levi's",
-        productName: "Men's Casual Leather Belt",
+        productName:
+          "Men's 2-in-1 Reversible Belt – Everyday Casual Jean Style",
         priceBand: "$$",
         merchant: "amazon",
         imageSourceType: "amazon-official",
@@ -316,9 +317,10 @@ export const editorials: Editorial[] = [
       "Popular socks are cheap to buy and expensive to keep replacing. This pair is boring and durable.",
     primaryPick: {
       product: {
-        asin: "B01N5M6J3G",
+        asin: "B000XFW6O0",
         brand: "Darn Tough",
-        productName: "Micro Crew Light Hiker",
+        productName:
+          "Vermont Men's Hiker Midweight Micro Crew Sock (Style 1466)",
         priceBand: "$$",
         merchant: "amazon",
         imageSourceType: "amazon-official",
@@ -370,9 +372,10 @@ export const editorials: Editorial[] = [
       "Popular chains over-index on sparkle and under-spec the metal. We prioritize metal specs and clasp reliability.",
     primaryPick: {
       product: {
-        asin: "B0B5FW6J7Q",
-        brand: "Amazon Collection",
-        productName: "14K Gold Box Chain Necklace",
+        asin: "B0B6H8BDJM",
+        brand: "DEARMAY",
+        productName:
+          "14K Gold Plated Dainty Herringbone Choker Snake Chain Necklace",
         priceBand: "$$$",
         merchant: "amazon",
         imageSourceType: "amazon-official",
@@ -423,9 +426,9 @@ export const editorials: Editorial[] = [
       "The internet-favorite white sneaker is often hard to source reliably. This pick stays available and replaceable.",
     primaryPick: {
       product: {
-        asin: "B09R4Q8N7T",
+        asin: "B09KMGS7WY",
         brand: "adidas",
-        productName: "Stan Smith Sneaker",
+        productName: "Women's Grand Court 2.0 Tennis Shoe",
         priceBand: "$$",
         merchant: "amazon",
         imageSourceType: "amazon-official",
@@ -477,9 +480,10 @@ export const editorials: Editorial[] = [
       "Popular earrings optimize for trend swings. This pick optimizes for comfort and closure reliability.",
     primaryPick: {
       product: {
-        asin: "B08F2Y6P4K",
+        asin: "B0C2DJD7M5",
         brand: "PAVOI",
-        productName: "14K Gold Plated Lightweight Hoop Earrings",
+        productName:
+          "14K Gold Plated Lightweight Chunky Open Hoops for Women",
         priceBand: "$",
         merchant: "amazon",
         imageSourceType: "amazon-official",
@@ -531,9 +535,10 @@ export const editorials: Editorial[] = [
       "Popular bras are often soft first and supportive second. This pick keeps both in balance.",
     primaryPick: {
       product: {
-        asin: "B07MMQKQ1N",
+        asin: "B0D14GJT7T",
         brand: "Kindred Bravely",
-        productName: "French Terry Racerback Nursing Bra",
+        productName:
+          "French Terry Nursing Bra for Breastfeeding and Sleep, Racerback Crossover",
         priceBand: "$",
         merchant: "amazon",
         imageSourceType: "amazon-official",
@@ -587,9 +592,9 @@ export const editorials: Editorial[] = [
       "Most popular picks push app ecosystems. This one prioritizes reliability at 3 a.m.",
     primaryPick: {
       product: {
-        asin: "B08FF4GV5C",
+        asin: "B07GBP3GH9",
         brand: "eufy",
-        productName: "SpaceView Pro Baby Monitor",
+        productName: "Security Video Baby Monitor 720P",
         priceBand: "$$",
         merchant: "amazon",
         imageSourceType: "amazon-official",
@@ -665,6 +670,91 @@ export const universalPicks: UniversalPick[] = [
 ]
 
 // ============================================================
+// FIELD NOTES (non-product editorials)
+// ============================================================
+
+export interface FieldNote {
+  slug: string
+  title: string
+  published: string
+  updated: string
+  excerpt: string
+  category: "valentine" | "style-guide" | "culture"
+  featured?: boolean
+  tags: string[]
+  body: string[]
+}
+
+export const fieldNotes: FieldNote[] = [
+  {
+    slug: "galentines-woman-gaze-gift-standard",
+    title: "Galentine's Standard: Gifts Through the Woman Gaze",
+    published: "2026-02-14",
+    updated: "2026-02-14",
+    excerpt:
+      "If it feels like a generic holiday bundle, it is not for her. We buy for texture, intention, and daily use.",
+    category: "valentine",
+    featured: true,
+    tags: ["galentines", "women-only", "gifting"],
+    body: [
+      "Our rule: no panic gifts. If you could give it to anyone, it is not specific enough for the woman in front of you.",
+      "The woman gaze values use and detail over spectacle. She notices finish, feel, and whether you chose with context.",
+      "Start with her routine, not your fantasy. What does she touch every day? What would make that hour softer, cleaner, calmer, or bolder?",
+      "If you want a shortcut: one useful object, one personal note, one plan that does not require emotional labor from her.",
+    ],
+  },
+  {
+    slug: "how-to-find-ring-size-with-string",
+    title: "How to Find Ring Size with String (Without Guessing Blind)",
+    published: "2026-02-14",
+    updated: "2026-02-14",
+    excerpt:
+      "Wrap, mark, measure in millimeters, then convert. Check twice at two times of day.",
+    category: "style-guide",
+    featured: true,
+    tags: ["ring-size", "jewelry", "practical"],
+    body: [
+      "Wrap a thin strip of string or paper around the base of the finger. Mark where it overlaps.",
+      "Lay it flat and measure the length in millimeters. That is the finger circumference.",
+      "Measure at least twice: once mid-day, once evening. Fingers swell; use the larger value if in between sizes.",
+      "For wide bands, go up half a size. For slim stacking rings, stay true to measured size.",
+    ],
+  },
+  {
+    slug: "who-this-is-for-who-this-annoys",
+    title: "Who This Is For / Who This Will Annoy: Our Editorial Filter",
+    published: "2026-02-14",
+    updated: "2026-02-14",
+    excerpt:
+      "We disqualify aggressively so readers can decide faster with less anxiety.",
+    category: "culture",
+    tags: ["editorial-method", "clarity", "decision-fatigue"],
+    body: [
+      "Every recommendation should include a disqualifier. If everything is for everyone, nothing is trustworthy.",
+      "We state who the pick is for and who it will annoy. That is not harshness; that is precision.",
+      "If you hate maintenance, we will not sell you delicate ritual objects. If you want statement pieces, we will not pretend basics are exciting.",
+      "Good editorial advice removes wrong fits faster than it sells right fits.",
+    ],
+  },
+  {
+    slug: "first-date-fit-notes-women",
+    title: "First-Date Fit Notes: Calm, Intentional, Not Costume",
+    published: "2026-02-14",
+    updated: "2026-02-14",
+    excerpt:
+      "Your goal is ease and clarity. The right outfit should let you pay attention to her, not to your hemline.",
+    category: "valentine",
+    tags: ["dating", "style", "women-only"],
+    body: [
+      "Choose one anchor piece and build around it. Do not debut three new things at once.",
+      "If you keep adjusting it in the mirror, remove it. Comfort is charisma.",
+      "Texture over noise: one tactile detail reads stronger than trend-heavy layering.",
+      "Dress for the conversation you want: direct, warm, and present.",
+    ],
+  },
+]
+
+// ============================================================
 // GO REDIRECT MAP (centralized affiliate destinations)
 // ============================================================
 
@@ -679,56 +769,56 @@ export const goRedirectTargets: GoRedirectTarget[] = [
   {
     slug: "only-black-tee",
     pick: "primary",
-    label: "Calvin Klein Cotton Classics Crew Neck T-Shirt (Black)",
-    destinationUrl: "https://www.amazon.com/dp/B0C3Q4X7B8?tag=greenoamongog-20",
+    label: "Calvin Klein Men's Cotton Classics 3-Pack Undershirts",
+    destinationUrl: "https://www.amazon.com/dp/B085HQD385?tag=greenoamongog-20",
   },
   {
     slug: "only-black-tee",
     pick: "secondary",
-    label: "Hanes Beefy-T Crewneck T-Shirt (Black)",
-    destinationUrl: "https://www.amazon.com/dp/B09V3R6L2Q?tag=greenoamongog-20",
+    label: "Hanes Men's Short Sleeve Beefy-T",
+    destinationUrl: "https://www.amazon.com/dp/B00JUM78PO?tag=greenoamongog-20",
   },
   {
     slug: "one-belt-no-crack",
     pick: "primary",
-    label: "Levi's Men's Casual Leather Belt",
-    destinationUrl: "https://www.amazon.com/dp/B08L5Q9R2N?tag=greenoamongog-20",
+    label: "Levi’s Men’s 2-in-1 Reversible Belt",
+    destinationUrl: "https://www.amazon.com/dp/B01M26TKID?tag=greenoamongog-20",
   },
   {
     slug: "socks-for-walking",
     pick: "primary",
-    label: "Darn Tough Micro Crew Light Hiker",
-    destinationUrl: "https://www.amazon.com/dp/B01N5M6J3G?tag=greenoamongog-20",
+    label: "Darn Tough Vermont Men's Hiker Midweight Micro Crew Sock (1466)",
+    destinationUrl: "https://www.amazon.com/dp/B000XFW6O0?tag=greenoamongog-20",
   },
   {
     slug: "everyday-chain",
     pick: "primary",
-    label: "Amazon Collection 14K Gold Box Chain Necklace",
-    destinationUrl: "https://www.amazon.com/dp/B0B5FW6J7Q?tag=greenoamongog-20",
+    label: "DEARMAY 14K Gold Plated Herringbone Choker Snake Chain",
+    destinationUrl: "https://www.amazon.com/dp/B0B6H8BDJM?tag=greenoamongog-20",
   },
   {
     slug: "white-sneaker-women",
     pick: "primary",
-    label: "adidas Stan Smith Sneaker",
-    destinationUrl: "https://www.amazon.com/dp/B09R4Q8N7T?tag=greenoamongog-20",
+    label: "adidas Women's Grand Court 2.0 Tennis Shoe",
+    destinationUrl: "https://www.amazon.com/dp/B09KMGS7WY?tag=greenoamongog-20",
   },
   {
     slug: "daily-earrings",
     pick: "primary",
-    label: "PAVOI 14K Gold Plated Lightweight Hoop Earrings",
-    destinationUrl: "https://www.amazon.com/dp/B08F2Y6P4K?tag=greenoamongog-20",
+    label: "PAVOI 14K Gold Plated Lightweight Chunky Open Hoops",
+    destinationUrl: "https://www.amazon.com/dp/B0C2DJD7M5?tag=greenoamongog-20",
   },
   {
     slug: "maternity-bra-no-compromise",
     pick: "primary",
-    label: "Kindred Bravely French Terry Racerback Nursing Bra",
-    destinationUrl: "https://www.amazon.com/dp/B07MMQKQ1N?tag=greenoamongog-20",
+    label: "Kindred Bravely French Terry Nursing Bra (Racerback Crossover)",
+    destinationUrl: "https://www.amazon.com/dp/B0D14GJT7T?tag=greenoamongog-20",
   },
   {
     slug: "baby-monitor-worth-it",
     pick: "primary",
-    label: "eufy SpaceView Pro Baby Monitor",
-    destinationUrl: "https://www.amazon.com/dp/B08FF4GV5C?tag=greenoamongog-20",
+    label: "eufy Security Video Baby Monitor 720P",
+    destinationUrl: "https://www.amazon.com/dp/B07GBP3GH9?tag=greenoamongog-20",
   },
 ]
 
@@ -739,6 +829,14 @@ export function getGoRedirectTarget(slug: string, pick: PickSlot) {
 // ============================================================
 // HELPERS
 // ============================================================
+
+export function getFieldNoteBySlug(slug: string): FieldNote | undefined {
+  return fieldNotes.find((note) => note.slug === slug)
+}
+
+export function getFeaturedFieldNotes(): FieldNote[] {
+  return fieldNotes.filter((note) => note.featured)
+}
 
 export function getEditorialsByCategory(category: Category): Editorial[] {
   return editorials.filter((e) => e.category === category)

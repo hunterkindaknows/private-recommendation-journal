@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react"
 import { EditorialCard } from "@/components/editorial-card"
 import {
   getFeaturedEditorials,
+  getFeaturedFieldNotes,
   getMonthlyPicks,
   universalPicks,
   personas,
@@ -12,6 +13,7 @@ import {
 export default function HomePage() {
   const featured = getFeaturedEditorials().slice(0, 5)
   const monthly = getMonthlyPicks("2026-02").slice(0, 3)
+  const notes = getFeaturedFieldNotes().slice(0, 3)
   const personaSlugs = Object.keys(personas) as PersonaSlug[]
 
   return (
@@ -80,6 +82,50 @@ export default function HomePage() {
               editorial={editorial}
               showCategory
             />
+          ))}
+        </div>
+      </section>
+
+      {/* ============== FIELD NOTES ============== */}
+      <section className="border-t border-border py-16 md:py-20">
+        <div className="mb-10 flex items-end justify-between">
+          <div>
+            <span className="persona-badge text-accent">Field Notes</span>
+            <h2 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">
+              Galentine and Practical Notes
+            </h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Women-first perspective, practical clarity, no performative fluff.
+            </p>
+          </div>
+          <Link
+            href="/notes"
+            className="hidden items-center gap-1 text-sm text-muted-foreground editorial-link md:inline-flex"
+          >
+            View all notes
+            <ArrowRight className="h-3 w-3" />
+          </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {notes.map((note) => (
+            <Link
+              key={note.slug}
+              href={`/notes/${note.slug}`}
+              className="group border border-border p-6 transition-colors hover:border-accent"
+            >
+              <span className="persona-badge text-accent">{note.category}</span>
+              <h3 className="mt-3 font-serif text-xl text-foreground">
+                {note.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {note.excerpt}
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1 text-sm text-foreground editorial-link">
+                Read note
+                <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
           ))}
         </div>
       </section>
