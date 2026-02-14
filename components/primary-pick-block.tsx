@@ -1,4 +1,5 @@
 import { ExternalLink, Check } from "lucide-react"
+import Link from "next/link"
 import type { Editorial } from "@/lib/data"
 
 interface PrimaryPickBlockProps {
@@ -7,6 +8,7 @@ interface PrimaryPickBlockProps {
 
 export function PrimaryPickBlock({ pick }: PrimaryPickBlockProps) {
   const { product, reasons, bestFor, notFor } = pick
+  const isInternalGoLink = product.affiliateUrl.startsWith("/")
 
   return (
     <section className="my-12 border border-border bg-card p-8 md:p-10">
@@ -49,14 +51,25 @@ export function PrimaryPickBlock({ pick }: PrimaryPickBlockProps) {
       </div>
 
       {/* CTA */}
-      <a
-        href={product.affiliateUrl}
-        rel="noopener noreferrer nofollow sponsored"
-        className="inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
-      >
-        Check price on Amazon
-        <ExternalLink className="h-3.5 w-3.5" />
-      </a>
+      {isInternalGoLink ? (
+        <Link
+          href={product.affiliateUrl}
+          rel="noopener noreferrer nofollow sponsored"
+          className="inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
+        >
+          Check price on Amazon
+          <ExternalLink className="h-3.5 w-3.5" />
+        </Link>
+      ) : (
+        <a
+          href={product.affiliateUrl}
+          rel="noopener noreferrer nofollow sponsored"
+          className="inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
+        >
+          Check price on Amazon
+          <ExternalLink className="h-3.5 w-3.5" />
+        </a>
+      )}
 
       <p className="mt-4 text-xs text-muted-foreground">
         As an Amazon Associate I earn from qualifying purchases.
