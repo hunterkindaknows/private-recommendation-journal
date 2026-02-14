@@ -10,6 +10,9 @@ import {
   editorials,
   getAllCategories,
   getEditorialBySlug,
+  getRelatedEditorials,
+  getRelatedFieldNotes,
+  topicClusters,
   categoryMeta,
   type Category,
 } from "@/lib/data"
@@ -29,9 +32,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug } = await params
   const editorial = getEditorialBySlug(category as Category, slug)
   if (!editorial) return {}
+  const canonicalPath = `/${editorial.category}/${editorial.slug}/`
   return {
     title: editorial.title,
     description: editorial.premise,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title: editorial.title,
+      description: editorial.premise,
+      type: "article",
+      url: canonicalPath,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: editorial.title,
+      description: editorial.premise,
+    },
   }
 }
 
@@ -47,6 +65,16 @@ export default async function EditorialPage({ params }: Props) {
   if (!editorial) {
     notFound()
   }
+  const relatedEditorials = getRelatedEditorials(editorial, 3)
+  const relatedNotes = getRelatedFieldNotes(editorial, 2)
+  const relatedTopics = topicClusters.filter((cluster) =>
+    cluster.editorialSlugs.includes(editorial.slug)
+  )
+  const discussionUrl = `https://github.com/hunterkindaknows/private-recommendation-journal/issues/new?title=${encodeURIComponent(
+    `Discussion: ${editorial.title}`
+  )}&body=${encodeURIComponent(
+    `Page: https://hunterkindaknows.github.io/private-recommendation-journal/${editorial.category}/${editorial.slug}/`
+  )}`
 
   return (
     <div className="mx-auto max-w-3xl px-6">
@@ -200,6 +228,65 @@ export default async function EditorialPage({ params }: Props) {
       <section className="pb-10 pt-2">
         <p className="text-xs text-muted-foreground">
           Out-of-stock fallback: {editorial.outOfStockFallback}
+        </p>
+      </section>
+
+      <section className="border-t border-border py-8">
+        <h2 className="mb-5 font-serif text-2xl text-foreground">Related Reading</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {relatedEditorials.map((item) => (
+            <Link
+              key={item.slug}
+              href={`/${item.category}/${item.slug}`}
+              className="border border-border p-4 text-sm text-foreground transition-colors hover:border-accent"
+            >
+              {item.title}
+            </Link>
+          ))}
+          {relatedNotes.map((note) => (
+            <Link
+              key={note.slug}
+              href={`/notes/${note.slug}`}
+              className="border border-border p-4 text-sm text-foreground transition-colors hover:border-accent"
+            >
+              {note.title}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {relatedTopics.length > 0 && (
+        <section className="border-t border-border py-8">
+          <h2 className="mb-5 font-serif text-2xl text-foreground">Topic Clusters</h2>
+          <div className="flex flex-wrap gap-3">
+            {relatedTopics.map((cluster) => (
+              <Link
+                key={cluster.slug}
+                href={`/topics/${cluster.slug}`}
+                className="border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent"
+              >
+                {cluster.title}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="border-t border-border py-8">
+        <h2 className="mb-3 font-serif text-2xl text-foreground">Comments & Discussion</h2>
+        <p className="text-sm text-muted-foreground">
+          Have experience with this product or disagree with the pick? Add your
+          perspective on GitHub.
+        </p>
+        <p className="mt-4">
+          <a
+            href={discussionUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-foreground transition-colors hover:border-accent"
+          >
+            Open discussion thread
+          </a>
         </p>
       </section>
     </div>

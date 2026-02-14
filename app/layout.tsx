@@ -26,12 +26,28 @@ const script = Dancing_Script({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hunterkindaknows.github.io/private-recommendation-journal"),
   title: {
     default: "The Penpal Edit \u2014 Decisive Picks, Minimal Noise",
     template: "%s \u2014 The Penpal Edit",
   },
   description:
     "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    title: "The Penpal Edit",
+    description:
+      "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
+    siteName: "The Penpal Edit",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Penpal Edit",
+    description:
+      "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
+  },
 }
 
 export const viewport: Viewport = {

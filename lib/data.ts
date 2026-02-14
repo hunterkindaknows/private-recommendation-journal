@@ -754,6 +754,46 @@ export const fieldNotes: FieldNote[] = [
   },
 ]
 
+export interface TopicCluster {
+  slug: string
+  title: string
+  description: string
+  editorialSlugs: string[]
+  noteSlugs: string[]
+}
+
+export const topicClusters: TopicCluster[] = [
+  {
+    slug: "minimal-wardrobe-basics",
+    title: "Minimal Wardrobe Basics",
+    description:
+      "Low-noise staples that stay in rotation: tees, socks, belts, and white sneakers with straightforward replacement paths.",
+    editorialSlugs: [
+      "only-black-tee",
+      "socks-for-walking",
+      "one-belt-no-crack",
+      "white-sneaker-women",
+    ],
+    noteSlugs: ["who-this-is-for-who-this-annoys", "first-date-fit-notes-women"],
+  },
+  {
+    slug: "daily-jewelry-without-regret",
+    title: "Daily Jewelry Without Regret",
+    description:
+      "Jewelry guidance centered on comfort, material clarity, and pieces that survive daily wear without costume energy.",
+    editorialSlugs: ["everyday-chain", "daily-earrings"],
+    noteSlugs: ["how-to-find-ring-size-with-string", "galentines-woman-gaze-gift-standard"],
+  },
+  {
+    slug: "maternity-and-baby-essentials",
+    title: "Maternity and Baby Essentials",
+    description:
+      "High-trust essentials for demanding seasons: reliable support, less friction, and fewer 3 a.m. surprises.",
+    editorialSlugs: ["maternity-bra-no-compromise", "baby-monitor-worth-it"],
+    noteSlugs: ["who-this-is-for-who-this-annoys"],
+  },
+]
+
 // ============================================================
 // GO REDIRECT MAP (centralized affiliate destinations)
 // ============================================================
@@ -836,6 +876,48 @@ export function getFieldNoteBySlug(slug: string): FieldNote | undefined {
 
 export function getFeaturedFieldNotes(): FieldNote[] {
   return fieldNotes.filter((note) => note.featured)
+}
+
+export function getTopicClusterBySlug(slug: string): TopicCluster | undefined {
+  return topicClusters.find((cluster) => cluster.slug === slug)
+}
+
+export function getEditorialByAnySlug(slug: string): Editorial | undefined {
+  return editorials.find((e) => e.slug === slug)
+}
+
+export function getRelatedEditorials(editorial: Editorial, limit = 3): Editorial[] {
+  const sameCategory = editorials.filter(
+    (candidate) =>
+      candidate.slug !== editorial.slug &&
+      candidate.category === editorial.category
+  )
+
+  const tagOverlap = editorials.filter((candidate) => {
+    if (candidate.slug === editorial.slug) return false
+    return candidate.tags.some((tag) => editorial.tags.includes(tag))
+  })
+
+  const unique = new Map<string, Editorial>()
+  ;[...sameCategory, ...tagOverlap].forEach((item) => unique.set(item.slug, item))
+  return Array.from(unique.values()).slice(0, limit)
+}
+
+export function getRelatedFieldNotes(editorial: Editorial, limit = 2): FieldNote[] {
+  const matchByTag = fieldNotes.filter((note) =>
+    note.tags.some((tag) => editorial.tags.includes(tag))
+  )
+
+  const matchByCategory = fieldNotes.filter((note) => {
+    if (note.category === "valentine" && editorial.category === "women") return true
+    if (note.category === "style-guide" && editorial.category === "jewelry") return true
+    if (note.category === "culture") return true
+    return false
+  })
+
+  const unique = new Map<string, FieldNote>()
+  ;[...matchByTag, ...matchByCategory].forEach((item) => unique.set(item.slug, item))
+  return Array.from(unique.values()).slice(0, limit)
 }
 
 export function getEditorialsByCategory(category: Category): Editorial[] {

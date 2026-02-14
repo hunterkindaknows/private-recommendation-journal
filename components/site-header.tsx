@@ -2,12 +2,20 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { getAllCategories, categoryMeta } from "@/lib/data"
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const categories = getAllCategories()
+  const pathname = usePathname()
+
+  const navClass = (active: boolean) =>
+    [
+      "persona-badge editorial-link",
+      active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+    ].join(" ")
 
   return (
     <header className="border-b border-border">
@@ -29,7 +37,7 @@ export function SiteHeader() {
             <li key={cat}>
               <Link
                 href={`/${cat}`}
-                className="persona-badge text-muted-foreground editorial-link hover:text-foreground"
+                className={navClass(pathname === `/${cat}` || pathname.startsWith(`/${cat}/`))}
               >
                 {categoryMeta[cat].label}
               </Link>
@@ -37,8 +45,16 @@ export function SiteHeader() {
           ))}
           <li>
             <Link
+              href="/topics"
+              className={navClass(pathname === "/topics" || pathname.startsWith("/topics/"))}
+            >
+              Topics
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/notes"
-              className="persona-badge text-muted-foreground editorial-link hover:text-foreground"
+              className={navClass(pathname === "/notes" || pathname.startsWith("/notes/"))}
             >
               Notes
             </Link>
@@ -46,7 +62,7 @@ export function SiteHeader() {
           <li>
             <Link
               href="/archive"
-              className="persona-badge text-muted-foreground editorial-link hover:text-foreground"
+              className={navClass(pathname === "/archive")}
             >
               Archive
             </Link>
@@ -75,7 +91,11 @@ export function SiteHeader() {
               <li key={cat}>
                 <Link
                   href={`/${cat}`}
-                  className="persona-badge text-lg text-foreground"
+                  className={
+                    pathname === `/${cat}` || pathname.startsWith(`/${cat}/`)
+                      ? "persona-badge text-lg text-foreground"
+                      : "persona-badge text-lg text-muted-foreground"
+                  }
                   onClick={() => setMobileOpen(false)}
                 >
                   {categoryMeta[cat].label}
@@ -84,8 +104,25 @@ export function SiteHeader() {
             ))}
             <li>
               <Link
+                href="/topics"
+                className={
+                  pathname === "/topics" || pathname.startsWith("/topics/")
+                    ? "persona-badge text-lg text-foreground"
+                    : "persona-badge text-lg text-muted-foreground"
+                }
+                onClick={() => setMobileOpen(false)}
+              >
+                Topics
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/notes"
-                className="persona-badge text-lg text-foreground"
+                className={
+                  pathname === "/notes" || pathname.startsWith("/notes/")
+                    ? "persona-badge text-lg text-foreground"
+                    : "persona-badge text-lg text-muted-foreground"
+                }
                 onClick={() => setMobileOpen(false)}
               >
                 Notes
@@ -94,7 +131,11 @@ export function SiteHeader() {
             <li>
               <Link
                 href="/archive"
-                className="persona-badge text-lg text-foreground"
+                className={
+                  pathname === "/archive"
+                    ? "persona-badge text-lg text-foreground"
+                    : "persona-badge text-lg text-muted-foreground"
+                }
                 onClick={() => setMobileOpen(false)}
               >
                 Archive

@@ -15,6 +15,7 @@ export default function HomePage() {
   const monthly = getMonthlyPicks("2026-02").slice(0, 3)
   const notes = getFeaturedFieldNotes().slice(0, 3)
   const personaSlugs = Object.keys(personas) as PersonaSlug[]
+  const primaryCta = monthly[0] ?? featured[0]
 
   return (
     <div className="mx-auto max-w-6xl px-6">
@@ -25,15 +26,73 @@ export default function HomePage() {
             A private recommendation journal
           </p>
           <h1 className="mt-4 font-serif text-5xl font-light leading-tight text-foreground md:text-7xl">
-            Decisive picks.
+            We choose the one worth buying.
             <br />
-            <span className="italic">Minimal noise.</span>
+            <span className="italic">You skip the overwhelm.</span>
           </h1>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            One primary recommendation per page. No endless lists, no
-            comparison tables, no sponsored clutter. We publish decisions so
-            you can stop second-guessing.
+            This site is for women who want clear recommendations with a point
+            of view. One primary pick per page, practical disqualifiers, and
+            zero catalog noise.
           </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {primaryCta && (
+              <Link
+                href={`/${primaryCta.category}/${primaryCta.slug}`}
+                className="inline-flex items-center gap-2 border border-foreground bg-foreground px-5 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                Read this week's pick
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            )}
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-foreground transition-colors hover:border-accent"
+            >
+              Learn our philosophy
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+            <Link
+              href="/archive"
+              className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-foreground transition-colors hover:border-accent"
+            >
+              See last month&apos;s picks
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============== HOW TO USE THIS SITE ============== */}
+      <section className="border-t border-border py-16 md:py-20">
+        <div className="mb-10">
+          <span className="persona-badge text-accent">How It Works</span>
+          <h2 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">
+            Fast orientation, then action
+          </h2>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          <article className="border border-border p-6">
+            <h3 className="font-serif text-xl text-foreground">1. Pick a lane</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Start with category, archive, or notes depending on whether you
+              want a product decision or guidance.
+            </p>
+          </article>
+          <article className="border border-border p-6">
+            <h3 className="font-serif text-xl text-foreground">2. Read the filter</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Every editorial states who the recommendation is for and who it
+              will annoy. That is the decision shortcut.
+            </p>
+          </article>
+          <article className="border border-border p-6">
+            <h3 className="font-serif text-xl text-foreground">3. Take the next step</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Buy the pick, save it for later, or move to a supporting note.
+              Every page should move you forward.
+            </p>
+          </article>
         </div>
       </section>
 
