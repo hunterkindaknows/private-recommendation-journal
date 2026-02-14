@@ -114,6 +114,35 @@ export default async function EditorialPage({ params }: Props) {
             </li>
           ))}
         </ul>
+
+        <h3 className="mb-3 mt-8 font-serif text-xl text-foreground">
+          Why This, Not The Popular One
+        </h3>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {editorial.whyThisNotPopular}
+        </p>
+      </section>
+
+      <section className="border-t border-border py-8">
+        <h2 className="mb-6 font-serif text-2xl text-foreground">
+          Fit Check
+        </h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="border-l-2 border-accent pl-4">
+            <span className="persona-badge text-muted-foreground">
+              Who this is for
+            </span>
+            <p className="mt-1 text-sm text-foreground">{editorial.whoThisIsFor}</p>
+          </div>
+          <div className="border-l-2 border-border pl-4">
+            <span className="persona-badge text-muted-foreground">
+              Who this will annoy
+            </span>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {editorial.whoThisWillAnnoy}
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Secondary Pick */}
@@ -167,7 +196,12 @@ export default async function EditorialPage({ params }: Props) {
       </section>
 
       {/* Disclosure */}
-      <DisclosureStrip updatedDate={editorial.updated} />
+      <DisclosureStrip updatedDate={editorial.lastReviewedDate} />
+      <section className="pb-10 pt-2">
+        <p className="text-xs text-muted-foreground">
+          Out-of-stock fallback: {editorial.outOfStockFallback}
+        </p>
+      </section>
     </div>
   )
 }

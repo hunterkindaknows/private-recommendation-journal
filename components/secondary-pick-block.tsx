@@ -23,8 +23,7 @@ export function SecondaryPickBlock({ pick }: SecondaryPickBlockProps) {
       <p className="mt-4 text-sm leading-relaxed text-foreground">{why}</p>
       <a
         href={product.affiliateUrl}
-        target="_blank"
-        rel="noopener noreferrer nofollow"
+        rel="noopener noreferrer nofollow sponsored"
         className="mt-4 inline-flex items-center gap-2 text-sm text-foreground underline decoration-accent underline-offset-4 editorial-link"
       >
         See details

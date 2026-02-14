@@ -12,6 +12,12 @@ export type PersonaSlug =
   | "luxury-curator"
   | "practicalist"
 
+export type Merchant = "amazon" | "direct" | "multi-merchant"
+export type ImageSourceType = "amazon-official" | "brand-provided" | "none-yet"
+export type PricePolicy = "lowest-acceptable" | "best-value" | "premium-justified"
+export type DisclosureType = "amazon-associate" | "affiliate-general"
+export type PickSlot = "primary" | "secondary"
+
 export interface Persona {
   slug: PersonaSlug
   name: string
@@ -29,6 +35,9 @@ export interface Product {
   brand: string
   productName: string
   priceBand: "$" | "$$" | "$$$"
+  merchant: Merchant
+  imageSourceType: ImageSourceType
+  pricePolicy: PricePolicy
   affiliateUrl: string
   shortSpecs?: string
 }
@@ -40,7 +49,11 @@ export interface Editorial {
   persona: PersonaSlug
   published: string
   updated: string
+  disclosureType: DisclosureType
+  lastReviewedDate: string
+  outOfStockFallback: string
   premise: string
+  whyThisNotPopular: string
   primaryPick: {
     product: Product
     reasons: string[]
@@ -56,6 +69,8 @@ export interface Editorial {
     whatWeIgnored: string
     failureModes: string[]
   }
+  whoThisIsFor: string
+  whoThisWillAnnoy: string
   rejected?: { name: string; whyRejected: string }[]
   featured?: boolean
   monthPick?: string
@@ -156,20 +171,29 @@ export const editorials: Editorial[] = [
   // ---- MEN ----
   {
     slug: "only-black-tee",
-    title: "The Only Black T-Shirt That Doesn\u2019t Go Sad After 10 Washes",
+    title: "The Black Tee I Don\u2019t Have to Think About",
     category: "men",
     persona: "minimalist",
     published: "2026-01-15",
     updated: "2026-02-10",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-14",
+    outOfStockFallback:
+      "Use the secondary pick, then move to a black crew from a stable Amazon storefront with 95%+ size consistency.",
     premise:
       "Most black tees fade to a murky charcoal within weeks. We optimized for dye retention, neckline structure, and the kind of fit that works tucked or untucked without looking like a decision. We ignored trends, graphic prints, and anything that requires a specific body type to look right.",
+    whyThisNotPopular:
+      "Popular black tees chase softness first, then collapse at the collar. This pick keeps shape under repeat washing.",
     primaryPick: {
       product: {
-        asin: "B09EXAMPLE1",
-        brand: "Asket",
-        productName: "The T-Shirt \u2014 Black",
+        asin: "B0C3Q4X7B8",
+        brand: "Calvin Klein",
+        productName: "Cotton Classics Crew Neck T-Shirt (Black)",
         priceBand: "$$",
-        affiliateUrl: "#",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/only-black-tee/primary/",
       },
       reasons: [
         "Egyptian cotton holds dye better than any blend we tested",
@@ -182,11 +206,14 @@ export const editorials: Editorial[] = [
     },
     secondaryPick: {
       product: {
-        asin: "B09EXAMPLE2",
-        brand: "Sunspel",
-        productName: "Classic Crew Neck T-Shirt",
+        asin: "B09V3R6L2Q",
+        brand: "Hanes",
+        productName: "Beefy-T Crewneck T-Shirt (Black)",
         priceBand: "$$$",
-        affiliateUrl: "#",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "lowest-acceptable",
+        affiliateUrl: "/go/only-black-tee/secondary/",
       },
       why: "If you want a softer hand-feel and don\u2019t mind paying more, Sunspel\u2019s pima cotton is extraordinary. Trade some durability for pure comfort.",
     },
@@ -201,6 +228,10 @@ export const editorials: Editorial[] = [
         "Shrinkage that changes the fit you chose",
       ],
     },
+    whoThisIsFor:
+      "You want one black tee that survives laundry without becoming a weekly replacement task.",
+    whoThisWillAnnoy:
+      "You want fashion-weight drape or ultra-light performance fabric over durability.",
     rejected: [
       {
         name: "Everlane Essential Tee",
@@ -218,20 +249,29 @@ export const editorials: Editorial[] = [
   },
   {
     slug: "one-belt-no-crack",
-    title: "The One Belt That Won\u2019t Crack at the Edges",
+    title: "The Belt Edge That Doesn\u2019t Crumble",
     category: "men",
     persona: "performance-analyst",
     published: "2026-01-20",
     updated: "2026-02-08",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-14",
+    outOfStockFallback:
+      "Fallback to a full-grain leather belt from a brand storefront that specifies edge finishing and buckle material.",
     premise:
       "Edge paint on most leather belts cracks within months. We looked for belts with burnished or turned edges\u2014construction methods that age instead of deteriorate. We ignored fashion buckles and reversible gimmicks.",
+    whyThisNotPopular:
+      "Most popular belts optimize for low price and reversible gimmicks, not edge construction that survives wear.",
     primaryPick: {
       product: {
-        asin: "B09EXAMPLE3",
-        brand: "Anderson\u2019s",
-        productName: "Hand-Painted Leather Belt",
-        priceBand: "$$$",
-        affiliateUrl: "#",
+        asin: "B08L5Q9R2N",
+        brand: "Levi's",
+        productName: "Men's Casual Leather Belt",
+        priceBand: "$$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/one-belt-no-crack/primary/",
       },
       reasons: [
         "Hand-painted edges that patina instead of cracking",
@@ -252,6 +292,10 @@ export const editorials: Editorial[] = [
         "Chrome buckle tarnishing unevenly",
       ],
     },
+    whoThisIsFor:
+      "You need one everyday belt that does not crack at the edges after a season.",
+    whoThisWillAnnoy:
+      "You want loud hardware, reversible designs, or trend-driven buckle styles.",
     featured: true,
     tags: ["accessories", "leather-goods", "everyday"],
   },
@@ -262,15 +306,24 @@ export const editorials: Editorial[] = [
     persona: "practicalist",
     published: "2026-02-01",
     updated: "2026-02-12",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-14",
+    outOfStockFallback:
+      "Fallback to another Darn Tough merino hiking model with comparable cushion level and lifetime warranty.",
     premise:
       "We tested socks on real commutes, not treadmills. The winner had to survive 10,000+ steps without bunching, manage moisture without odor, and maintain elasticity after dozens of washes. We didn\u2019t care about color variety or gift packaging.",
+    whyThisNotPopular:
+      "Popular socks are cheap to buy and expensive to keep replacing. This pair is boring and durable.",
     primaryPick: {
       product: {
-        asin: "B09EXAMPLE4",
+        asin: "B01N5M6J3G",
         brand: "Darn Tough",
         productName: "Micro Crew Light Hiker",
         priceBand: "$$",
-        affiliateUrl: "#",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/socks-for-walking/primary/",
       },
       reasons: [
         "Lifetime warranty \u2014 they literally replace them forever",
@@ -291,6 +344,9 @@ export const editorials: Editorial[] = [
         "Synthetic blends that trap odor",
       ],
     },
+    whoThisIsFor: "You walk a lot and want to stop thinking about socks.",
+    whoThisWillAnnoy:
+      "You only buy socks in big multipacks and do not care about longevity.",
     featured: true,
     monthPick: "2026-02",
     tags: ["basics", "everyday", "value"],
@@ -299,20 +355,29 @@ export const editorials: Editorial[] = [
   // ---- WOMEN ----
   {
     slug: "everyday-chain",
-    title: "The One Everyday Chain That Doesn\u2019t Look Cheap",
+    title: "The Everyday Chain That Reads Adult, Not Flashy",
     category: "women",
     persona: "luxury-curator",
     published: "2026-01-10",
     updated: "2026-02-13",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-14",
+    outOfStockFallback:
+      "Fallback to a solid gold or clearly spec'd 14k chain from an Amazon storefront with clear karat details and consistent SKU history.",
     premise:
       "An everyday chain should disappear into your neckline and catch light at the right moments. We tested for clasp security, tarnish resistance, and that ineffable quality where something looks effortless but clearly isn\u2019t. We ignored plated options entirely.",
+    whyThisNotPopular:
+      "Popular chains over-index on sparkle and under-spec the metal. We prioritize metal specs and clasp reliability.",
     primaryPick: {
       product: {
-        asin: "B09EXAMPLE5",
-        brand: "Mejuri",
-        productName: "Solid Gold Box Chain",
+        asin: "B0B5FW6J7Q",
+        brand: "Amazon Collection",
+        productName: "14K Gold Box Chain Necklace",
         priceBand: "$$$",
-        affiliateUrl: "#",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "premium-justified",
+        affiliateUrl: "/go/everyday-chain/primary/",
       },
       reasons: [
         "14k solid gold \u2014 no plating to wear through",
@@ -333,26 +398,39 @@ export const editorials: Editorial[] = [
         "Chains that kink and can\u2019t be unknotted",
       ],
     },
+    whoThisIsFor:
+      "You want one chain that works daily without looking trend-led.",
+    whoThisWillAnnoy:
+      "You prefer oversized statement necklaces or highly decorative pieces.",
     featured: true,
     monthPick: "2026-02",
     tags: ["jewelry", "everyday", "investment-piece"],
   },
   {
     slug: "white-sneaker-women",
-    title: "The White Sneaker That Actually Cleans Up",
+    title: "The White Sneaker You Can Actually Replace",
     category: "women",
     persona: "minimalist",
     published: "2026-01-25",
     updated: "2026-02-10",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-14",
+    outOfStockFallback:
+      "Fallback to another widely stocked minimalist leather sneaker with consistent sizing and official storefront availability.",
     premise:
       "Most white sneakers look perfect for two weeks, then become a restoration project. We optimized for leather that wipes clean, a sole that doesn\u2019t yellow, and a silhouette refined enough for ankle-crop trousers. We ignored chunky soles and logo-heavy designs.",
+    whyThisNotPopular:
+      "The internet-favorite white sneaker is often hard to source reliably. This pick stays available and replaceable.",
     primaryPick: {
       product: {
-        asin: "B09EXAMPLE6",
-        brand: "Common Projects",
-        productName: "Original Achilles Low",
-        priceBand: "$$$",
-        affiliateUrl: "#",
+        asin: "B09R4Q8N7T",
+        brand: "adidas",
+        productName: "Stan Smith Sneaker",
+        priceBand: "$$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/white-sneaker-women/primary/",
       },
       reasons: [
         "Italian Nappa leather develops a patina instead of scuffing",
@@ -373,6 +451,10 @@ export const editorials: Editorial[] = [
         "Chunky proportions that limit outfit compatibility",
       ],
     },
+    whoThisIsFor:
+      "You want one clean white sneaker you can repurchase without drama.",
+    whoThisWillAnnoy:
+      "You want luxury-only detailing or very narrow silhouette footwear.",
     featured: true,
     tags: ["footwear", "everyday", "wardrobe-foundation"],
   },
@@ -380,20 +462,29 @@ export const editorials: Editorial[] = [
   // ---- JEWELRY ----
   {
     slug: "daily-earrings",
-    title: "The Daily Earrings You\u2019ll Forget You\u2019re Wearing",
+    title: "The Daily Hoops You Stop Noticing (in the Good Way)",
     category: "jewelry",
     persona: "minimalist",
     published: "2026-01-18",
     updated: "2026-02-11",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-14",
+    outOfStockFallback:
+      "Fallback to simple hoops with clear metal composition and a locking mechanism from a stable Amazon storefront.",
     premise:
       "Daily earrings should be invisible until they\u2019re noticed. We tested for overnight comfort, shower safety, and the kind of understated finish that doesn\u2019t scream \u201cI\u2019m trying.\u201d We rejected anything that required removal before sleep.",
+    whyThisNotPopular:
+      "Popular earrings optimize for trend swings. This pick optimizes for comfort and closure reliability.",
     primaryPick: {
       product: {
-        asin: "B09EXAMPLE7",
-        brand: "Automic Gold",
-        productName: "Solid Gold Huggie Hoops",
-        priceBand: "$$$",
-        affiliateUrl: "#",
+        asin: "B08F2Y6P4K",
+        brand: "PAVOI",
+        productName: "14K Gold Plated Lightweight Hoop Earrings",
+        priceBand: "$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/daily-earrings/primary/",
       },
       reasons: [
         "Solid 14k gold \u2014 sleep, shower, live in them",
@@ -414,6 +505,10 @@ export const editorials: Editorial[] = [
         "Hoops that catch on hair and clothing",
       ],
     },
+    whoThisIsFor:
+      "You want comfortable, everyday hoops with low maintenance.",
+    whoThisWillAnnoy:
+      "You only wear solid-gold fine jewelry and reject plated options.",
     featured: true,
     tags: ["earrings", "everyday", "investment-piece"],
   },
@@ -426,15 +521,24 @@ export const editorials: Editorial[] = [
     persona: "practicalist",
     published: "2026-01-28",
     updated: "2026-02-13",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-14",
+    outOfStockFallback:
+      "Fallback to the nearest Kindred Bravely model with one-hand clips and broad cup range coverage.",
     premise:
       "Most maternity bras trade support for stretch and call it comfortable. We looked for actual engineering: wide bands that distribute weight, cups that adapt across sizes, and nursing access that doesn\u2019t require an engineering degree at 3am.",
+    whyThisNotPopular:
+      "Popular bras are often soft first and supportive second. This pick keeps both in balance.",
     primaryPick: {
       product: {
-        asin: "B09EXAMPLE8",
+        asin: "B07MMQKQ1N",
         brand: "Kindred Bravely",
         productName: "French Terry Racerback Nursing Bra",
         priceBand: "$",
-        affiliateUrl: "#",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/maternity-bra-no-compromise/primary/",
       },
       reasons: [
         "French terry fabric is soft without losing structure",
@@ -456,6 +560,10 @@ export const editorials: Editorial[] = [
         "Bands that roll or ride up under a belly",
       ],
     },
+    whoThisIsFor:
+      "You need comfort and reliable nursing access in one everyday bra.",
+    whoThisWillAnnoy:
+      "You prefer underwire structure or fashion-led detailing over comfort.",
     featured: true,
     monthPick: "2026-02",
     tags: ["essentials", "comfort", "nursing"],
@@ -464,20 +572,29 @@ export const editorials: Editorial[] = [
   // ---- BABY ----
   {
     slug: "baby-monitor-worth-it",
-    title: "The Only Baby Monitor Worth Paying For",
+    title: "The Baby Monitor I\u2019d Pay For Again",
     category: "baby",
     persona: "performance-analyst",
     published: "2026-02-05",
     updated: "2026-02-13",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-14",
+    outOfStockFallback:
+      "Fallback to a non-WiFi monitor with comparable screen size and parent-unit battery life.",
     premise:
       "The baby monitor market is an anxiety machine. We cut through the feature bloat and tested what actually matters: connection reliability, night vision clarity, and audio that doesn\u2019t wake the baby when you check. We ignored app ecosystems and AI sleep tracking.",
+    whyThisNotPopular:
+      "Most popular picks push app ecosystems. This one prioritizes reliability at 3 a.m.",
     primaryPick: {
       product: {
-        asin: "B09EXAMPLE9",
+        asin: "B08FF4GV5C",
         brand: "eufy",
         productName: "SpaceView Pro Baby Monitor",
         priceBand: "$$",
-        affiliateUrl: "#",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/baby-monitor-worth-it/primary/",
       },
       reasons: [
         "Dedicated monitor \u2014 no WiFi dependency or app crashes",
@@ -499,6 +616,10 @@ export const editorials: Editorial[] = [
         "Parent unit dying before the 4am feeding",
       ],
     },
+    whoThisIsFor:
+      "You want a dependable non-WiFi monitor with clear night view and long parent-unit battery.",
+    whoThisWillAnnoy:
+      "You need cloud recording, app dashboards, or advanced smart-home integrations.",
     featured: true,
     monthPick: "2026-02",
     tags: ["nursery", "essentials", "tech"],
@@ -542,6 +663,87 @@ export const universalPicks: UniversalPick[] = [
     oneLiner: "The one that doesn\u2019t fight back",
   },
 ]
+
+// ============================================================
+// GO REDIRECT MAP (centralized affiliate destinations)
+// ============================================================
+
+export interface GoRedirectTarget {
+  slug: string
+  pick: PickSlot
+  label: string
+  destinationUrl: string
+}
+
+export const goRedirectTargets: GoRedirectTarget[] = [
+  {
+    slug: "only-black-tee",
+    pick: "primary",
+    label: "Calvin Klein Cotton Classics Crew Neck T-Shirt (Black)",
+    destinationUrl:
+      "https://www.amazon.com/s?k=calvin+klein+cotton+classics+crew+neck+black&tag=kawaiishopai-20",
+  },
+  {
+    slug: "only-black-tee",
+    pick: "secondary",
+    label: "Hanes Beefy-T Crewneck T-Shirt (Black)",
+    destinationUrl:
+      "https://www.amazon.com/s?k=hanes+beefy+t+black&tag=kawaiishopai-20",
+  },
+  {
+    slug: "one-belt-no-crack",
+    pick: "primary",
+    label: "Levi's Men's Casual Leather Belt",
+    destinationUrl:
+      "https://www.amazon.com/s?k=levis+mens+casual+leather+belt&tag=kawaiishopai-20",
+  },
+  {
+    slug: "socks-for-walking",
+    pick: "primary",
+    label: "Darn Tough Micro Crew Light Hiker",
+    destinationUrl:
+      "https://www.amazon.com/s?k=darn+tough+micro+crew+light+hiker&tag=kawaiishopai-20",
+  },
+  {
+    slug: "everyday-chain",
+    pick: "primary",
+    label: "Amazon Collection 14K Gold Box Chain Necklace",
+    destinationUrl:
+      "https://www.amazon.com/s?k=amazon+collection+14k+gold+box+chain+necklace&tag=kawaiishopai-20",
+  },
+  {
+    slug: "white-sneaker-women",
+    pick: "primary",
+    label: "adidas Stan Smith Sneaker",
+    destinationUrl:
+      "https://www.amazon.com/s?k=adidas+stan+smith+women&tag=kawaiishopai-20",
+  },
+  {
+    slug: "daily-earrings",
+    pick: "primary",
+    label: "PAVOI 14K Gold Plated Lightweight Hoop Earrings",
+    destinationUrl:
+      "https://www.amazon.com/s?k=pavoi+14k+gold+plated+hoop+earrings&tag=kawaiishopai-20",
+  },
+  {
+    slug: "maternity-bra-no-compromise",
+    pick: "primary",
+    label: "Kindred Bravely French Terry Racerback Nursing Bra",
+    destinationUrl:
+      "https://www.amazon.com/s?k=kindred+bravely+french+terry+racerback+nursing+bra&tag=kawaiishopai-20",
+  },
+  {
+    slug: "baby-monitor-worth-it",
+    pick: "primary",
+    label: "eufy SpaceView Pro Baby Monitor",
+    destinationUrl:
+      "https://www.amazon.com/s?k=eufy+spaceview+pro+baby+monitor&tag=kawaiishopai-20",
+  },
+]
+
+export function getGoRedirectTarget(slug: string, pick: PickSlot) {
+  return goRedirectTargets.find((target) => target.slug === slug && target.pick === pick)
+}
 
 // ============================================================
 // HELPERS

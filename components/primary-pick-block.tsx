@@ -51,8 +51,7 @@ export function PrimaryPickBlock({ pick }: PrimaryPickBlockProps) {
       {/* CTA */}
       <a
         href={product.affiliateUrl}
-        target="_blank"
-        rel="noopener noreferrer nofollow"
+        rel="noopener noreferrer nofollow sponsored"
         className="inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
       >
         Check price on Amazon
