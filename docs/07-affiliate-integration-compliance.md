@@ -14,7 +14,7 @@ On each page:
 Example:
 
 ```html
-<a href="https://amazon.com/dp/ASIN?tag=kawaiishopai-20">
+<a href="https://amazon.com/dp/ASIN?tag=greenoamongog-20">
     <img src="official-amazon-image-url" alt="Product image">
 </a>
 ```
