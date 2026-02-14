@@ -48,14 +48,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const editorialPages: MetadataRoute.Sitemap = editorials.map((editorial) => ({
     url: `${siteUrl}/${editorial.category}/${editorial.slug}/`,
-    lastModified: editorial.updated,
+    lastModified: new Date(editorial.updated),
     changeFrequency: "monthly",
     priority: 0.9,
   }))
 
   const notePages: MetadataRoute.Sitemap = fieldNotes.map((note) => ({
     url: `${siteUrl}/notes/${note.slug}/`,
-    lastModified: note.updated,
+    lastModified: new Date(note.updated),
     changeFrequency: "monthly",
     priority: 0.7,
   }))
