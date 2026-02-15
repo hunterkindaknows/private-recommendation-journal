@@ -1,9 +1,12 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Disclosure",
+  title: "Affiliate Disclosure and Transparency",
   description:
     "Full affiliate disclosure for The Penpal Edit. Transparency is a non-negotiable principle.",
+  alternates: {
+    canonical: "/disclosure/",
+  },
 }
 
 export default function DisclosurePage() {

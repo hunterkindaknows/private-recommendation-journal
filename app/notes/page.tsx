@@ -4,9 +4,12 @@ import { ArrowRight } from "lucide-react"
 import { fieldNotes } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Field Notes",
+  title: "Field Notes and Practical Guides",
   description:
-    "Non-product editorials: Galentine notes, practical guides, and point-of-view pieces.",
+    "Non-product editorial notes: Galentine perspective, practical how-tos, and opinion pieces that support better decisions.",
+  alternates: {
+    canonical: "/notes/",
+  },
 }
 
 export default function NotesIndexPage() {

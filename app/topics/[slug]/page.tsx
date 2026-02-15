@@ -24,9 +24,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const cluster = getTopicClusterBySlug(slug)
   if (!cluster) return {}
+  const canonicalPath = `/topics/${cluster.slug}/`
   return {
     title: cluster.title,
     description: cluster.description,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title: cluster.title,
+      description: cluster.description,
+      url: canonicalPath,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: cluster.title,
+      description: cluster.description,
+    },
   }
 }
 

@@ -18,9 +18,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const note = getFieldNoteBySlug(slug)
   if (!note) return {}
+  const canonicalPath = `/notes/${note.slug}/`
   return {
     title: note.title,
     description: note.excerpt,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title: note.title,
+      description: note.excerpt,
+      url: canonicalPath,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: note.title,
+      description: note.excerpt,
+    },
   }
 }
 

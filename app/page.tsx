@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { EditorialCard } from "@/components/editorial-card"
@@ -9,6 +10,28 @@ import {
   personas,
   type PersonaSlug,
 } from "@/lib/data"
+
+export const metadata: Metadata = {
+  title: "Decisive Product Picks for Women | The Penpal Edit",
+  description:
+    "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Decisive Product Picks for Women | The Penpal Edit",
+    description:
+      "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+    url: "/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Decisive Product Picks for Women | The Penpal Edit",
+    description:
+      "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+  },
+}
 
 export default function HomePage() {
   const featured = getFeaturedEditorials().slice(0, 5)

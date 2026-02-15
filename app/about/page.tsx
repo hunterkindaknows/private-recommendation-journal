@@ -4,9 +4,12 @@ import { ArrowRight } from "lucide-react"
 import { personas, type PersonaSlug } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Our Editorial Philosophy",
   description:
     "The Penpal Edit is a premium editorial recommendation journal. One primary pick per page. We publish decisions, not lists.",
+  alternates: {
+    canonical: "/about/",
+  },
 }
 
 export default function AboutPage() {

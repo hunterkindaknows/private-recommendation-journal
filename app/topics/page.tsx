@@ -4,9 +4,12 @@ import { ArrowRight } from "lucide-react"
 import { topicClusters } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Topics",
+  title: "Topic Clusters and Buying Guides",
   description:
-    "Topic clusters that connect editorials and non-monetized notes into clear authority lanes.",
+    "Explore topical authority clusters that connect product editorials with practical supporting notes.",
+  alternates: {
+    canonical: "/topics/",
+  },
 }
 
 export default function TopicsPage() {

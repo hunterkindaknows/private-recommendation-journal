@@ -28,9 +28,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { persona: personaSlug } = await params
   const p = personas[personaSlug as PersonaSlug]
   if (!p) return {}
+  const canonicalPath = `/editor/${p.slug}/`
+  const description = p.bio.slice(0, 160)
   return {
     title: `${p.name} \u2014 About Me`,
-    description: p.bio.slice(0, 160),
+    description,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title: `${p.name} — About Me`,
+      description,
+      url: canonicalPath,
+      type: "profile",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${p.name} — About Me`,
+      description,
+    },
   }
 }
 

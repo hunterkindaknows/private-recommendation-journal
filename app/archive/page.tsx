@@ -4,9 +4,12 @@ import { ArrowRight } from "lucide-react"
 import { editorials, personas, categoryMeta } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Archive",
+  title: "Editorial Archive and Monthly Picks",
   description:
-    "All editorials published by The Penpal Edit, sorted by date.",
+    "Browse all published editorials by date, persona, and category to find decisive recommendations fast.",
+  alternates: {
+    canonical: "/archive/",
+  },
 }
 
 export default function ArchivePage() {

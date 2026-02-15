@@ -21,8 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const meta = categoryMeta[category as Category]
   if (!meta) return {}
   return {
-    title: meta.label,
-    description: meta.description,
+    title: `${meta.label} Recommendations`,
+    description: `${meta.description} Browse decisive picks and supporting notes in ${meta.label.toLowerCase()}.`,
+    alternates: {
+      canonical: `/${category}/`,
+    },
   }
 }
 

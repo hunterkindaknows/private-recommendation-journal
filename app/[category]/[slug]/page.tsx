@@ -21,6 +21,11 @@ interface Props {
   params: Promise<{ category: string; slug: string }>
 }
 
+function toMetaDescription(text: string): string {
+  if (text.length <= 155) return text
+  return `${text.slice(0, 152).trimEnd()}...`
+}
+
 export async function generateStaticParams() {
   return editorials.map((e) => ({
     category: e.category,
@@ -33,22 +38,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const editorial = getEditorialBySlug(category as Category, slug)
   if (!editorial) return {}
   const canonicalPath = `/${editorial.category}/${editorial.slug}/`
+  const description = toMetaDescription(editorial.premise)
   return {
     title: editorial.title,
-    description: editorial.premise,
+    description,
     alternates: {
       canonical: canonicalPath,
     },
     openGraph: {
       title: editorial.title,
-      description: editorial.premise,
+      description,
       type: "article",
       url: canonicalPath,
     },
     twitter: {
       card: "summary_large_image",
       title: editorial.title,
-      description: editorial.premise,
+      description,
     },
   }
 }
