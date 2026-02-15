@@ -10,6 +10,7 @@ import {
   editorials,
   getAllCategories,
   getEditorialBySlug,
+  personas,
   getRelatedEditorials,
   getRelatedFieldNotes,
   topicClusters,
@@ -81,6 +82,7 @@ export default async function EditorialPage({ params }: Props) {
   )}&body=${encodeURIComponent(
     `Page: https://hunterkindaknows.github.io/private-recommendation-journal/${editorial.category}/${editorial.slug}/`
   )}`
+  const author = personas[editorial.persona]
 
   return (
     <div className="mx-auto max-w-3xl px-6">
@@ -179,6 +181,16 @@ export default async function EditorialPage({ params }: Props) {
         </div>
       </section>
 
+      <section className="border-t border-border py-8">
+        <h2 className="mb-6 font-serif text-2xl text-foreground">
+          Material and Build Notes
+        </h2>
+        <p className="text-sm leading-relaxed text-foreground">
+          {editorial.primaryPick.product.shortSpecs ??
+            "Material and construction notes are based on listed specs, wear behavior, and repeat-use fit stability."}
+        </p>
+      </section>
+
       {/* Secondary Pick */}
       {editorial.secondaryPick && (
         <SecondaryPickBlock pick={editorial.secondaryPick} />
@@ -261,6 +273,16 @@ export default async function EditorialPage({ params }: Props) {
         </div>
       </section>
 
+      <section className="border-t border-border py-8">
+        <h2 className="mb-5 font-serif text-2xl text-foreground">How We Choose</h2>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          We limit recommendations by design: one primary pick, one contrast
+          pick only when needed, and explicit disqualifiers. We publish slower
+          than typical affiliate blogs so each page can stay opinionated and
+          specific.
+        </p>
+      </section>
+
       {relatedTopics.length > 0 && (
         <section className="border-t border-border py-8">
           <h2 className="mb-5 font-serif text-2xl text-foreground">Topic Clusters</h2>
@@ -277,6 +299,17 @@ export default async function EditorialPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      <section className="border-t border-border py-8">
+        <h2 className="mb-5 font-serif text-2xl text-foreground">About the Editor</h2>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          <Link href={`/editor/${author.slug}`} className="gold-underline text-foreground">
+            {author.name}
+          </Link>{" "}
+          writes with a clear filter: {author.optimizes}. This page follows that
+          exact standard.
+        </p>
+      </section>
 
       <section className="border-t border-border py-8">
         <h2 className="mb-3 font-serif text-2xl text-foreground">Comments & Discussion</h2>

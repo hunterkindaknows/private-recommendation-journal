@@ -194,6 +194,8 @@ export const editorials: Editorial[] = [
         imageSourceType: "amazon-official",
         pricePolicy: "best-value",
         affiliateUrl: "/go/only-black-tee/primary/",
+        shortSpecs:
+          "Cotton jersey base, crew neck construction, and repeat-wash daily-wear profile in a 3-pack format.",
       },
       reasons: [
         "Egyptian cotton holds dye better than any blend we tested",
@@ -273,6 +275,8 @@ export const editorials: Editorial[] = [
         imageSourceType: "amazon-official",
         pricePolicy: "best-value",
         affiliateUrl: "/go/one-belt-no-crack/primary/",
+        shortSpecs:
+          "Bonded leather reversible strap with rotating buckle hardware, tuned for everyday jean-width wear.",
       },
       reasons: [
         "Hand-painted edges that patina instead of cracking",
@@ -326,6 +330,8 @@ export const editorials: Editorial[] = [
         imageSourceType: "amazon-official",
         pricePolicy: "best-value",
         affiliateUrl: "/go/socks-for-walking/primary/",
+        shortSpecs:
+          "Merino wool blend with midweight cushioning, micro crew height, and reinforced heel/toe knit zones.",
       },
       reasons: [
         "Lifetime warranty \u2014 they literally replace them forever",
@@ -381,6 +387,8 @@ export const editorials: Editorial[] = [
         imageSourceType: "amazon-official",
         pricePolicy: "premium-justified",
         affiliateUrl: "/go/everyday-chain/primary/",
+        shortSpecs:
+          "Gold-plated herringbone snake chain profile with flat reflective lay and minimalist daily styling.",
       },
       reasons: [
         "14k solid gold \u2014 no plating to wear through",
@@ -434,6 +442,8 @@ export const editorials: Editorial[] = [
         imageSourceType: "amazon-official",
         pricePolicy: "best-value",
         affiliateUrl: "/go/white-sneaker-women/primary/",
+        shortSpecs:
+          "Synthetic leather upper with low-profile cupsole construction and classic court-sneaker proportions.",
       },
       reasons: [
         "Italian Nappa leather develops a patina instead of scuffing",
@@ -489,6 +499,8 @@ export const editorials: Editorial[] = [
         imageSourceType: "amazon-official",
         pricePolicy: "best-value",
         affiliateUrl: "/go/daily-earrings/primary/",
+        shortSpecs:
+          "Lightweight gold-plated hoop build with open profile and secure post-back wear for all-day comfort.",
       },
       reasons: [
         "Solid 14k gold \u2014 sleep, shower, live in them",
@@ -544,6 +556,8 @@ export const editorials: Editorial[] = [
         imageSourceType: "amazon-official",
         pricePolicy: "best-value",
         affiliateUrl: "/go/maternity-bra-no-compromise/primary/",
+        shortSpecs:
+          "French terry stretch blend with crossover nursing access and racerback support geometry.",
       },
       reasons: [
         "French terry fabric is soft without losing structure",
@@ -600,6 +614,8 @@ export const editorials: Editorial[] = [
         imageSourceType: "amazon-official",
         pricePolicy: "best-value",
         affiliateUrl: "/go/baby-monitor-worth-it/primary/",
+        shortSpecs:
+          "Dedicated parent-unit monitor with 720p camera feed, night vision, and no Wi-Fi dependency.",
       },
       reasons: [
         "Dedicated monitor \u2014 no WiFi dependency or app crashes",
@@ -900,7 +916,15 @@ export function getRelatedEditorials(editorial: Editorial, limit = 3): Editorial
 
   const unique = new Map<string, Editorial>()
   ;[...sameCategory, ...tagOverlap].forEach((item) => unique.set(item.slug, item))
-  return Array.from(unique.values()).slice(0, limit)
+  const base = Array.from(unique.values())
+  if (base.length >= limit) return base.slice(0, limit)
+
+  const filler = editorials.filter(
+    (candidate) =>
+      candidate.slug !== editorial.slug && !base.some((picked) => picked.slug === candidate.slug)
+  )
+
+  return [...base, ...filler].slice(0, limit)
 }
 
 export function getRelatedFieldNotes(editorial: Editorial, limit = 2): FieldNote[] {
