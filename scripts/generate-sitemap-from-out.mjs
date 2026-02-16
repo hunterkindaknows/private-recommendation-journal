@@ -5,7 +5,15 @@ const outDir = path.resolve("out")
 const siteUrl = (process.env.SITE_URL ?? "https://hunterkindaknows.github.io/private-recommendation-journal").replace(/\/+$/, "")
 
 const excludedPathPrefixes = ["/go/"]
-const excludedExactPaths = new Set(["/404/", "/404", "/500/", "/500"])
+const excludedExactPaths = new Set([
+  "/404/",
+  "/404",
+  "/500/",
+  "/500",
+  "/_not-found/",
+  "/_not-found",
+])
+const excludedFilePatterns = [/^google[a-z0-9]+\.html$/i]
 
 async function walkHtmlFiles(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true })
@@ -33,10 +41,11 @@ function htmlFileToRoute(filePath) {
     return `/${relative.slice(0, -"index.html".length)}`
   }
 
-  return `/${relative.replace(/\.html$/, "")}`
+  return null
 }
 
 function shouldIncludeRoute(routePath) {
+  if (!routePath) return false
   if (excludedExactPaths.has(routePath)) return false
   if (excludedPathPrefixes.some((prefix) => routePath.startsWith(prefix))) return false
   return true
@@ -55,18 +64,22 @@ function buildSitemapXml(urls) {
 
 async function main() {
   const htmlFiles = await walkHtmlFiles(outDir)
-  const routes = htmlFiles
+  const filteredHtmlFiles = htmlFiles.filter((filePath) => {
+    const base = path.basename(filePath)
+    return !excludedFilePatterns.some((pattern) => pattern.test(base))
+  })
+  const safeRoutes = filteredHtmlFiles
     .map(htmlFileToRoute)
     .filter(shouldIncludeRoute)
-  const uniqueSortedUrls = Array.from(new Set(routes.map(toUrl))).sort((a, b) =>
+  const uniqueSafeUrls = Array.from(new Set(safeRoutes.map(toUrl))).sort((a, b) =>
     a.localeCompare(b)
   )
 
-  const xml = buildSitemapXml(uniqueSortedUrls)
+  const xml = buildSitemapXml(uniqueSafeUrls)
   const sitemapPath = path.join(outDir, "sitemap.xml")
   await fs.writeFile(sitemapPath, xml, "utf8")
 
-  console.log(`Generated sitemap with ${uniqueSortedUrls.length} URLs at ${sitemapPath}`)
+  console.log(`Generated sitemap with ${uniqueSafeUrls.length} URLs at ${sitemapPath}`)
 }
 
 main().catch((error) => {
