@@ -39,6 +39,10 @@ jobs:
         env:
           SITE_URL: "https://hunterkindaknows.github.io/private-recommendation-journal"
 
+      - name: Submit URLs to IndexNow
+        run: npm run indexnow:submit
+        continue-on-error: true
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

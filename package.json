@@ -6,6 +6,7 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "sitemap:generate": "node scripts/generate-sitemap-from-out.mjs",
+    "indexnow:submit": "node scripts/indexnow-submit-from-sitemap.mjs",
     "start": "next start",
     "lint": "next lint"
   },
