@@ -7,6 +7,7 @@
     "build": "next build",
     "sitemap:generate": "node scripts/generate-sitemap-from-out.mjs",
     "indexnow:submit": "node scripts/indexnow-submit-from-sitemap.mjs",
+    "linkseed:accountless": "node scripts/accountless-link-seed.mjs",
     "start": "next start",
     "lint": "next lint"
   },
