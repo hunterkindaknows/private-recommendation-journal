@@ -768,6 +768,86 @@ export const fieldNotes: FieldNote[] = [
       "Dress for the conversation you want: direct, warm, and present.",
     ],
   },
+  {
+    slug: "why-cotton-tees-fail-after-washing",
+    title: "Why Cotton Tees Fail After Washing",
+    published: "2026-02-17",
+    updated: "2026-02-17",
+    excerpt:
+      "Most t-shirt disappointment comes from fiber quality, knit tension, and finishing choices—not just bad luck.",
+    category: "style-guide",
+    tags: ["cotton", "fabric", "care", "quality"],
+    body: [
+      "The first failure is usually collar distortion. If the rib knit at the neck is weak or mismatched to body fabric tension, repeated wash-and-dry cycles warp the shape quickly.",
+      "The second failure is shrink drift. A tee can lose length in the body while widening at the torso, which changes the silhouette even if the fabric still feels fine.",
+      "Low-grade cotton fibers also break down faster under friction and heat, which shows up as pilling and thin spots. That is not just cosmetic; it predicts shorter garment life.",
+      "Care instructions matter, but construction matters more. Cold wash and air-dry can extend life, yet a poorly built tee will still collapse earlier than a well-built one.",
+    ],
+  },
+  {
+    slug: "why-jewelry-plating-wears-off",
+    title: "Why Jewelry Plating Wears Off",
+    published: "2026-02-17",
+    updated: "2026-02-17",
+    excerpt:
+      "Plating wear is normal over time, but thickness, base metal, and friction points determine how fast it happens.",
+    category: "style-guide",
+    tags: ["jewelry", "plating", "materials", "wear"],
+    body: [
+      "Plating is a surface layer, not a full-metal object. The thinner that layer, the faster high-friction points lose color and reveal the base metal underneath.",
+      "Earrings and chains wear differently. Posts, clasps, and links rub against skin, hair products, and fabric, which accelerates abrasion.",
+      "Moisture and chemistry speed the process. Sweat, perfume, and lotions can all affect finish longevity, especially with lighter gold-tone coatings.",
+      "If you want longer life from plated pieces, reduce friction and moisture exposure. If you want long-term permanence, move to solid-metal options.",
+    ],
+  },
+  {
+    slug: "why-leather-cracks-and-how-to-slow-it",
+    title: "Why Leather Cracks (and How to Slow It)",
+    published: "2026-02-17",
+    updated: "2026-02-17",
+    excerpt:
+      "Cracking is often dryness plus repeated stress at bend points; finish type and leather grade decide the timeline.",
+    category: "style-guide",
+    tags: ["leather", "maintenance", "durability", "belts"],
+    body: [
+      "Leather cracks most often where it flexes the same way repeatedly: belt holes, shoe creases, and fold points. Stress localizes there first.",
+      "Finish type changes aging behavior. Heavy coatings can look clean initially but may split as they lose flexibility; cleaner finishes tend to patina instead of flake.",
+      "Dry heat and overexposure to direct sunlight pull moisture from fibers, reducing elasticity. That turns normal flexing into surface fracture sooner.",
+      "The practical rule is simple: rotate use, avoid heat storage, and condition occasionally with restraint. Over-oiling is not a fix for low-grade leather.",
+    ],
+  },
+  {
+    slug: "how-sneaker-leather-ages-over-time",
+    title: "How Sneaker Leather Ages Over Time",
+    published: "2026-02-17",
+    updated: "2026-02-17",
+    excerpt:
+      "Leather sneakers do not just get dirty—they change in structure, crease memory, and surface sheen with wear patterns.",
+    category: "style-guide",
+    tags: ["sneakers", "leather", "aging", "care"],
+    body: [
+      "The toe box records your gait first. Crease depth and location reflect movement pattern, not simply hours worn.",
+      "Surface sheen changes as top layers abrade. Some leathers age into a softer luster; others become matte and chalky depending on coating and finish.",
+      "Sole and upper age at different rates. A sneaker can still look acceptable up top while traction and midsole responsiveness are already compromised.",
+      "If replacement cadence matters, track comfort and structure, not just visual condition. A clean shoe can still be mechanically tired.",
+    ],
+  },
+  {
+    slug: "fabric-weight-explained-without-jargon",
+    title: "Fabric Weight Explained (Without Jargon)",
+    published: "2026-02-17",
+    updated: "2026-02-17",
+    excerpt:
+      "Fabric weight helps predict drape, opacity, and durability, but only when read together with weave and fiber composition.",
+    category: "style-guide",
+    tags: ["fabric", "weight", "fit", "materials"],
+    body: [
+      "Heavier is not always better. Weight can improve durability and structure, but it can also reduce breathability and increase stiffness.",
+      "For tees, fabric weight often predicts how the garment hangs: lighter fabrics skim and move, heavier fabrics hold shape and mask body contour.",
+      "Opacity usually improves with weight, though knit density matters too. A dense medium-weight fabric can outperform a loose heavier one.",
+      "Use weight as a decision aid, not a verdict. Pair it with fiber type, weave/knit structure, and intended climate to choose correctly.",
+    ],
+  },
 ]
 
 export interface TopicCluster {
