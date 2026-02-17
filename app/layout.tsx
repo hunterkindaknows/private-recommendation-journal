@@ -48,6 +48,17 @@ export const metadata: Metadata = {
     description:
       "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 }
 
 export const viewport: Viewport = {
