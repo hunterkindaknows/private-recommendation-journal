@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,37703,e=>{"use strict";var t=e.i(71645);function i({destinationUrl:e}){return(0,t.useEffect)(()=>{let t=window.setTimeout(()=>{window.location.href=e},1100);return()=>window.clearTimeout(t)},[e]),null}e.s(["RedirectClient",()=>i])}]);

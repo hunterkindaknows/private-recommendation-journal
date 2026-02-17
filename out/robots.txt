@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /go/
+
+Sitemap: https://hunterkindaknows.github.io/private-recommendation-journal/sitemap.xml
