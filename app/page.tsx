@@ -117,6 +117,22 @@ export default function HomePage() {
             </p>
           </article>
         </div>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            href="/who-this-is-for/"
+            className="inline-flex items-center gap-2 border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent"
+          >
+            Who this is for
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+          <Link
+            href="/editorial-philosophy/"
+            className="inline-flex items-center gap-2 border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent"
+          >
+            Editorial philosophy
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
       </section>
 
       {/* ============== MONTHLY FIELD NOTES ============== */}

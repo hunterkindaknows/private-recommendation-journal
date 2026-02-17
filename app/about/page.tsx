@@ -90,6 +90,38 @@ export default function AboutPage() {
 
       <section className="border-t border-border py-10">
         <h2 className="mb-6 font-serif text-2xl text-foreground">
+          Start Here
+        </h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          <Link
+            href="/who-this-is-for/"
+            className="group border border-border p-5 transition-colors hover:border-accent"
+          >
+            <p className="persona-badge text-accent">Reader Fit</p>
+            <h3 className="mt-2 font-serif text-xl text-foreground">
+              Who This Is For
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Learn who this editorial model helps most and who should skip it.
+            </p>
+          </Link>
+          <Link
+            href="/editorial-philosophy/"
+            className="group border border-border p-5 transition-colors hover:border-accent"
+          >
+            <p className="persona-badge text-accent">Method</p>
+            <h3 className="mt-2 font-serif text-xl text-foreground">
+              Editorial Philosophy
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              See exactly how we choose products and why recommendations stay constrained.
+            </p>
+          </Link>
+        </div>
+      </section>
+
+      <section className="border-t border-border py-10">
+        <h2 className="mb-6 font-serif text-2xl text-foreground">
           Meet the Penpals
         </h2>
         <div className="flex flex-col gap-4">

@@ -152,6 +152,24 @@ export function SiteHeader() {
             </li>
             <li>
               <Link
+                href="/who-this-is-for"
+                className="text-sm text-muted-foreground"
+                onClick={() => setMobileOpen(false)}
+              >
+                Who This Is For
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/editorial-philosophy"
+                className="text-sm text-muted-foreground"
+                onClick={() => setMobileOpen(false)}
+              >
+                Editorial Philosophy
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/disclosure"
                 className="text-sm text-muted-foreground"
                 onClick={() => setMobileOpen(false)}
