@@ -8,6 +8,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/editorial-philosophy/",
   },
+  openGraph: {
+    title: "Editorial Philosophy — The Penpal Edit",
+    description:
+      "How The Penpal Edit chooses products, why recommendations are constrained, and the standards behind every published page.",
+    url: "/editorial-philosophy/",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Editorial Philosophy — The Penpal Edit",
+    description:
+      "How The Penpal Edit chooses products, why recommendations are constrained, and the standards behind every published page.",
+  },
 }
 
 export default function EditorialPhilosophyPage() {

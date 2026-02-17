@@ -57,8 +57,17 @@ function toUrl(routePath) {
   return `${siteUrl}${normalized}`
 }
 
-function buildSitemapXml(urls) {
-  const items = urls.map((url) => `  <url><loc>${url}</loc></url>`).join("\n")
+function toLastModDate(date) {
+  return date.toISOString().slice(0, 10)
+}
+
+function buildSitemapXml(entries) {
+  const items = entries
+    .map(
+      ({ url, lastmod }) =>
+        `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`
+    )
+    .join("\n")
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items}\n</urlset>\n`
 }
 
@@ -68,18 +77,36 @@ async function main() {
     const base = path.basename(filePath)
     return !excludedFilePatterns.some((pattern) => pattern.test(base))
   })
-  const safeRoutes = filteredHtmlFiles
-    .map(htmlFileToRoute)
-    .filter(shouldIncludeRoute)
-  const uniqueSafeUrls = Array.from(new Set(safeRoutes.map(toUrl))).sort((a, b) =>
-    a.localeCompare(b)
+  const rawEntries = await Promise.all(
+    filteredHtmlFiles.map(async (filePath) => {
+      const route = htmlFileToRoute(filePath)
+      if (!shouldIncludeRoute(route)) return null
+      const stat = await fs.stat(filePath)
+      return {
+        url: toUrl(route),
+        lastmod: toLastModDate(stat.mtime),
+      }
+    })
   )
 
-  const xml = buildSitemapXml(uniqueSafeUrls)
+  const uniqueByUrl = new Map()
+  for (const entry of rawEntries) {
+    if (!entry) continue
+    const existing = uniqueByUrl.get(entry.url)
+    if (!existing || entry.lastmod > existing.lastmod) {
+      uniqueByUrl.set(entry.url, entry)
+    }
+  }
+
+  const finalEntries = Array.from(uniqueByUrl.values()).sort((a, b) =>
+    a.url.localeCompare(b.url)
+  )
+
+  const xml = buildSitemapXml(finalEntries)
   const sitemapPath = path.join(outDir, "sitemap.xml")
   await fs.writeFile(sitemapPath, xml, "utf8")
 
-  console.log(`Generated sitemap with ${uniqueSafeUrls.length} URLs at ${sitemapPath}`)
+  console.log(`Generated sitemap with ${finalEntries.length} URLs at ${sitemapPath}`)
 }
 
 main().catch((error) => {
