@@ -95,6 +95,14 @@ export function SiteFooter() {
                   Privacy Policy
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/policies/terms-of-service"
+                  className="text-sm text-muted-foreground editorial-link hover:text-foreground"
+                >
+                  Terms of Service
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
