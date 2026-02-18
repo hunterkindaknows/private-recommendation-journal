@@ -87,6 +87,14 @@ export function SiteFooter() {
                   Disclosure
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/policies/privacy-policy"
+                  className="text-sm text-muted-foreground editorial-link hover:text-foreground"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
