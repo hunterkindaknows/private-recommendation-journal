@@ -36,7 +36,7 @@ CTA plumbing:
 - `how-to-find-ring-size-with-string`
 - `who-this-is-for-who-this-annoys`
 - `first-date-fit-notes-women`
-- `between-winter-and-spring-outfits`
+- `what-im-wearing-in-between-weather`
 
 These publish under:
 - `/notes`
