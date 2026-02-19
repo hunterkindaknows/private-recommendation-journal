@@ -848,6 +848,27 @@ export const fieldNotes: FieldNote[] = [
       "Use weight as a decision aid, not a verdict. Pair it with fiber type, weave/knit structure, and intended climate to choose correctly.",
     ],
   },
+  {
+    slug: "between-winter-and-spring-outfits",
+    title: "Between Winter and Spring Outfits (38°F to 55°F)",
+    published: "2026-02-18",
+    updated: "2026-02-18",
+    excerpt:
+      "Not winter dressing, not spring dressing. Transitional weather is about breathable warmth and fewer wrong layers.",
+    category: "style-guide",
+    featured: true,
+    tags: ["transitional-weather", "outfit-formula", "layering", "materials"],
+    body: [
+      "People do not need more clothes. They need fewer wrong ones. Transitional weather is where heavy coats overheat indoors and light sweaters leave you cold outside. The goal is breathable warmth.",
+      "What actually works starts with the breathable coat. You want light structure, not heavy insulation: wool car coats, unlined trenches, chore coats, or waxed cotton jackets. These hold warmth outside but vent enough indoors so you do not trigger the sweat-then-cold cycle.",
+      "Neck warmth matters more than most people think. Keeping the neck covered changes comfort faster than adding a heavy torso layer. A thin wool scarf, silk scarf under a collar, or a rib knit balaclava does more than bulky outer layers in this temperature band.",
+      "The right sweater is usually thinner than people choose. Merino, lambswool, and brushed cotton fleece often outperform thick acrylic knits because they regulate better between street, transit, and indoor heat.",
+      "Footwear decides whether your whole body feels cold. Ground conduction is real at 38°F to 55°F. Leather boots, suede boots, and lug-sole loafers with wool socks maintain warmth more consistently than sneakers in wet or cold pavement conditions.",
+      "A repeatable formula helps: warm core + ventilated outer + protected extremities. Example set one: tee + merino sweater + car coat + scarf. Example set two: oxford shirt + chore coat + wool socks + boots. Example set three: thermal + hoodie + trench + hat.",
+      "Avoid building these outfits around one oversized piece. Transitional comfort usually comes from balanced layers you can subtract without collapsing the whole system.",
+      "Research shortlist (ASIN references): B01LYFL7F4 (Cole Haan wool plush car coat), B07T2C8W32 (Dockers wool blend top coat), B082N4KY9W (London Fog long trench), B0CRDCM7PM (Legendary Whitetails waxed cotton coat), B0BVN2XZFL (Flint and Tinder waxed trucker), B0973RGR3T (Fishers Finery cashmere set), B07PP53522 (Thursday Captain boot), B015EW2IQ2 (Bruno Marc chukka), B00B1I6EP0 (Cole Haan penny loafer), B09R13R3ZC (Carhartt base layer).",
+    ],
+  },
 ]
 
 export interface TopicCluster {
