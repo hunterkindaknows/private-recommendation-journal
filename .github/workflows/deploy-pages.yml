@@ -43,6 +43,9 @@ jobs:
         run: npm run indexnow:submit
         continue-on-error: true
 
+      - name: Disable Jekyll processing for exported assets
+        run: touch out/.nojekyll
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
