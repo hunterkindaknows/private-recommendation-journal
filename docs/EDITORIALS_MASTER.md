@@ -29,6 +29,12 @@ CTA plumbing:
 | `waxed-jacket-transitional-men` | The Waxed Jacket That Handles Bad Weather Without Noise | men | performance-analyst | primary | Huckberry / Flint and Tinder | Men's Flannel-Lined Waxed Trucker Jacket, Water & Weather Resistant | `B0BVN2XZFL` | `/go/waxed-jacket-transitional-men/primary/` |
 | `trench-for-between-seasons-women` | A Trench for the In-Between Months | women | luxury-curator | primary | LONDON FOG | Women's Single Breasted Long Trench Coat with Epaulettes and Belt | `B082N4KY9W` | `/go/trench-for-between-seasons-women/primary/` |
 | `boots-for-cold-ground-men` | Boots for Cold Pavement Days | men | minimalist | primary | Thursday Boot Company | Captain Men's Lace-up Boot | `B07PP53522` | `/go/boots-for-cold-ground-men/primary/` |
+| `henry-topcoat-work-rotation-men` | A Work Topcoat for Transitional Office Days | men | practicalist | primary | Dockers | Men's The Henry Wool Blend Top Coat | `B07T2C8W32` | `/go/henry-topcoat-work-rotation-men/primary/` |
+| `dakota-waxed-jacket-men` | The Waxed Jacket for Wet, Windy Errands | men | performance-analyst | primary | Legendary Whitetails | Men's Casual Coat with Hood Waxed Cotton Water Resistant | `B0CRDCM7PM` | `/go/dakota-waxed-jacket-men/primary/` |
+| `cashmere-set-cold-mornings-women` | The Cold-Morning Cashmere Set I Actually Reach For | women | luxury-curator | primary | Fishers Finery | Women's 3 Piece 100% Cashmere Pom Beanie Hat Glove & Scarf Set | `B0973RGR3T` | `/go/cashmere-set-cold-mornings-women/primary/` |
+| `budget-chukka-men-transitional` | Budget Chukka Boots for Transitional Weeks | men | practicalist | primary | Bruno Marc | Men's Classic Dress Casual Chukka Boots 2.0 | `B015EW2IQ2` | `/go/budget-chukka-men-transitional/primary/` |
+| `pinch-penny-loafer-cold-dry-days` | A Penny Loafer for Cold-but-Dry City Days | men | minimalist | primary | Cole Haan | Men's Pinch Penny Loafer | `B00B1I6EP0` | `/go/pinch-penny-loafer-cold-dry-days/primary/` |
+| `grid-base-layer-men-core-warmth` | The Base Layer That Keeps the Core Stable | men | performance-analyst | primary | Carhartt | Men's UL0171M Force Lightweight Stretch Grid Base Layer Crew | `B09R13R3ZC` | `/go/grid-base-layer-men-core-warmth/primary/` |
 
 ## Field Notes (Non-Product Editorials)
 

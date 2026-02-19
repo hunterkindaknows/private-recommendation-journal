@@ -23,6 +23,12 @@ Affiliate URL format currently used:
 | `waxed-jacket-transitional-men` | primary | Huckberry / Flint and Tinder | Men's Flannel-Lined Waxed Trucker Jacket, Water & Weather Resistant | `B0BVN2XZFL` | https://www.amazon.com/dp/B0BVN2XZFL | https://www.amazon.com/dp/B0BVN2XZFL?tag=greenoamongog-20 |
 | `trench-for-between-seasons-women` | primary | LONDON FOG | Women's Single Breasted Long Trench Coat with Epaulettes and Belt | `B082N4KY9W` | https://www.amazon.com/dp/B082N4KY9W | https://www.amazon.com/dp/B082N4KY9W?tag=greenoamongog-20 |
 | `boots-for-cold-ground-men` | primary | Thursday Boot Company | Captain Men's Lace-up Boot | `B07PP53522` | https://www.amazon.com/dp/B07PP53522 | https://www.amazon.com/dp/B07PP53522?tag=greenoamongog-20 |
+| `henry-topcoat-work-rotation-men` | primary | Dockers | Men's The Henry Wool Blend Top Coat | `B07T2C8W32` | https://www.amazon.com/dp/B07T2C8W32 | https://www.amazon.com/dp/B07T2C8W32?tag=greenoamongog-20 |
+| `dakota-waxed-jacket-men` | primary | Legendary Whitetails | Men's Casual Coat with Hood Waxed Cotton Water Resistant | `B0CRDCM7PM` | https://www.amazon.com/dp/B0CRDCM7PM | https://www.amazon.com/dp/B0CRDCM7PM?tag=greenoamongog-20 |
+| `cashmere-set-cold-mornings-women` | primary | Fishers Finery | Women's 3 Piece 100% Cashmere Pom Beanie Hat Glove & Scarf Set | `B0973RGR3T` | https://www.amazon.com/dp/B0973RGR3T | https://www.amazon.com/dp/B0973RGR3T?tag=greenoamongog-20 |
+| `budget-chukka-men-transitional` | primary | Bruno Marc | Men's Classic Dress Casual Chukka Boots 2.0 | `B015EW2IQ2` | https://www.amazon.com/dp/B015EW2IQ2 | https://www.amazon.com/dp/B015EW2IQ2?tag=greenoamongog-20 |
+| `pinch-penny-loafer-cold-dry-days` | primary | Cole Haan | Men's Pinch Penny Loafer | `B00B1I6EP0` | https://www.amazon.com/dp/B00B1I6EP0 | https://www.amazon.com/dp/B00B1I6EP0?tag=greenoamongog-20 |
+| `grid-base-layer-men-core-warmth` | primary | Carhartt | Men's UL0171M Force Lightweight Stretch Grid Base Layer Crew | `B09R13R3ZC` | https://www.amazon.com/dp/B09R13R3ZC | https://www.amazon.com/dp/B09R13R3ZC?tag=greenoamongog-20 |
 
 Source:
 - `lib/data.ts` (`editorials` + `goRedirectTargets`)

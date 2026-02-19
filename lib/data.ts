@@ -869,6 +869,331 @@ export const editorials: Editorial[] = [
       "You want minimal-break-in shoes or sneaker-only styling.",
     tags: ["transitional-weather", "footwear", "men"],
   },
+  {
+    slug: "henry-topcoat-work-rotation-men",
+    title: "A Work Topcoat for Transitional Office Days",
+    category: "men",
+    persona: "practicalist",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-19",
+    outOfStockFallback:
+      "If this listing is unavailable, fallback to a wool-blend topcoat with dual front closure and similar length profile.",
+    premise:
+      "This is the office-layer problem between deep winter and spring. We wanted a coat that sits clean over a shirt and light knit, blocks wind on commute, and still looks composed at 6 p.m.",
+    whyThisNotPopular:
+      "Most affordable topcoats look right online then collapse in daily wear. This one is configured for functional layering and practical maintenance.",
+    primaryPick: {
+      product: {
+        asin: "B07T2C8W32",
+        brand: "Dockers",
+        productName: "Men's The Henry Wool Blend Top Coat",
+        priceBand: "$$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/henry-topcoat-work-rotation-men/primary/",
+        shortSpecs:
+          "Wool-blend shell with quilted bib insert and dual front closure for structured transitional layering.",
+      },
+      reasons: [
+        "Layering bib helps with wind without full winter bulk",
+        "Topcoat profile works over office and off-duty uniforms",
+        "Machine-washable care profile lowers maintenance friction",
+        "Storage layout supports daily carry without visual clutter",
+      ],
+      bestFor: "Men who need one practical topcoat for commute and office rotation",
+      notFor: "Anyone seeking premium full-wool tailoring details",
+    },
+    rationale: {
+      whatMatters:
+        "Layering function, closure reliability, shape retention, and maintenance ease",
+      whatWeIgnored:
+        "Trend silhouettes, marketing language, and seasonal color churn",
+      failureModes: [
+        "Coats that overheat indoors by midday",
+        "Shoulders that lose structure after repeat use",
+        "Short lengths that fail in wind exposure",
+      ],
+    },
+    whoThisIsFor:
+      "You want a straightforward office-compatible topcoat for 38°F to 55°F.",
+    whoThisWillAnnoy:
+      "You only buy premium natural-fiber outerwear or designer cuts.",
+    tags: ["transitional-weather", "outerwear", "men", "workwear"],
+  },
+  {
+    slug: "dakota-waxed-jacket-men",
+    title: "The Waxed Jacket for Wet, Windy Errands",
+    category: "men",
+    persona: "performance-analyst",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-19",
+    outOfStockFallback:
+      "Fallback to a water-resistant waxed jacket with insulation and extended sizing coverage.",
+    premise:
+      "Some days need utility over polish. We chose a waxed cotton jacket that handles wind, light rain, and temperature swings while still layering cleanly over a base and mid layer.",
+    whyThisNotPopular:
+      "Most weather jackets in this range either look tactical or wear out fast. This one is built around repeat real-life use and coverage.",
+    primaryPick: {
+      product: {
+        asin: "B0CRDCM7PM",
+        brand: "Legendary Whitetails",
+        productName: "Men's Casual Coat with Hood Waxed Cotton Water Resistant",
+        priceBand: "$$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/dakota-waxed-jacket-men/primary/",
+        shortSpecs:
+          "Waxed cotton blend shell with quilted lining, removable hood, and extended Big & Tall size availability.",
+      },
+      reasons: [
+        "Water-resistant shell handles variable rain and wind",
+        "Quilted lining gives warmth without puffer bulk",
+        "Removable hood adapts between commute and casual settings",
+        "Extended sizing improves fit inclusivity for real bodies",
+      ],
+      bestFor: "Men needing a reliable bad-weather daily layer under $150",
+      notFor: "Minimalists who want a strictly tailored topcoat silhouette",
+    },
+    rationale: {
+      whatMatters:
+        "Weather tolerance, fit range, durability, and storage function",
+      whatWeIgnored:
+        "Runway styling, influencer-friendly colorways, and novelty trims",
+      failureModes: [
+        "Shell wet-out in drizzle",
+        "Poor sleeve lining causing grab over knit layers",
+        "Sizing gaps that make fit inconsistent",
+      ],
+    },
+    whoThisIsFor:
+      "You need one practical jacket for wind, damp streets, and daily movement.",
+    whoThisWillAnnoy:
+      "You want a fully unlined minimalist coat with no visible utility features.",
+    tags: ["transitional-weather", "outerwear", "men", "weatherproof"],
+  },
+  {
+    slug: "cashmere-set-cold-mornings-women",
+    title: "The Cold-Morning Cashmere Set I Actually Reach For",
+    category: "women",
+    persona: "luxury-curator",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-19",
+    outOfStockFallback:
+      "Fallback to a 100% cashmere scarf and glove set with clearly stated fiber grade and care guidance.",
+    premise:
+      "Accessory sets are usually gift theater, not wardrobe function. This one made the list because it solves the first ten cold minutes of the day and then disappears into your routine.",
+    whyThisNotPopular:
+      "Most sets prioritize packaging over fiber quality. This pick is about material feel and repeat-wear behavior.",
+    primaryPick: {
+      product: {
+        asin: "B0973RGR3T",
+        brand: "Fishers Finery",
+        productName:
+          "Women's 3 Piece 100% Cashmere Pom Beanie Hat Glove & Scarf Set",
+        priceBand: "$$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/cashmere-set-cold-mornings-women/primary/",
+        shortSpecs:
+          "100% cashmere three-piece set with rib knit beanie, gloves, and scarf for daily cold-weather layering.",
+      },
+      reasons: [
+        "100% cashmere gives warmth without heavy bulk",
+        "Three-piece coherence reduces morning decision load",
+        "Neutral tones integrate with trench and wool coat uniforms",
+        "Comfort-focused texture avoids scratchy synthetic feel",
+      ],
+      bestFor: "Women building a quiet, repeatable cold-morning uniform",
+      notFor: "Anyone avoiding hand-wash or delicate-fiber care",
+    },
+    rationale: {
+      whatMatters:
+        "Fiber content clarity, touch comfort, layering ease, and daily usability",
+      whatWeIgnored:
+        "Holiday-gift branding, novelty embellishments, and trend color drops",
+      failureModes: [
+        "Scratchy blends marketed as premium",
+        "Accessories that look good but slide out of rotation",
+        "Poor knit recovery after repeated wear",
+      ],
+    },
+    whoThisIsFor:
+      "You want warmth at neck and hands without adding visual noise.",
+    whoThisWillAnnoy:
+      "You prefer technical synthetic gear or statement accessory styling.",
+    tags: ["transitional-weather", "accessories", "women", "cashmere"],
+  },
+  {
+    slug: "budget-chukka-men-transitional",
+    title: "Budget Chukka Boots for Transitional Weeks",
+    category: "men",
+    persona: "practicalist",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-19",
+    outOfStockFallback:
+      "Fallback to suede chukka boots with similar outsole grip and size range in the same price tier.",
+    premise:
+      "Not every season needs a $200 boot. This pick covers the middle ground: cleaner than sneakers, lighter than heavy work boots, and affordable enough to wear hard.",
+    whyThisNotPopular:
+      "Budget footwear is usually dismissed as disposable. This one stays useful when styled as a rotational everyday shoe.",
+    primaryPick: {
+      product: {
+        asin: "B015EW2IQ2",
+        brand: "Bruno Marc",
+        productName: "Men's Classic Dress Casual Chukka Boots 2.0",
+        priceBand: "$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "lowest-acceptable",
+        affiliateUrl: "/go/budget-chukka-men-transitional/primary/",
+        shortSpecs:
+          "Suede upper chukka profile with EVA footbed and thermoplastic elastomer outsole.",
+      },
+      reasons: [
+        "Price point makes daily rotation realistic",
+        "Chukka profile bridges denim, chinos, and casual tailoring",
+        "Lace closure provides adjustable fit through the day",
+        "Lighter feel than full-height leather boots",
+      ],
+      bestFor: "Men wanting a low-risk transitional footwear upgrade from sneakers",
+      notFor: "Buyers prioritizing heritage-grade long-term boot construction",
+    },
+    rationale: {
+      whatMatters:
+        "Price-to-use ratio, daily comfort, silhouette flexibility, and availability",
+      whatWeIgnored:
+        "Collector-level craftsmanship claims and luxury-leather signaling",
+      failureModes: [
+        "Outsoles that slip on wet pavement",
+        "Uppers that collapse after light wear",
+        "Sizing inconsistency across restocks",
+      ],
+    },
+    whoThisIsFor:
+      "You need a practical in-between shoe that does not require a big spend.",
+    whoThisWillAnnoy:
+      "You only buy resoleable premium boots and full-grain uppers.",
+    tags: ["transitional-weather", "footwear", "men", "budget"],
+  },
+  {
+    slug: "pinch-penny-loafer-cold-dry-days",
+    title: "A Penny Loafer for Cold-but-Dry City Days",
+    category: "men",
+    persona: "minimalist",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-19",
+    outOfStockFallback:
+      "Fallback to a leather penny loafer with similar low-profile shape and dress-casual compatibility.",
+    premise:
+      "When the forecast is dry and you want a cleaner line than boots, a penny loafer still works in transitional weather if you pair it with wool socks and controlled layers.",
+    whyThisNotPopular:
+      "Most people default to sneakers or boots and skip loafers in colder months. This pick keeps the silhouette sharp without over-dressing.",
+    primaryPick: {
+      product: {
+        asin: "B00B1I6EP0",
+        brand: "Cole Haan",
+        productName: "Men's Pinch Penny Loafer",
+        priceBand: "$$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/pinch-penny-loafer-cold-dry-days/primary/",
+        shortSpecs:
+          "Leather loafer profile with classic penny strap and low-profile dress-casual construction.",
+      },
+      reasons: [
+        "Clean shape sharpens transitional outfits quickly",
+        "Leather upper reads adult without excess detail",
+        "Works across office and dinner settings",
+        "Pairs with wool socks for controlled cold-weather wear",
+      ],
+      bestFor: "Men wanting a refined non-boot option on dry transitional days",
+      notFor: "Wet-weather commutes and heavy-rain environments",
+    },
+    rationale: {
+      whatMatters:
+        "Silhouette clarity, leather quality, comfort over long days, and versatility",
+      whatWeIgnored:
+        "Trendy sole exaggeration and statement hardware details",
+      failureModes: [
+        "Loafers that pinch across instep under all-day wear",
+        "Thin soles that transmit cold pavement immediately",
+        "Glossy finishes that look costume-level in daylight",
+      ],
+    },
+    whoThisIsFor:
+      "You want one polished option for cold dry days without dress-shoe stiffness.",
+    whoThisWillAnnoy:
+      "You need weatherproof traction or prefer rugged-only footwear.",
+    tags: ["transitional-weather", "footwear", "men", "dress-casual"],
+  },
+  {
+    slug: "grid-base-layer-men-core-warmth",
+    title: "The Base Layer That Keeps the Core Stable",
+    category: "men",
+    persona: "performance-analyst",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-19",
+    outOfStockFallback:
+      "Fallback to a lightweight moisture-wicking grid base layer with similar fabric weight and stretch blend.",
+    premise:
+      "Transitional weather fails at the base layer level more often than at the coat level. This pick stabilizes core temperature, moves moisture, and keeps outer layers from doing all the work.",
+    whyThisNotPopular:
+      "Most people treat base layers as winter-only. This one works as a transitional foundation under lighter outerwear.",
+    primaryPick: {
+      product: {
+        asin: "B09R13R3ZC",
+        brand: "Carhartt",
+        productName: "Men's UL0171M Force Lightweight Stretch Grid Base Layer Crew",
+        priceBand: "$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/grid-base-layer-men-core-warmth/primary/",
+        shortSpecs:
+          "4.7 oz stretch grid fabric with moisture-wicking, odor-fighting performance and flatlock seams.",
+      },
+      reasons: [
+        "Moisture management reduces chill from indoor-outdoor swings",
+        "Grid fabric balances warmth and breathability",
+        "Flatlock seams improve comfort under layered outfits",
+        "Value pricing supports buying multiples for rotation",
+      ],
+      bestFor: "Men who run cold in mornings and overheat by afternoon",
+      notFor: "Anyone wanting heavyweight thermal insulation",
+    },
+    rationale: {
+      whatMatters:
+        "Moisture transport, fit under layers, seam comfort, and drying speed",
+      whatWeIgnored:
+        "Logo graphics, aggressive compression claims, and hype tech language",
+      failureModes: [
+        "Base layers that trap sweat and cool too slowly",
+        "Fabric pilling at friction zones",
+        "Necklines that stretch and lose layering shape",
+      ],
+    },
+    whoThisIsFor:
+      "You need a reliable first layer for variable days and longer movement windows.",
+    whoThisWillAnnoy:
+      "You only wear natural-fiber base layers or heavyweight thermals.",
+    tags: ["transitional-weather", "base-layer", "men", "performance"],
+  },
 ]
 
 // ============================================================
@@ -1139,9 +1464,15 @@ export const topicClusters: TopicCluster[] = [
       "In-between weather structure for 38°F to 55°F: controlled layers, weather-ready outerwear, and footwear that protects comfort.",
     editorialSlugs: [
       "car-coat-between-seasons-men",
+      "henry-topcoat-work-rotation-men",
       "waxed-jacket-transitional-men",
+      "dakota-waxed-jacket-men",
       "trench-for-between-seasons-women",
       "boots-for-cold-ground-men",
+      "budget-chukka-men-transitional",
+      "pinch-penny-loafer-cold-dry-days",
+      "grid-base-layer-men-core-warmth",
+      "cashmere-set-cold-mornings-women",
     ],
     noteSlugs: ["what-im-wearing-in-between-weather"],
   },
@@ -1236,6 +1567,42 @@ export const goRedirectTargets: GoRedirectTarget[] = [
     pick: "primary",
     label: "Thursday Boot Company Captain Men's Lace-up Boot",
     destinationUrl: "https://www.amazon.com/dp/B07PP53522?tag=greenoamongog-20",
+  },
+  {
+    slug: "henry-topcoat-work-rotation-men",
+    pick: "primary",
+    label: "Dockers Men's The Henry Wool Blend Top Coat",
+    destinationUrl: "https://www.amazon.com/dp/B07T2C8W32?tag=greenoamongog-20",
+  },
+  {
+    slug: "dakota-waxed-jacket-men",
+    pick: "primary",
+    label: "Legendary Whitetails Men's Waxed Cotton Water Resistant Jacket",
+    destinationUrl: "https://www.amazon.com/dp/B0CRDCM7PM?tag=greenoamongog-20",
+  },
+  {
+    slug: "cashmere-set-cold-mornings-women",
+    pick: "primary",
+    label: "Fishers Finery Women's 3 Piece 100% Cashmere Set",
+    destinationUrl: "https://www.amazon.com/dp/B0973RGR3T?tag=greenoamongog-20",
+  },
+  {
+    slug: "budget-chukka-men-transitional",
+    pick: "primary",
+    label: "Bruno Marc Men's Classic Dress Casual Chukka Boots 2.0",
+    destinationUrl: "https://www.amazon.com/dp/B015EW2IQ2?tag=greenoamongog-20",
+  },
+  {
+    slug: "pinch-penny-loafer-cold-dry-days",
+    pick: "primary",
+    label: "Cole Haan Men's Pinch Penny Loafer",
+    destinationUrl: "https://www.amazon.com/dp/B00B1I6EP0?tag=greenoamongog-20",
+  },
+  {
+    slug: "grid-base-layer-men-core-warmth",
+    pick: "primary",
+    label: "Carhartt Men's UL0171M Force Lightweight Stretch Grid Base Layer Crew",
+    destinationUrl: "https://www.amazon.com/dp/B09R13R3ZC?tag=greenoamongog-20",
   },
 ]
 
