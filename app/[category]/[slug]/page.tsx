@@ -77,11 +77,6 @@ export default async function EditorialPage({ params }: Props) {
   const relatedTopics = topicClusters.filter((cluster) =>
     cluster.editorialSlugs.includes(editorial.slug)
   )
-  const discussionUrl = `https://github.com/hunterkindaknows/private-recommendation-journal/issues/new?title=${encodeURIComponent(
-    `Discussion: ${editorial.title}`
-  )}&body=${encodeURIComponent(
-    `Page: https://hunterkindaknows.github.io/private-recommendation-journal/${editorial.category}/${editorial.slug}/`
-  )}`
   const author = personas[editorial.persona]
 
   return (
@@ -308,24 +303,6 @@ export default async function EditorialPage({ params }: Props) {
           </Link>{" "}
           writes with a clear filter: {author.optimizes}. This page follows that
           exact standard.
-        </p>
-      </section>
-
-      <section className="border-t border-border py-8">
-        <h2 className="mb-3 font-serif text-2xl text-foreground">Comments & Discussion</h2>
-        <p className="text-sm text-muted-foreground">
-          Have experience with this product or disagree with the pick? Add your
-          perspective on GitHub.
-        </p>
-        <p className="mt-4">
-          <a
-            href={discussionUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-foreground transition-colors hover:border-accent"
-          >
-            Open discussion thread
-          </a>
         </p>
       </section>
     </div>
