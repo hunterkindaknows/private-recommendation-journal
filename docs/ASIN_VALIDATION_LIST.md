@@ -19,6 +19,10 @@ Affiliate URL format currently used:
 | `daily-earrings` | primary | PAVOI | 14K Gold Plated Lightweight Chunky Open Hoops for Women | `B0C2DJD7M5` | https://www.amazon.com/dp/B0C2DJD7M5 | https://www.amazon.com/dp/B0C2DJD7M5?tag=greenoamongog-20 |
 | `maternity-bra-no-compromise` | primary | Kindred Bravely | French Terry Nursing Bra for Breastfeeding and Sleep, Racerback Crossover | `B0D14GJT7T` | https://www.amazon.com/dp/B0D14GJT7T | https://www.amazon.com/dp/B0D14GJT7T?tag=greenoamongog-20 |
 | `baby-monitor-worth-it` | primary | eufy | Security Video Baby Monitor 720P | `B07GBP3GH9` | https://www.amazon.com/dp/B07GBP3GH9 | https://www.amazon.com/dp/B07GBP3GH9?tag=greenoamongog-20 |
+| `car-coat-between-seasons-men` | primary | Cole Haan | Men's Button Up Wool Plush Car Coat | `B01LYFL7F4` | https://www.amazon.com/dp/B01LYFL7F4 | https://www.amazon.com/dp/B01LYFL7F4?tag=greenoamongog-20 |
+| `waxed-jacket-transitional-men` | primary | Huckberry / Flint and Tinder | Men's Flannel-Lined Waxed Trucker Jacket, Water & Weather Resistant | `B0BVN2XZFL` | https://www.amazon.com/dp/B0BVN2XZFL | https://www.amazon.com/dp/B0BVN2XZFL?tag=greenoamongog-20 |
+| `trench-for-between-seasons-women` | primary | LONDON FOG | Women's Single Breasted Long Trench Coat with Epaulettes and Belt | `B082N4KY9W` | https://www.amazon.com/dp/B082N4KY9W | https://www.amazon.com/dp/B082N4KY9W?tag=greenoamongog-20 |
+| `boots-for-cold-ground-men` | primary | Thursday Boot Company | Captain Men's Lace-up Boot | `B07PP53522` | https://www.amazon.com/dp/B07PP53522 | https://www.amazon.com/dp/B07PP53522?tag=greenoamongog-20 |
 
 Source:
 - `lib/data.ts` (`editorials` + `goRedirectTargets`)

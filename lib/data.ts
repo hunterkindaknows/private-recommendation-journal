@@ -645,6 +645,230 @@ export const editorials: Editorial[] = [
     monthPick: "2026-02",
     tags: ["nursery", "essentials", "tech"],
   },
+
+  // ---- TRANSITIONAL WEATHER ----
+  {
+    slug: "car-coat-between-seasons-men",
+    title: "A Car Coat for 38°F to 55°F",
+    category: "men",
+    persona: "practicalist",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-19",
+    outOfStockFallback:
+      "Fallback to a wool-blend topcoat with clean front closure and stable shoulder structure from a stocked storefront.",
+    premise:
+      "This is the awkward temperature where a heavy winter coat overheats indoors and a hoodie leaves you cold at dusk. We looked for a clean car-coat profile that layers over a light sweater, keeps wind off your core, and still reads adult on a Tuesday.",
+    whyThisNotPopular:
+      "Popular outerwear in this band is usually puffer-heavy or trend-cut. This pick keeps shape and avoids costume energy.",
+    primaryPick: {
+      product: {
+        asin: "B01LYFL7F4",
+        brand: "Cole Haan",
+        productName: "Men's Button Up Wool Plush Car Coat",
+        priceBand: "$$$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "premium-justified",
+        affiliateUrl: "/go/car-coat-between-seasons-men/primary/",
+        shortSpecs:
+          "100% wool shell with button front, lower pockets, and structured topcoat shape for transitional layering.",
+      },
+      reasons: [
+        "Structured front keeps proportions clean over knitwear",
+        "Wool shell insulates without bulky puffer volume",
+        "Works open indoors and closed in wind",
+        "Reads polished with denim, trousers, or boots",
+      ],
+      bestFor: "Men who want one coat for commutes, office, and dinner plans",
+      notFor: "Anyone needing technical rain shell performance",
+    },
+    rationale: {
+      whatMatters:
+        "Core warmth, layering room, shoulder structure, and daily versatility",
+      whatWeIgnored:
+        "Streetwear trend cuts, oversized branding, and novelty hardware",
+      failureModes: [
+        "Coats that trap too much heat indoors",
+        "Soft collars that collapse after repeated wear",
+        "Boxy cuts that fight layering proportions",
+      ],
+    },
+    whoThisIsFor:
+      "You want controlled warmth in in-between weather and no styling drama.",
+    whoThisWillAnnoy:
+      "You want ultra-light shell jackets or highly technical outdoor features.",
+    featured: true,
+    monthPick: "2026-02",
+    tags: ["transitional-weather", "outerwear", "men"],
+  },
+  {
+    slug: "waxed-jacket-transitional-men",
+    title: "The Waxed Jacket That Handles Bad Weather Without Noise",
+    category: "men",
+    persona: "performance-analyst",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-19",
+    outOfStockFallback:
+      "Fallback to a re-waxable cotton shell with weather-resistant finish and full-size availability.",
+    premise:
+      "Transitional weather is less about deep cold and more about damp wind, shifting temperatures, and long days outside. We optimized for weather resistance, build quality, and predictable layering over a base and midweight knit.",
+    whyThisNotPopular:
+      "Most best-sellers optimize for price first. This pick optimizes for shell quality and long-term wear behavior.",
+    primaryPick: {
+      product: {
+        asin: "B0BVN2XZFL",
+        brand: "Huckberry / Flint and Tinder",
+        productName:
+          "Men's Flannel-Lined Waxed Trucker Jacket, Water & Weather Resistant",
+        priceBand: "$$$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "premium-justified",
+        affiliateUrl: "/go/waxed-jacket-transitional-men/primary/",
+        shortSpecs:
+          "Waxed cotton sailcloth exterior, flannel lining, and re-waxable weather-resistant construction.",
+      },
+      reasons: [
+        "Waxed shell handles wind and light rain better than untreated cotton",
+        "Re-waxable exterior extends service life",
+        "Structured trucker cut layers cleanly over thermals and shirts",
+        "Ages with visible patina instead of looking disposable",
+      ],
+      bestFor: "Men who walk commute routes and need weather tolerance with structure",
+      notFor: "People who want machine-wash convenience outerwear",
+    },
+    rationale: {
+      whatMatters:
+        "Shell durability, weather resistance, seam behavior, and repairable lifespan",
+      whatWeIgnored:
+        "Influencer styling, logo-heavy branding, and fast-fashion price race",
+      failureModes: [
+        "Shell wet-out after light rain",
+        "Collar and cuff breakdown under repeat wear",
+        "Fit collapse once layered over knitwear",
+      ],
+    },
+    whoThisIsFor:
+      "You want one weather-ready jacket for the 38°F-55°F band and variable rain.",
+    whoThisWillAnnoy:
+      "You only wear ultralight synthetic shells or fully insulated puffers.",
+    tags: ["transitional-weather", "outerwear", "men", "weatherproof"],
+  },
+  {
+    slug: "trench-for-between-seasons-women",
+    title: "A Trench for the In-Between Months",
+    category: "women",
+    persona: "luxury-curator",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-19",
+    outOfStockFallback:
+      "Fallback to a cotton-blend, belted trench with reliable water-resistant fabric and clean length.",
+    premise:
+      "When temperatures shift daily, the right trench creates shape without heavy insulation and keeps you dry without looking technical. We selected for line, fabric behavior, and whether it still feels composed by hour ten.",
+    whyThisNotPopular:
+      "Many popular trenches chase trend details and lose proportion. This one stays clean and wearable.",
+    primaryPick: {
+      product: {
+        asin: "B082N4KY9W",
+        brand: "LONDON FOG",
+        productName:
+          "Women's Single Breasted Long Trench Coat with Epaulettes and Belt",
+        priceBand: "$$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "best-value",
+        affiliateUrl: "/go/trench-for-between-seasons-women/primary/",
+        shortSpecs:
+          "57% cotton / 43% polyester blend with belted waist, below-knee length, and water-resistant finish.",
+      },
+      reasons: [
+        "Light structure gives shape without winter bulk",
+        "Water-resistant shell works for wet sidewalks and wind",
+        "Belted line adapts to knitwear layers",
+        "Length protects without swallowing proportion",
+      ],
+      bestFor: "Women building a quiet, repeatable between-season uniform",
+      notFor: "Anyone wanting oversized streetwear trench volume",
+    },
+    rationale: {
+      whatMatters:
+        "Fabric drape, water resistance, line control, and all-day comfort",
+      whatWeIgnored:
+        "Micro-trends, loud hardware, and over-designed shoulder details",
+      failureModes: [
+        "Stiff fabric that creases and never relaxes",
+        "Belts that twist and lose shape quickly",
+        "Cuts that only work with one specific shoe",
+      ],
+    },
+    whoThisIsFor:
+      "You need one coat that carries late winter into spring without looking confused.",
+    whoThisWillAnnoy:
+      "You prefer heavily insulated outerwear or dramatic trend silhouettes.",
+    featured: true,
+    monthPick: "2026-02",
+    tags: ["transitional-weather", "outerwear", "women"],
+  },
+  {
+    slug: "boots-for-cold-ground-men",
+    title: "Boots for Cold Pavement Days",
+    category: "men",
+    persona: "minimalist",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    disclosureType: "amazon-associate",
+    lastReviewedDate: "2026-02-19",
+    outOfStockFallback:
+      "Fallback to a leather lace-up boot with reliable outsole grip and consistent sizing history.",
+    premise:
+      "In transitional weather, cold pavement drains comfort faster than air temperature. We chose a leather boot that stabilizes traction, layers with wool socks, and works across denim and tailored trousers without outfit friction.",
+    whyThisNotPopular:
+      "Most popular shoes in this season are sneakers. We prioritize ground insulation and durability over casual convenience.",
+    primaryPick: {
+      product: {
+        asin: "B07PP53522",
+        brand: "Thursday Boot Company",
+        productName: "Captain Men's Lace-up Boot",
+        priceBand: "$$$",
+        merchant: "amazon",
+        imageSourceType: "amazon-official",
+        pricePolicy: "premium-justified",
+        affiliateUrl: "/go/boots-for-cold-ground-men/primary/",
+        shortSpecs:
+          "Leather upper, 6-inch shaft profile, and rubber outsole tuned for daily city wear.",
+      },
+      reasons: [
+        "Leather upper handles repeat wear and improves with break-in",
+        "Rubber outsole adds grip over wet pavement",
+        "Boot profile anchors transitional layering formulas",
+        "Pairs with wool socks without crowding the fit",
+      ],
+      bestFor: "Men who walk often and need one cold-ground footwear default",
+      notFor: "People who only want ultra-light sneaker comfort",
+    },
+    rationale: {
+      whatMatters:
+        "Outsole traction, upper durability, fit consistency, and daily versatility",
+      whatWeIgnored:
+        "Trend-color drops, novelty soles, and short-lived hype boots",
+      failureModes: [
+        "Thin soles that transmit cold fast",
+        "Uppers that crease and crack early",
+        "Unstable grip on wet concrete",
+      ],
+    },
+    whoThisIsFor:
+      "You want one dependable boot for the cold-to-mild transition months.",
+    whoThisWillAnnoy:
+      "You want minimal-break-in shoes or sneaker-only styling.",
+    tags: ["transitional-weather", "footwear", "men"],
+  },
 ]
 
 // ============================================================
@@ -848,6 +1072,27 @@ export const fieldNotes: FieldNote[] = [
       "Use weight as a decision aid, not a verdict. Pair it with fiber type, weave/knit structure, and intended climate to choose correctly.",
     ],
   },
+  {
+    slug: "between-winter-and-spring-outfits",
+    title: "Transitional Weather Dressing: 38°F to 55°F",
+    published: "2026-02-19",
+    updated: "2026-02-19",
+    excerpt:
+      "Not winter outfits. Not spring outfits. Controlled layers for the in-between band where most wardrobes fail.",
+    category: "style-guide",
+    featured: true,
+    tags: ["transitional-weather", "layering", "women-only", "men"],
+    body: [
+      "People do not need more clothes. They need fewer wrong ones. This is the temperature band where coats overheat, sweaters underperform, and rushed choices cost comfort by noon.",
+      "The rule: warm core, ventilated outer, protected extremities. Build around that and the outfit stops arguing with your day.",
+      "Outer layer first. Pick light structure over heavy insulation: a wool car coat, an unlined trench, a chore coat, or a waxed cotton shell. You are buying breathability plus weather control, not winter survival.",
+      "Neck warmth shifts the whole system. A thin wool scarf, silk scarf under collar, or close rib knit can let the rest of the outfit stay lighter and more balanced.",
+      "Your sweater should be thinner than your instincts. Merino, lambswool, or brushed cotton fleece layer cleanly and regulate better indoors. Thick acrylic knits and bulky cables usually trap heat early, then chill later.",
+      "Footwear decides comfort faster than most people admit. Cold ground drains the whole outfit. For men, leather boots and lugged loafers with wool socks are the reliable default in this range.",
+      "Three formulas we trust: tee + merino sweater + car coat + scarf. Oxford shirt + chore coat + wool socks + boots. Thermal + hoodie + trench + hat.",
+      "Transitional dressing is not aesthetic theater. It is energy management with standards. Pick fewer pieces that hold line, breathe, and stay correct from morning commute to late dinner.",
+    ],
+  },
 ]
 
 export interface TopicCluster {
@@ -887,6 +1132,19 @@ export const topicClusters: TopicCluster[] = [
       "High-trust essentials for demanding seasons: reliable support, less friction, and fewer 3 a.m. surprises.",
     editorialSlugs: ["maternity-bra-no-compromise", "baby-monitor-worth-it"],
     noteSlugs: ["who-this-is-for-who-this-annoys"],
+  },
+  {
+    slug: "transitional-weather-uniforms",
+    title: "Transitional Weather Uniforms",
+    description:
+      "In-between weather structure for 38°F to 55°F: controlled layers, weather-ready outerwear, and footwear that protects comfort.",
+    editorialSlugs: [
+      "car-coat-between-seasons-men",
+      "waxed-jacket-transitional-men",
+      "trench-for-between-seasons-women",
+      "boots-for-cold-ground-men",
+    ],
+    noteSlugs: ["between-winter-and-spring-outfits"],
   },
 ]
 
@@ -955,6 +1213,30 @@ export const goRedirectTargets: GoRedirectTarget[] = [
     pick: "primary",
     label: "eufy Security Video Baby Monitor 720P",
     destinationUrl: "https://www.amazon.com/dp/B07GBP3GH9?tag=greenoamongog-20",
+  },
+  {
+    slug: "car-coat-between-seasons-men",
+    pick: "primary",
+    label: "Cole Haan Men's Button Up Wool Plush Car Coat",
+    destinationUrl: "https://www.amazon.com/dp/B01LYFL7F4?tag=greenoamongog-20",
+  },
+  {
+    slug: "waxed-jacket-transitional-men",
+    pick: "primary",
+    label: "Huckberry Flint and Tinder Waxed Trucker Jacket",
+    destinationUrl: "https://www.amazon.com/dp/B0BVN2XZFL?tag=greenoamongog-20",
+  },
+  {
+    slug: "trench-for-between-seasons-women",
+    pick: "primary",
+    label: "LONDON FOG Women's Single Breasted Long Trench Coat",
+    destinationUrl: "https://www.amazon.com/dp/B082N4KY9W?tag=greenoamongog-20",
+  },
+  {
+    slug: "boots-for-cold-ground-men",
+    pick: "primary",
+    label: "Thursday Boot Company Captain Men's Lace-up Boot",
+    destinationUrl: "https://www.amazon.com/dp/B07PP53522?tag=greenoamongog-20",
   },
 ]
 

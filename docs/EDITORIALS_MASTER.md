@@ -25,6 +25,10 @@ CTA plumbing:
 | `daily-earrings` | The Daily Hoops You Stop Noticing (in the Good Way) | jewelry | minimalist | primary | PAVOI | 14K Gold Plated Lightweight Chunky Open Hoops for Women | `B0C2DJD7M5` | `/go/daily-earrings/primary/` |
 | `maternity-bra-no-compromise` | A Maternity Bra That Doesn’t Feel Like Compromise | maternity | practicalist | primary | Kindred Bravely | French Terry Nursing Bra for Breastfeeding and Sleep, Racerback Crossover | `B0D14GJT7T` | `/go/maternity-bra-no-compromise/primary/` |
 | `baby-monitor-worth-it` | The Baby Monitor I’d Pay For Again | baby | performance-analyst | primary | eufy | Security Video Baby Monitor 720P | `B07GBP3GH9` | `/go/baby-monitor-worth-it/primary/` |
+| `car-coat-between-seasons-men` | A Car Coat for 38°F to 55°F | men | practicalist | primary | Cole Haan | Men's Button Up Wool Plush Car Coat | `B01LYFL7F4` | `/go/car-coat-between-seasons-men/primary/` |
+| `waxed-jacket-transitional-men` | The Waxed Jacket That Handles Bad Weather Without Noise | men | performance-analyst | primary | Huckberry / Flint and Tinder | Men's Flannel-Lined Waxed Trucker Jacket, Water & Weather Resistant | `B0BVN2XZFL` | `/go/waxed-jacket-transitional-men/primary/` |
+| `trench-for-between-seasons-women` | A Trench for the In-Between Months | women | luxury-curator | primary | LONDON FOG | Women's Single Breasted Long Trench Coat with Epaulettes and Belt | `B082N4KY9W` | `/go/trench-for-between-seasons-women/primary/` |
+| `boots-for-cold-ground-men` | Boots for Cold Pavement Days | men | minimalist | primary | Thursday Boot Company | Captain Men's Lace-up Boot | `B07PP53522` | `/go/boots-for-cold-ground-men/primary/` |
 
 ## Field Notes (Non-Product Editorials)
 
@@ -32,6 +36,7 @@ CTA plumbing:
 - `how-to-find-ring-size-with-string`
 - `who-this-is-for-who-this-annoys`
 - `first-date-fit-notes-women`
+- `between-winter-and-spring-outfits`
 
 These publish under:
 - `/notes`
