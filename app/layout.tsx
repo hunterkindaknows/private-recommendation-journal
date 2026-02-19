@@ -4,6 +4,7 @@ import { Cormorant_Garamond, Inter, Dancing_Script } from "next/font/google"
 import "./globals.css"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { LoungeAudio } from "@/components/lounge-audio"
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -78,6 +79,7 @@ export default function RootLayout({
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <LoungeAudio />
       </body>
     </html>
   )
