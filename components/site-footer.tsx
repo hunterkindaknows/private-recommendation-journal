@@ -81,6 +81,38 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
+                  href="/comparisons"
+                  className="text-sm text-muted-foreground editorial-link hover:text-foreground"
+                >
+                  Comparisons
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-to"
+                  className="text-sm text-muted-foreground editorial-link hover:text-foreground"
+                >
+                  How-To
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/glossary"
+                  className="text-sm text-muted-foreground editorial-link hover:text-foreground"
+                >
+                  Glossary
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/use-cases"
+                  className="text-sm text-muted-foreground editorial-link hover:text-foreground"
+                >
+                  Use Cases
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/disclosure"
                   className="text-sm text-muted-foreground editorial-link hover:text-foreground"
                 >

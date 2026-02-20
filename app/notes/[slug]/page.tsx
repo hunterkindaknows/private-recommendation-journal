@@ -2,7 +2,14 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ChevronLeft } from "lucide-react"
-import { fieldNotes, getFieldNoteBySlug } from "@/lib/data"
+import {
+  categoryMeta,
+  fieldNotes,
+  getEditorialByAnySlug,
+  getFieldNoteBySlug,
+  topicClusters,
+  type Category,
+} from "@/lib/data"
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -47,6 +54,30 @@ export default async function NotePage({ params }: Props) {
     notFound()
   }
 
+  const fallbackCategory: Category =
+    note.category === "valentine"
+      ? "women"
+      : note.tags.includes("jewelry")
+        ? "jewelry"
+        : note.tags.includes("nursing") || note.tags.includes("baby")
+          ? "maternity"
+          : "men"
+
+  const resolvedCategory = note.relatedCategory ?? fallbackCategory
+
+  const fallbackTopic =
+    topicClusters.find((cluster) => cluster.noteSlugs.includes(note.slug))?.slug ??
+    topicClusters[0].slug
+
+  const resolvedTopicSlug = note.relatedTopicSlug ?? fallbackTopic
+  const relatedEditorial =
+    (note.relatedEditorialSlug
+      ? getEditorialByAnySlug(note.relatedEditorialSlug)
+      : undefined) ??
+    getEditorialByAnySlug(
+      topicClusters.find((cluster) => cluster.slug === resolvedTopicSlug)?.editorialSlugs[0] ?? ""
+    )
+
   return (
     <div className="mx-auto max-w-3xl px-6">
       <div className="py-6">
@@ -78,6 +109,38 @@ export default async function NotePage({ params }: Props) {
           ))}
         </div>
       </section>
+
+      {(resolvedCategory || resolvedTopicSlug || relatedEditorial) && (
+        <section className="border-t border-border py-8">
+          <h2 className="mb-4 font-serif text-2xl text-foreground">Continue Reading</h2>
+          <div className="flex flex-wrap gap-3">
+            {resolvedCategory && (
+              <Link
+                href={`/${resolvedCategory}`}
+                className="border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent"
+              >
+                Category: {categoryMeta[resolvedCategory].label}
+              </Link>
+            )}
+            {resolvedTopicSlug && (
+              <Link
+                href={`/topics/${resolvedTopicSlug}`}
+                className="border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent"
+              >
+                Topic Cluster
+              </Link>
+            )}
+            {relatedEditorial && (
+              <Link
+                href={`/${relatedEditorial.category}/${relatedEditorial.slug}`}
+                className="border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent"
+              >
+                Related Pick
+              </Link>
+            )}
+          </div>
+        </section>
+      )}
     </div>
   )
 }

@@ -24,6 +24,20 @@ export default function TopicsPage() {
           This is how we organize depth: each cluster links product editorials
           with practical notes so pages are not isolated.
         </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link href="/comparisons" className="border border-border px-4 py-2 text-sm text-foreground hover:border-accent">
+            Comparisons
+          </Link>
+          <Link href="/how-to" className="border border-border px-4 py-2 text-sm text-foreground hover:border-accent">
+            How-To
+          </Link>
+          <Link href="/glossary" className="border border-border px-4 py-2 text-sm text-foreground hover:border-accent">
+            Glossary
+          </Link>
+          <Link href="/use-cases" className="border border-border px-4 py-2 text-sm text-foreground hover:border-accent">
+            Use Cases
+          </Link>
+        </div>
       </header>
 
       <section className="border-t border-border py-10">

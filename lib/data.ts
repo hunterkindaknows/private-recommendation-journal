@@ -1248,6 +1248,9 @@ export interface FieldNote {
   featured?: boolean
   tags: string[]
   body: string[]
+  relatedCategory?: Category
+  relatedTopicSlug?: string
+  relatedEditorialSlug?: string
 }
 
 export const fieldNotes: FieldNote[] = [
@@ -1416,6 +1419,161 @@ export const fieldNotes: FieldNote[] = [
       "Current repeat formulas: tee + merino + car coat + scarf. Oxford + waxed jacket + wool socks + boots. Thermal + hoodie + trench + hat when the wind is rude.",
       "This is the season where discipline beats novelty. I am wearing fewer pieces, more often, and every one has to earn its place by 9 p.m., not just by mirror test at 8 a.m.",
     ],
+    relatedCategory: "women",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "trench-for-between-seasons-women",
+  },
+  {
+    slug: "why-gold-plating-turns-skin-green",
+    title: "Why Gold Plating Turns Skin Green",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    excerpt:
+      "Skin green is usually metal transfer plus moisture chemistry. The fix is wear strategy, not panic.",
+    category: "style-guide",
+    tags: ["jewelry", "plating", "sensitive-skin", "daily-wear"],
+    body: [
+      "Green skin usually means the base metal under plating is reacting with sweat, lotion, or humidity. It does not mean you are allergic to gold itself. It usually means you are wearing thin plating at high-friction points for too long without care breaks.",
+      "Most daily wear failures happen at clasp edges, post friction, and areas where perfume lands first. If you apply scent, sunscreen, or body oil after jewelry, you speed up wear. If you apply first, wait, then wear, you slow it down significantly.",
+      "For sensitive skin, the practical fix is routine: lower moisture exposure, remove before workouts, wipe after wear, and rotate. Do not expect plated pieces to behave like solid metal forever. Plating is a layer, not a promise.",
+      "If a piece keeps staining skin quickly, that is your disqualifier. Keep it for occasional styling and move everyday wear to better plating thickness or solid metal.",
+    ],
+    relatedCategory: "jewelry",
+    relatedTopicSlug: "daily-jewelry-without-regret",
+    relatedEditorialSlug: "daily-earrings",
+  },
+  {
+    slug: "how-to-stop-wool-itch",
+    title: "How to Stop Wool Itch Without Giving Up Warmth",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    excerpt:
+      "Wool itch is usually fiber diameter plus direct skin contact. You can fix both with layering.",
+    category: "style-guide",
+    tags: ["wool", "comfort", "layering", "sensitive-skin"],
+    body: [
+      "Itch is usually not about wool as a category. It is about coarse fibers rubbing high-movement zones like neck, wrist, and underarm. That is why some sweaters feel fine at first and miserable by hour three.",
+      "First fix: put a thin base layer between skin and knit. Lightweight merino-compatible tees or stretch base layers change comfort fast without adding bulk. This is the cheapest upgrade with the biggest payoff.",
+      "Second fix: avoid dry heat overload. Overheated skin gets more reactive, then everything feels scratchier. If you are sweaty indoors then freezing outside, your layering is fighting itself. Lighter core layers reduce both itch and temperature swings.",
+      "If a sweater still irritates with a base layer, stop negotiating with it. Clothing should support your day, not win an endurance contest.",
+    ],
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "grid-base-layer-men-core-warmth",
+  },
+  {
+    slug: "how-to-clean-suede-without-darkening",
+    title: "How to Clean Suede Without Darkening It",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    excerpt:
+      "Water is the main reason suede darkens. Dry method first, controlled moisture only if needed.",
+    category: "style-guide",
+    tags: ["suede", "care", "boots", "maintenance"],
+    body: [
+      "Darkening happens when suede gets over-wet and dries unevenly. Most damage comes from panic-cleaning with too much water. For light dirt, always start dry: suede brush, then suede eraser.",
+      "For spot marks, dampen a clean cloth lightly and blend outward instead of scrubbing the center hard. Then brush when fully dry to lift nap. Hard rubbing flattens texture and creates shiny patches that read old fast.",
+      "Use protector spray before weather hits, not after damage starts. Prevention matters more than rescue. If you wear suede in wet streets, accept that maintenance is part of ownership.",
+      "If you want zero-maintenance footwear, suede is likely the wrong material for your daily route.",
+    ],
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "budget-chukka-men-transitional",
+  },
+  {
+    slug: "sweaty-indoors-freezing-outside-fix",
+    title: "Sweaty Indoors, Freezing Outside: Fix the Layer Stack",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    excerpt:
+      "This is a layering mismatch problem. Adjust base and mid-layer before blaming the coat.",
+    category: "style-guide",
+    tags: ["layering", "temperature-control", "transitional-weather", "comfort"],
+    body: [
+      "If you sweat indoors then freeze outside, your outfit is trapping heat in the wrong layer. Heavy sweaters under heavy coats often overheat quickly, then cold air hits damp fabric and comfort drops fast.",
+      "Start with a breathable base, then a thinner mid-layer, then a ventilated outer shell. This gives you range. It also lets you remove one layer without collapsing the whole outfit.",
+      "Neck and socks matter more than people think. Warm neck plus dry wool socks often outperforms adding one more thick torso layer.",
+      "You do not need ten options. You need one stack that behaves predictably from train platform to office lobby.",
+    ],
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "car-coat-between-seasons-men",
+  },
+  {
+    slug: "thick-thighs-chafe-cold-weather-layers",
+    title: "Thick Thighs, Chafe, and Cold-Weather Layers",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    excerpt:
+      "Chafe in cold weather is usually friction plus trapped moisture. Fabric choice solves most of it.",
+    category: "style-guide",
+    tags: ["chafe", "fit", "women-only", "layering"],
+    body: [
+      "Cold weather chafe is not just a summer issue. Thick thighs plus damp fabric and long walks can create friction fast, especially when base layers ride up under coats.",
+      "Use smoother first layers with stretch recovery and avoid seams on high-rub zones. Then keep outer fabrics from gripping inward layers too aggressively. This is a friction system, not a body problem.",
+      "Wool socks and stable footwear help because gait changes less when feet stay warm and dry. Small shifts in stride reduce repeated thigh rub over distance.",
+      "If a garment needs constant adjustment to prevent chafe, it is not your uniform. Replace it with something your body can trust for a full day.",
+    ],
+    relatedCategory: "women",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "trench-for-between-seasons-women",
+  },
+  {
+    slug: "why-necklines-stretch-after-washing",
+    title: "Why Necklines Stretch After Washing",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    excerpt:
+      "Most stretched necklines come from weak rib knit and heat stress, not one bad wash.",
+    category: "style-guide",
+    tags: ["fabric", "care", "tees", "durability"],
+    body: [
+      "A neckline fails when collar rib and body fabric fight each other. If rib structure is weak, heat plus spin tension opens the shape over time and gives you the tired scoop effect.",
+      "Dryer heat accelerates it, but it usually starts in construction quality. Better-built collars recover after wash cycles; weak collars drift immediately.",
+      "Cold wash and low-heat dry help, but they cannot rescue poor build standards. Treat care as extension, not replacement, of quality.",
+      "If neckline shape matters to you, disqualify weak collars early and move on.",
+    ],
+    relatedCategory: "men",
+    relatedTopicSlug: "minimal-wardrobe-basics",
+    relatedEditorialSlug: "only-black-tee",
+  },
+  {
+    slug: "keep-boots-from-creasing-hard",
+    title: "How to Keep Boots from Creasing Hard at the Toe",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    excerpt:
+      "You cannot stop creases, but you can control how fast they set and how deep they get.",
+    category: "style-guide",
+    tags: ["boots", "leather", "maintenance", "fit"],
+    body: [
+      "Creasing is normal. Hard creasing is usually a fit and moisture problem. If the flex point sits wrong, leather folds sharply in one line instead of distributing stress.",
+      "Use a correct size, rotate wear days, and let boots dry fully between outings. Wet leather plus repeated flexing is the fastest path to deep set-in lines.",
+      "Condition occasionally, not aggressively. Over-conditioning softens structure too much and can worsen shape collapse.",
+      "If you want boots to age cleanly, consistency beats hacks: fit right, dry right, rotate right.",
+    ],
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "boots-for-cold-ground-men",
+  },
+  {
+    slug: "why-trench-belts-twist",
+    title: "Why Trench Belts Twist (and How to Stop It)",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    excerpt:
+      "Twist comes from fabric memory and uneven tension. Set the belt path once, then repeat.",
+    category: "style-guide",
+    tags: ["trench", "fit", "care", "women-only"],
+    body: [
+      "Twisting usually starts when the belt is pulled unevenly through loops and stored knotted. Once fabric sets in that memory, it keeps spiraling and makes the coat look sloppy.",
+      "Thread belt flat through every loop, smooth by hand, and store untied. If needed, light steam plus hand-flattening resets shape without harsh pressing.",
+      "Belt behavior affects the whole silhouette. A clean belt line makes even a simple coat look intentional; a twisted belt makes expensive coats look rushed.",
+      "If the belt fights you every wear, retire it and wear the coat open or swap in a cleaner strap.",
+    ],
+    relatedCategory: "women",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "trench-for-between-seasons-women",
   },
 ]
 
@@ -1475,6 +1633,416 @@ export const topicClusters: TopicCluster[] = [
       "cashmere-set-cold-mornings-women",
     ],
     noteSlugs: ["what-im-wearing-in-between-weather"],
+  },
+]
+
+export interface ComparisonGuide {
+  slug: string
+  title: string
+  published: string
+  updated: string
+  summary: string
+  vs: [string, string]
+  sections: { heading: string; content: string }[]
+  verdict: string
+  relatedCategory: Category
+  relatedTopicSlug: string
+  relatedEditorialSlug: string
+}
+
+export const comparisonGuides: ComparisonGuide[] = [
+  {
+    slug: "merino-vs-cotton-base-layer-45f",
+    title: "Merino vs Cotton Base Layer at 45°F",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary:
+      "At 45°F, moisture handling decides comfort more than headline warmth claims.",
+    vs: ["Merino", "Cotton"],
+    sections: [
+      { heading: "Moisture Behavior", content: "Merino manages moisture swings better when you are sweaty indoors then freezing outside. Cotton can feel fine dry, then cold once damp." },
+      { heading: "Daily Comfort", content: "Cotton often wins on immediate softness and cost. Merino wins on longer wear windows where temperature shifts repeatedly." },
+      { heading: "Who Should Choose What", content: "If your day moves between transit and heated spaces, merino is usually more stable. If your day is short and low-sweat, cotton can be enough." },
+    ],
+    verdict: "For transitional commuting, merino is the safer default for comfort stability.",
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "grid-base-layer-men-core-warmth",
+  },
+  {
+    slug: "gold-vermeil-vs-gold-plated-daily-wear",
+    title: "Gold Vermeil vs Gold-Plated for Daily Wear",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary:
+      "Both are layered gold finishes, but thickness and base metal change how fast wear shows.",
+    vs: ["Gold Vermeil", "Gold-Plated"],
+    sections: [
+      { heading: "Construction Difference", content: "Vermeil typically uses thicker gold over sterling silver. Generic plated pieces vary widely and can wear through faster." },
+      { heading: "Skin and Wear Pattern", content: "High-friction points reveal differences quickly. Sweat, lotion, and friction accelerate wear on both." },
+      { heading: "Buying Decision", content: "For true daily wear, prioritize explicit metal specs, not just color and styling photos." },
+    ],
+    verdict: "If budget allows, choose higher-spec layering; otherwise rotate plated pieces and treat them as finite-lifespan items.",
+    relatedCategory: "jewelry",
+    relatedTopicSlug: "daily-jewelry-without-regret",
+    relatedEditorialSlug: "everyday-chain",
+  },
+  {
+    slug: "waxed-jacket-vs-wool-topcoat-rainy-commute",
+    title: "Waxed Jacket vs Wool Topcoat for Rainy Commutes",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary:
+      "Both can work in transitional weather; rain and movement level decide the winner.",
+    vs: ["Waxed Jacket", "Wool Topcoat"],
+    sections: [
+      { heading: "Weather Control", content: "Waxed shells handle light rain better. Wool topcoats manage dry wind and formal environments better." },
+      { heading: "Indoor Behavior", content: "Topcoats usually breathe better indoors. Heavier waxed builds can feel warmer once inside." },
+      { heading: "Use-Case Fit", content: "Choose waxed for weather volatility and topcoat for office polish when forecast is mostly dry." },
+    ],
+    verdict: "Rain-heavy days favor waxed shells; dry office days favor topcoats.",
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "waxed-jacket-transitional-men",
+  },
+  {
+    slug: "boots-vs-loafers-cold-dry-days",
+    title: "Boots vs Loafers on Cold but Dry Days",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary:
+      "Ground cold and walking distance matter more than style labels.",
+    vs: ["Boots", "Loafers"],
+    sections: [
+      { heading: "Thermal Stability", content: "Boots usually insulate better from cold pavement and support longer walking distances." },
+      { heading: "Visual Line", content: "Loafers create a cleaner, lighter profile for office and dinner contexts." },
+      { heading: "Decision Shortcut", content: "If you walk a lot or weather is uncertain, choose boots. If your route is short and dry, loafers can work with wool socks." },
+    ],
+    verdict: "Use boots for function-first days, loafers for polished short-route days.",
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "boots-for-cold-ground-men",
+  },
+  {
+    slug: "trench-vs-car-coat-40-to-55",
+    title: "Trench vs Car Coat at 40°F to 55°F",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary:
+      "Both are transitional staples; choose by rain exposure and silhouette goal.",
+    vs: ["Trench", "Car Coat"],
+    sections: [
+      { heading: "Fabric and Weather", content: "Trenches with water resistance are better for wet streets. Wool car coats are stronger in dry cool wind." },
+      { heading: "Silhouette", content: "Trench lines are longer and sharper through waist. Car coats are compact and straightforward." },
+      { heading: "Daily Use", content: "Choose trench for polish and rain flexibility, car coat for simple throw-on utility." },
+    ],
+    verdict: "For mixed rain forecasts, trench wins; for dry-cool repeat use, car coat wins.",
+    relatedCategory: "women",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "trench-for-between-seasons-women",
+  },
+  {
+    slug: "cashmere-set-vs-acrylic-knit-accessories",
+    title: "Cashmere Set vs Acrylic Knit Accessories",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary:
+      "This is a comfort consistency decision, not a trend decision.",
+    vs: ["Cashmere", "Acrylic Knit"],
+    sections: [
+      { heading: "Skin Feel", content: "Cashmere generally feels softer and less abrasive in neck zones; acrylic can feel prickly during long wear." },
+      { heading: "Warmth-to-Weight", content: "Cashmere tends to deliver warmth with less bulk, which helps transitional layering." },
+      { heading: "Cost Reality", content: "Acrylic is cheaper upfront. Cashmere can be better value if worn repeatedly and cared for correctly." },
+    ],
+    verdict: "If comfort and repeat wear matter, cashmere usually performs better despite higher upfront cost.",
+    relatedCategory: "women",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "cashmere-set-cold-mornings-women",
+  },
+]
+
+export interface GlossaryEntry {
+  slug: string
+  term: string
+  title: string
+  definition: string
+  whyItMatters: string
+  relatedCategory: Category
+  relatedTopicSlug: string
+  relatedEditorialSlug: string
+}
+
+export const glossaryEntries: GlossaryEntry[] = [
+  {
+    slug: "gsm-meaning",
+    term: "GSM",
+    title: "GSM Meaning in Clothing",
+    definition: "GSM means grams per square meter. It indicates fabric weight, not absolute quality.",
+    whyItMatters: "Higher GSM often means more structure and opacity, but can reduce breathability.",
+    relatedCategory: "men",
+    relatedTopicSlug: "minimal-wardrobe-basics",
+    relatedEditorialSlug: "only-black-tee",
+  },
+  {
+    slug: "full-grain-vs-corrected-grain",
+    term: "Full-Grain vs Corrected-Grain",
+    title: "Full-Grain vs Corrected-Grain Leather",
+    definition: "Full-grain keeps the natural surface; corrected-grain is sanded and finished for a more uniform look.",
+    whyItMatters: "It affects durability, patina behavior, and how leather ages under repeated flex.",
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "boots-for-cold-ground-men",
+  },
+  {
+    slug: "micron-plating-explained",
+    term: "Micron Plating",
+    title: "Micron Plating Explained",
+    definition: "Micron refers to plating thickness. Higher micron values generally indicate thicker gold coating.",
+    whyItMatters: "Thicker plating usually lasts longer under daily friction and moisture exposure.",
+    relatedCategory: "jewelry",
+    relatedTopicSlug: "daily-jewelry-without-regret",
+    relatedEditorialSlug: "everyday-chain",
+  },
+  {
+    slug: "vermeil-meaning",
+    term: "Vermeil",
+    title: "What Vermeil Means",
+    definition: "Vermeil is gold plating over sterling silver with specific thickness standards.",
+    whyItMatters: "It helps buyers separate higher-spec plated jewelry from generic thin plating.",
+    relatedCategory: "jewelry",
+    relatedTopicSlug: "daily-jewelry-without-regret",
+    relatedEditorialSlug: "daily-earrings",
+  },
+  {
+    slug: "waxed-cotton-meaning",
+    term: "Waxed Cotton",
+    title: "Waxed Cotton Meaning",
+    definition: "Waxed cotton is cotton fabric treated with wax to improve water resistance and wind blocking.",
+    whyItMatters: "It performs well in variable weather and can be re-waxed for longer lifespan.",
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "waxed-jacket-transitional-men",
+  },
+  {
+    slug: "last-shape-shoe-fit",
+    term: "Shoe Last",
+    title: "Shoe Last Shape and Fit",
+    definition: "A last is the mold used to shape a shoe. It determines toe room, instep feel, and overall fit profile.",
+    whyItMatters: "Two shoes in the same size can fit very differently because of last shape.",
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "pinch-penny-loafer-cold-dry-days",
+  },
+  {
+    slug: "rib-knit-collar",
+    term: "Rib Knit Collar",
+    title: "Rib Knit Collar Explained",
+    definition: "Rib knit collars use elastic knit structure around neck openings to recover after stretch.",
+    whyItMatters: "Weak rib knit is a top reason t-shirt necklines warp after washing.",
+    relatedCategory: "men",
+    relatedTopicSlug: "minimal-wardrobe-basics",
+    relatedEditorialSlug: "only-black-tee",
+  },
+]
+
+export interface HowToGuideStep {
+  name: string
+  description: string
+}
+
+export interface HowToGuide {
+  slug: string
+  title: string
+  published: string
+  updated: string
+  intro: string
+  supplies: string[]
+  steps: HowToGuideStep[]
+  totalTime: string
+  relatedCategory: Category
+  relatedTopicSlug: string
+  relatedEditorialSlug: string
+}
+
+export const howToGuides: HowToGuide[] = [
+  {
+    slug: "find-ring-size-with-string-howto",
+    title: "How to Find Ring Size with String",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    intro: "A fast at-home method that reduces blind guessing before you buy.",
+    supplies: ["Thin string or paper strip", "Pen", "Ruler with millimeters"],
+    steps: [
+      { name: "Wrap and mark", description: "Wrap string at the finger base and mark overlap point without pulling tight." },
+      { name: "Measure in mm", description: "Lay string flat and measure the marked length in millimeters." },
+      { name: "Check twice", description: "Measure midday and evening, then use the larger number if between sizes." },
+      { name: "Adjust for band width", description: "For wide bands, go up half a size to preserve comfort." },
+    ],
+    totalTime: "10 minutes",
+    relatedCategory: "jewelry",
+    relatedTopicSlug: "daily-jewelry-without-regret",
+    relatedEditorialSlug: "everyday-chain",
+  },
+  {
+    slug: "boot-break-in-without-blisters",
+    title: "How to Break In Boots Without Blisters",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    intro: "Break-in should be progressive, not painful.",
+    supplies: ["Wool socks", "Bandage tape", "Leather conditioner (optional)"],
+    steps: [
+      { name: "Start with short wear windows", description: "Wear boots indoors for 30-60 minutes before full-day use." },
+      { name: "Protect friction zones", description: "Tape heel and toe hot spots before longer walks." },
+      { name: "Rotate wear days", description: "Alternate footwear for the first week so leather can recover shape." },
+      { name: "Condition lightly", description: "Use minimal conditioner after initial wear if leather feels rigid." },
+    ],
+    totalTime: "7 days",
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "boots-for-cold-ground-men",
+  },
+  {
+    slug: "trench-layering-40-to-55",
+    title: "How to Layer a Trench at 40°F to 55°F",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    intro: "Use the trench as weather control, not as your only warmth source.",
+    supplies: ["Light base layer", "Thin knit", "Scarf"],
+    steps: [
+      { name: "Build the core", description: "Start with breathable base plus thin knit for indoor comfort." },
+      { name: "Add trench as shell", description: "Use trench as wind and drizzle barrier, not insulation." },
+      { name: "Stabilize neck warmth", description: "Add scarf when wind picks up instead of adding bulky sweater layers." },
+      { name: "Adjust by hour", description: "Remove or loosen one layer indoors to avoid sweat-chill cycles." },
+    ],
+    totalTime: "5 minutes",
+    relatedCategory: "women",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "trench-for-between-seasons-women",
+  },
+  {
+    slug: "clean-suede-boots-howto",
+    title: "How to Clean Suede Boots Without Darkening",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    intro: "Dry method first, minimal moisture only when required.",
+    supplies: ["Suede brush", "Suede eraser", "Soft cloth"],
+    steps: [
+      { name: "Brush dry dirt", description: "Brush gently in one direction to remove loose dirt and raise nap." },
+      { name: "Use eraser on marks", description: "Rub stains lightly with suede eraser until lifted." },
+      { name: "Spot-clean carefully", description: "Use barely damp cloth for stubborn spots, blending outward." },
+      { name: "Dry and reset nap", description: "Let dry fully, then brush again to restore texture." },
+    ],
+    totalTime: "20 minutes",
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlug: "budget-chukka-men-transitional",
+  },
+]
+
+export interface UseCaseGuide {
+  slug: string
+  title: string
+  published: string
+  updated: string
+  summary: string
+  whoThisIsFor: string
+  whoThisAnnoys: string
+  checklist: string[]
+  relatedCategory: Category
+  relatedTopicSlug: string
+  relatedEditorialSlugs: string[]
+}
+
+export const useCaseGuides: UseCaseGuide[] = [
+  {
+    slug: "minimal-wardrobe-broad-shoulders",
+    title: "Minimal Wardrobe for Broad Shoulders",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary: "Use proportion control and clean structure to avoid boxy layering.",
+    whoThisIsFor: "You want fewer pieces that sit cleanly on broader frames.",
+    whoThisAnnoys: "You prefer oversized trend silhouettes and heavy layering volume.",
+    checklist: [
+      "Prioritize shoulder seams that land exactly at edge, not beyond.",
+      "Choose midweight layers over bulky knits.",
+      "Use longer outerwear lines to balance width.",
+      "Keep footwear grounded to stabilize proportion.",
+    ],
+    relatedCategory: "men",
+    relatedTopicSlug: "minimal-wardrobe-basics",
+    relatedEditorialSlugs: ["only-black-tee", "car-coat-between-seasons-men"],
+  },
+  {
+    slug: "sensitive-skin-jewelry-guide",
+    title: "Sensitive Skin Jewelry Guide",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary: "Filter by metal behavior first, aesthetics second.",
+    whoThisIsFor: "You react to mystery metal and need lower-irritation daily options.",
+    whoThisAnnoys: "You are fine rotating cheap trend jewelry regardless of skin response.",
+    checklist: [
+      "Check metal specs before checkout.",
+      "Avoid fragrance contact before wear.",
+      "Rotate pieces and wipe after use.",
+      "Disqualify items that stain skin quickly.",
+    ],
+    relatedCategory: "jewelry",
+    relatedTopicSlug: "daily-jewelry-without-regret",
+    relatedEditorialSlugs: ["everyday-chain", "daily-earrings"],
+  },
+  {
+    slug: "postpartum-bra-fit-checklist",
+    title: "Postpartum Bra Fit Checklist",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary: "Fit should adapt through feeding cycles without pain or fiddly hardware.",
+    whoThisIsFor: "You need support and fast access at 3 a.m. without discomfort.",
+    whoThisAnnoys: "You prioritize lace aesthetics over comfort and access speed.",
+    checklist: [
+      "Band stays flat without rolling.",
+      "Cup handles size fluctuation across day.",
+      "Clasp works one-handed in low light.",
+      "Fabric stays soft after repeat washes.",
+    ],
+    relatedCategory: "maternity",
+    relatedTopicSlug: "maternity-and-baby-essentials",
+    relatedEditorialSlugs: ["maternity-bra-no-compromise"],
+  },
+  {
+    slug: "commuter-weather-swing-uniform",
+    title: "Commuter Uniform for Weather Swings",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary: "Solve sweaty indoors then freezing outside with stable layer sequencing.",
+    whoThisIsFor: "You move between street cold and overheated interiors daily.",
+    whoThisAnnoys: "You only need one-climate outfits all day.",
+    checklist: [
+      "Breathable base layer first.",
+      "Thin thermal mid-layer, not bulky knit stack.",
+      "Ventilated weather shell.",
+      "Neck warmth and wool socks for control.",
+    ],
+    relatedCategory: "men",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlugs: ["grid-base-layer-men-core-warmth", "waxed-jacket-transitional-men"],
+  },
+  {
+    slug: "thick-thighs-no-chafe-style-checklist",
+    title: "No-Chafe Style Checklist for Thick Thighs",
+    published: "2026-02-20",
+    updated: "2026-02-20",
+    summary: "Reduce friction with fabric and fit strategy instead of constant adjusting.",
+    whoThisIsFor: "You want comfort-led styling with fewer mid-day adjustments.",
+    whoThisAnnoys: "You are fine wearing pieces that require constant fixing.",
+    checklist: [
+      "Use smooth base layers in high-rub zones.",
+      "Avoid seam-heavy inner-thigh construction.",
+      "Prioritize stable stride footwear.",
+      "Disqualify garments that ride up by hour two.",
+    ],
+    relatedCategory: "women",
+    relatedTopicSlug: "transitional-weather-uniforms",
+    relatedEditorialSlugs: ["trench-for-between-seasons-women", "cashmere-set-cold-mornings-women"],
   },
 ]
 
@@ -1624,6 +2192,22 @@ export function getFeaturedFieldNotes(): FieldNote[] {
 
 export function getTopicClusterBySlug(slug: string): TopicCluster | undefined {
   return topicClusters.find((cluster) => cluster.slug === slug)
+}
+
+export function getComparisonGuideBySlug(slug: string): ComparisonGuide | undefined {
+  return comparisonGuides.find((guide) => guide.slug === slug)
+}
+
+export function getGlossaryEntryBySlug(slug: string): GlossaryEntry | undefined {
+  return glossaryEntries.find((entry) => entry.slug === slug)
+}
+
+export function getHowToGuideBySlug(slug: string): HowToGuide | undefined {
+  return howToGuides.find((guide) => guide.slug === slug)
+}
+
+export function getUseCaseGuideBySlug(slug: string): UseCaseGuide | undefined {
+  return useCaseGuides.find((guide) => guide.slug === slug)
 }
 
 export function getEditorialByAnySlug(slug: string): Editorial | undefined {

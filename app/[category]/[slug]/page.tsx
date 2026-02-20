@@ -22,9 +22,39 @@ interface Props {
   params: Promise<{ category: string; slug: string }>
 }
 
+interface FaqItem {
+  question: string
+  answer: string
+}
+
 function toMetaDescription(text: string): string {
   if (text.length <= 155) return text
   return `${text.slice(0, 152).trimEnd()}...`
+}
+
+function buildEditorialFaq(editorial: (typeof editorials)[number]): FaqItem[] {
+  return [
+    {
+      question: `Who is ${editorial.title} for?`,
+      answer: editorial.whoThisIsFor,
+    },
+    {
+      question: "Who should skip this recommendation?",
+      answer: editorial.whoThisWillAnnoy,
+    },
+    {
+      question: "What matters most in this pick?",
+      answer: editorial.rationale.whatMatters,
+    },
+    {
+      question: "What problems does this avoid?",
+      answer: editorial.rationale.failureModes.join(" "),
+    },
+    {
+      question: "What if this item is out of stock?",
+      answer: editorial.outOfStockFallback,
+    },
+  ]
 }
 
 export async function generateStaticParams() {
@@ -77,10 +107,27 @@ export default async function EditorialPage({ params }: Props) {
   const relatedTopics = topicClusters.filter((cluster) =>
     cluster.editorialSlugs.includes(editorial.slug)
   )
+  const faqs = buildEditorialFaq(editorial)
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
   const author = personas[editorial.persona]
 
   return (
     <div className="mx-auto max-w-3xl px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Breadcrumb */}
       <div className="py-6">
         <Link
@@ -304,6 +351,22 @@ export default async function EditorialPage({ params }: Props) {
           writes with a clear filter: {author.optimizes}. This page follows that
           exact standard.
         </p>
+      </section>
+
+      <section className="border-t border-border py-8">
+        <h2 className="mb-5 font-serif text-2xl text-foreground">FAQ</h2>
+        <div className="flex flex-col gap-4">
+          {faqs.map((faq) => (
+            <details key={faq.question} className="border border-border p-4">
+              <summary className="cursor-pointer text-sm font-medium text-foreground">
+                {faq.question}
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {faq.answer}
+              </p>
+            </details>
+          ))}
+        </div>
       </section>
     </div>
   )
