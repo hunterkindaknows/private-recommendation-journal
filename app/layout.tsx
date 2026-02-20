@@ -1,29 +1,8 @@
 import type { Metadata, Viewport } from "next"
-import { Cormorant_Garamond, Inter, Dancing_Script } from "next/font/google"
 
 import "./globals.css"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-
-const serif = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-serif",
-  display: "swap",
-})
-
-const sans = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-})
-
-const script = Dancing_Script({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-script",
-  display: "swap",
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hunterkindaknows.github.io/private-recommendation-journal"),
@@ -73,7 +52,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable} ${script.variable}`}>
+    <html
+      lang="en"
+      style={
+        {
+          "--font-serif":
+            "Cormorant Garamond, Garamond, Baskerville, Palatino, 'Times New Roman', serif",
+          "--font-sans":
+            "Inter, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+          "--font-script":
+            "'Dancing Script', 'Snell Roundhand', 'Brush Script MT', cursive",
+        } as React.CSSProperties
+      }
+    >
       <body className="font-sans antialiased">
         <SiteHeader />
         <main>{children}</main>

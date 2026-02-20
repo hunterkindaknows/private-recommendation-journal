@@ -11,9 +11,6 @@ const nextConfig = {
   },
   assetPrefix: basePath ? `${basePath}/` : undefined,
   basePath,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   }
