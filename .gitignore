@@ -8,5 +8,7 @@ node_modules/
 .next/
 .env*.local
 .DS_Store
+.wrangler/
+worker/analytics/.wrangler/
 pinterest-8fd69.html
 tiktokwoxBdA2kWzdGHLRRNF0MZCIY111UzIlJ.txt
