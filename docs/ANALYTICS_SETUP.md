@@ -10,7 +10,7 @@ Your home IP/network is never part of that path.
 
 ## What was added in this repo
 
-- Site tracker: `public/tracker.js`
+- Site tracker: `public/pulse.js`
 - Sitewide loader: `app/layout.tsx`
 - Worker collector code: `worker/analytics/src/index.ts`
 - D1 schema: `worker/analytics/schema.sql`

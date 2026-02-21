@@ -1,6 +1,8 @@
 (() => {
   const script = document.currentScript
-  const endpoint = script?.dataset?.analyticsEndpoint?.trim()
+  const fallbackEndpoint =
+    "https://penpal-analytics-collector.penpaleditanalytics.workers.dev/collect"
+  const endpoint = script?.dataset?.endpoint?.trim() || fallbackEndpoint
   if (!endpoint) return
 
   const storageKey = "penpal_analytics_sid"

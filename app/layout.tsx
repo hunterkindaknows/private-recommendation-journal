@@ -73,10 +73,10 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased">
         <Script
-          id="analytics-tracker"
+          id="site-pulse"
           strategy="afterInteractive"
-          src={`${basePath}/tracker.js`}
-          data-analytics-endpoint={analyticsEndpoint}
+          src={`${basePath}/pulse.js`}
+          data-endpoint={analyticsEndpoint}
         />
         <SiteHeader />
         <main>{children}</main>
