@@ -33,6 +33,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_ACTIONS: "true"
+          NEXT_PUBLIC_ANALYTICS_ENDPOINT: ${{ vars.NEXT_PUBLIC_ANALYTICS_ENDPOINT }}
 
       - name: Generate sitemap from exported pages
         run: npm run sitemap:generate

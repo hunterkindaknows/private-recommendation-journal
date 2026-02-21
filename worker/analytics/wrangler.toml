@@ -1,0 +1,11 @@
+name = "penpal-analytics-collector"
+main = "src/index.ts"
+compatibility_date = "2026-02-21"
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "ANALYTICS_DB"
+database_name = "penpal-analytics"
+database_id = "21c44be2-6321-4574-a5ef-769eb15ada4f"

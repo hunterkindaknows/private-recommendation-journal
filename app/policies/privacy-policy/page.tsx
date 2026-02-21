@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
           Privacy Policy
         </h1>
         <p className="mt-3 text-sm text-muted-foreground">
-          Last updated: February 17, 2026
+          Last updated: February 21, 2026
         </p>
       </header>
 
@@ -45,9 +45,12 @@ export default function PrivacyPolicyPage() {
           <h2 className="font-serif text-2xl text-foreground">Information We Collect</h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             We may collect limited technical data such as browser type, device
-            information, referral source, and page interaction metrics through
-            standard analytics tools. We do not intentionally collect sensitive
-            personal information through this site.
+            information, referral source, page interaction metrics, and
+            approximate country through our first-party analytics collector. We
+            hash network identifiers for deduplication and abuse prevention, and
+            do not store raw IP addresses in analytics records. We do not
+            intentionally collect sensitive personal information through this
+            site.
           </p>
 
           <h2 className="font-serif text-2xl text-foreground">Affiliate Links</h2>
@@ -67,8 +70,9 @@ export default function PrivacyPolicyPage() {
           <h2 className="font-serif text-2xl text-foreground">Third-Party Services</h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             We may use third-party providers (for example: analytics platforms,
-            affiliate platforms, and hosting providers). These services may
-            process data according to their own terms and policies.
+            edge infrastructure, affiliate platforms, and hosting providers).
+            These services may process data according to their own terms and
+            policies.
           </p>
 
           <h2 className="font-serif text-2xl text-foreground">Data Retention</h2>

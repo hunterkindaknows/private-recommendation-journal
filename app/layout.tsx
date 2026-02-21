@@ -1,8 +1,14 @@
 import type { Metadata, Viewport } from "next"
+import Script from "next/script"
 
 import "./globals.css"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+
+const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? ""
+const isGithubActions = process.env.GITHUB_ACTIONS === "true"
+const basePath = isGithubActions && repoName ? `/${repoName}` : ""
+const analyticsEndpoint = process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT ?? ""
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hunterkindaknows.github.io/private-recommendation-journal"),
@@ -66,6 +72,12 @@ export default function RootLayout({
       }
     >
       <body className="font-sans antialiased">
+        <Script
+          id="analytics-tracker"
+          strategy="afterInteractive"
+          src={`${basePath}/tracker.js`}
+          data-analytics-endpoint={analyticsEndpoint}
+        />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
