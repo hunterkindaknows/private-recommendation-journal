@@ -33,6 +33,10 @@ export default {
       return json({ ok: true }, 200, corsHeaders)
     }
 
+    if (request.method === "GET" && url.pathname === "/favicon.ico") {
+      return new Response(null, { status: 204, headers: corsHeaders })
+    }
+
     if (request.method === "POST" && url.pathname === "/collect") {
       try {
         const payload = (await request.json()) as CollectPayload
@@ -155,6 +159,7 @@ function buildCorsHeaders(origin: string, siteOrigin: string): Headers {
   const headers = new Headers()
   if (origin === siteOrigin) {
     headers.set("Access-Control-Allow-Origin", origin)
+    headers.set("Access-Control-Allow-Credentials", "true")
     headers.set("Vary", "Origin")
   }
   headers.set("Access-Control-Allow-Methods", "GET,POST,OPTIONS")

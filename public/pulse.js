@@ -43,6 +43,7 @@
       body,
       keepalive: true,
       mode: "cors",
+      credentials: "omit",
     }).catch(() => {})
   }
 
