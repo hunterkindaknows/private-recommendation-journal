@@ -10,40 +10,40 @@
 
 @layer base {
   :root {
-    /* Stonebay cold slate palette */
-    --background: 214 12% 12%; /* #1A1D21 */
-    --foreground: 0 0% 95%; /* #F2F2F2 */
-    --card: 210 9% 18%; /* #2B2F33 */
-    --card-foreground: 0 0% 95%;
-    --popover: 210 9% 18%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 205 36% 45%; /* #4A7B9D */
-    --primary-foreground: 0 0% 95%;
-    --secondary: 213 8% 27%; /* #3F444A */
-    --secondary-foreground: 0 0% 95%;
-    --muted: 213 8% 23%;
-    --muted-foreground: 210 6% 64%; /* #9CA2A8 */
-    --accent: 205 36% 45%;
-    --accent-foreground: 0 0% 95%;
+    /* Stonebay cool-mineral palette */
+    --background: 210 18% 96%;
+    --foreground: 215 24% 12%;
+    --card: 210 20% 99%;
+    --card-foreground: 215 24% 12%;
+    --popover: 210 20% 99%;
+    --popover-foreground: 215 24% 12%;
+    --primary: 215 24% 14%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 212 16% 91%;
+    --secondary-foreground: 215 20% 20%;
+    --muted: 212 14% 93%;
+    --muted-foreground: 216 10% 40%;
+    --accent: 202 44% 42%;
+    --accent-foreground: 210 30% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 213 8% 27%; /* #3F444A */
-    --input: 213 8% 27%;
-    --ring: 205 36% 45%;
-    --chart-1: 205 36% 45%;
-    --chart-2: 205 22% 56%;
-    --chart-3: 210 6% 64%;
-    --chart-4: 216 3% 43%; /* #6B6E72 */
-    --chart-5: 0 50% 49%; /* #BF3D3D */
+    --border: 214 16% 82%;
+    --input: 214 16% 82%;
+    --ring: 202 44% 42%;
+    --chart-1: 202 44% 42%;
+    --chart-2: 205 30% 54%;
+    --chart-3: 215 20% 26%;
+    --chart-4: 210 16% 65%;
+    --chart-5: 220 12% 52%;
     --radius: 0.25rem;
-    --sidebar-background: 214 12% 12%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 205 36% 45%;
-    --sidebar-primary-foreground: 0 0% 95%;
-    --sidebar-accent: 210 9% 18%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 213 8% 27%;
-    --sidebar-ring: 205 36% 45%;
+    --sidebar-background: 210 18% 98%;
+    --sidebar-foreground: 215 20% 20%;
+    --sidebar-primary: 215 24% 14%;
+    --sidebar-primary-foreground: 210 20% 98%;
+    --sidebar-accent: 212 16% 91%;
+    --sidebar-accent-foreground: 215 24% 12%;
+    --sidebar-border: 214 16% 82%;
+    --sidebar-ring: 202 44% 42%;
   }
 }
 
@@ -57,20 +57,11 @@
     line-height: 1.55;
     text-rendering: geometricPrecision;
   }
-
-  a {
-    color: hsl(var(--accent));
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: hsl(var(--foreground));
-  }
 }
 
-/* Keep legacy class name but avoid playful typography */
+/* Script accent utility kept for legacy components */
 .font-script {
-  font-family: var(--font-sans);
+  font-family: var(--font-script);
   font-style: normal;
 }
 
@@ -94,11 +85,6 @@
 
 /* Persona tag styling */
 .persona-badge {
-  display: inline-block;
-  padding: 0.2rem 0.45rem;
-  border: 1px solid hsl(var(--border));
-  background: hsl(var(--secondary));
-  color: hsl(var(--muted-foreground));
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-size: 0.64rem;
