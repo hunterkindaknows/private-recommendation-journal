@@ -123,13 +123,13 @@ export default async function EditorialPage({ params }: Props) {
   const author = personas[editorial.persona]
 
   return (
-    <div className="mx-auto max-w-3xl px-6">
+    <div className="mx-auto max-w-4xl px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      {/* Breadcrumb */}
-      <div className="py-6">
+
+      <div className="py-8">
         <Link
           href={`/${cat}`}
           className="inline-flex items-center gap-1 text-sm text-muted-foreground editorial-link hover:text-foreground"
@@ -139,126 +139,83 @@ export default async function EditorialPage({ params }: Props) {
         </Link>
       </div>
 
-      {/* Header */}
-      <header className="pb-8">
-        <div className="mb-4">
+      <header className="border border-border bg-card px-8 py-10 md:px-10 md:py-12">
+        <div className="mb-5">
           <PersonaTag persona={editorial.persona} />
         </div>
-        <h1 className="font-serif text-3xl font-light leading-tight text-foreground md:text-5xl">
+        <h1 className="max-w-3xl font-serif text-4xl font-light leading-tight text-foreground md:text-6xl">
           {editorial.title}
         </h1>
-        <p className="mt-2 text-xs text-muted-foreground">
-          Published {editorial.published} &middot; Updated{" "}
-          {editorial.updated}
+        <p className="mt-3 text-xs tracking-wide text-muted-foreground">
+          Published {editorial.published} · Updated {editorial.updated}
         </p>
       </header>
 
-      {/* Premise */}
-      <section className="border-t border-border py-8">
-        <p className="text-base leading-relaxed text-foreground md:text-lg">
+      <section className="border-x border-b border-border bg-card px-8 py-8 md:px-10">
+        <p className="max-w-3xl text-base leading-relaxed text-foreground md:text-lg">
           {editorial.premise}
         </p>
       </section>
 
-      {/* Primary Pick */}
       <PrimaryPickBlock pick={editorial.primaryPick} />
 
-      {/* Rationale */}
-      <section className="py-8">
-        <h2 className="mb-6 font-serif text-2xl text-foreground">
-          What Matters Here
-        </h2>
-        <p className="text-sm leading-relaxed text-foreground">
-          {editorial.rationale.whatMatters}
-        </p>
+      <section className="border border-border bg-card p-8 md:p-10">
+        <h2 className="mb-6 font-serif text-3xl text-foreground">What matters here</h2>
+        <p className="text-sm leading-relaxed text-foreground">{editorial.rationale.whatMatters}</p>
 
-        <h3 className="mb-3 mt-8 font-serif text-xl text-foreground">
-          What We Ignored
-        </h3>
+        <h3 className="mb-3 mt-10 font-serif text-xl text-foreground">What we ignored</h3>
         <p className="text-sm leading-relaxed text-muted-foreground">
           {editorial.rationale.whatWeIgnored}
         </p>
 
-        <h3 className="mb-3 mt-8 font-serif text-xl text-foreground">
-          Failure Modes
-        </h3>
-        <ul className="flex flex-col gap-2">
+        <h3 className="mb-3 mt-10 font-serif text-xl text-foreground">Failure modes</h3>
+        <ul className="flex flex-col gap-3">
           {editorial.rationale.failureModes.map((mode, i) => (
-            <li
-              key={i}
-              className="border-l-2 border-border pl-4 text-sm text-muted-foreground"
-            >
+            <li key={i} className="border-l border-border pl-4 text-sm text-muted-foreground">
               {mode}
             </li>
           ))}
         </ul>
 
-        <h3 className="mb-3 mt-8 font-serif text-xl text-foreground">
-          Why This, Not The Popular One
-        </h3>
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          {editorial.whyThisNotPopular}
-        </p>
+        <h3 className="mb-3 mt-10 font-serif text-xl text-foreground">Why this, not the popular one</h3>
+        <p className="text-sm leading-relaxed text-muted-foreground">{editorial.whyThisNotPopular}</p>
       </section>
 
-      <section className="border-t border-border py-8">
-        <h2 className="mb-6 font-serif text-2xl text-foreground">
-          Fit Check
-        </h2>
-        <div className="grid gap-4 md:grid-cols-2">
+      <section className="mt-10 border border-border bg-card p-8 md:p-10">
+        <h2 className="mb-6 font-serif text-3xl text-foreground">Fit check</h2>
+        <div className="grid gap-5 md:grid-cols-2">
           <div className="border-l-2 border-accent pl-4">
-            <span className="persona-badge text-muted-foreground">
-              Who this is for
-            </span>
-            <p className="mt-1 text-sm text-foreground">{editorial.whoThisIsFor}</p>
+            <span className="persona-badge text-muted-foreground">Who this is for</span>
+            <p className="mt-2 text-sm text-foreground">{editorial.whoThisIsFor}</p>
           </div>
-          <div className="border-l-2 border-border pl-4">
-            <span className="persona-badge text-muted-foreground">
-              Who this will annoy
-            </span>
-            <p className="mt-1 text-sm text-muted-foreground">
-              {editorial.whoThisWillAnnoy}
-            </p>
+          <div className="border-l border-border pl-4">
+            <span className="persona-badge text-muted-foreground">Who this will annoy</span>
+            <p className="mt-2 text-sm text-muted-foreground">{editorial.whoThisWillAnnoy}</p>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-border py-8">
-        <h2 className="mb-6 font-serif text-2xl text-foreground">
-          Material and Build Notes
-        </h2>
+      <section className="mt-10 border border-border bg-card p-8 md:p-10">
+        <h2 className="mb-6 font-serif text-3xl text-foreground">Material and build notes</h2>
         <p className="text-sm leading-relaxed text-foreground">
           {editorial.primaryPick.product.shortSpecs ??
             "Material and construction notes are based on listed specs, wear behavior, and repeat-use fit stability."}
         </p>
       </section>
 
-      {/* Secondary Pick */}
-      {editorial.secondaryPick && (
-        <SecondaryPickBlock pick={editorial.secondaryPick} />
-      )}
+      {editorial.secondaryPick && <SecondaryPickBlock pick={editorial.secondaryPick} />}
 
-      {/* Rejected Alternatives */}
       {editorial.rejected && editorial.rejected.length > 0 && (
-        <section className="py-8">
+        <section className="mt-10 border border-border bg-card p-8 md:p-10">
           <details className="group">
             <summary className="cursor-pointer font-serif text-lg text-foreground">
-              <span className="ml-1">
-                Alternatives We Rejected
-              </span>
+              Alternatives we rejected
             </summary>
-            <div className="mt-4 flex flex-col gap-4">
+            <div className="mt-5 flex flex-col gap-4">
               {editorial.rejected.map((item, i) => (
-                <div
-                  key={i}
-                  className="border-l-2 border-border pl-4"
-                >
-                  <p className="text-sm font-medium text-foreground">
-                    {item.name}
-                  </p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {item.whyRejected}
-                  </p>
+                <div key={i} className="border-l border-border pl-4">
+                  <p className="text-sm font-medium text-foreground">{item.name}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.whyRejected}</p>
                 </div>
               ))}
             </div>
@@ -266,33 +223,25 @@ export default async function EditorialPage({ params }: Props) {
         </section>
       )}
 
-      {/* Penpal sign-off */}
-      <section className="border-t border-border py-8">
-        <p className="font-script text-lg text-accent">
+      <section className="mt-10 border border-border bg-card p-8 md:p-10">
+        <p className="text-sm text-muted-foreground">
           Written by{" "}
-          <Link
-            href={`/editor/${editorial.persona}`}
-            className="gold-underline text-foreground"
-          >
+          <Link href={`/editor/${editorial.persona}`} className="gold-underline text-foreground">
             {editorial.persona === "minimalist" && "The Minimalist"}
-            {editorial.persona === "performance-analyst" &&
-              "The Performance Analyst"}
+            {editorial.persona === "performance-analyst" && "The Performance Analyst"}
             {editorial.persona === "luxury-curator" && "The Luxury Curator"}
             {editorial.persona === "practicalist" && "The Practicalist"}
           </Link>
         </p>
       </section>
 
-      {/* Disclosure */}
       <DisclosureStrip updatedDate={editorial.lastReviewedDate} />
       <section className="pb-10 pt-2">
-        <p className="text-xs text-muted-foreground">
-          Out-of-stock fallback: {editorial.outOfStockFallback}
-        </p>
+        <p className="text-xs text-muted-foreground">Out-of-stock fallback: {editorial.outOfStockFallback}</p>
       </section>
 
-      <section className="border-t border-border py-8">
-        <h2 className="mb-5 font-serif text-2xl text-foreground">Related Reading</h2>
+      <section className="border border-border bg-card p-8 md:p-10">
+        <h2 className="mb-6 font-serif text-3xl text-foreground">Related reading</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {relatedEditorials.map((item) => (
             <Link
@@ -315,19 +264,18 @@ export default async function EditorialPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="border-t border-border py-8">
-        <h2 className="mb-5 font-serif text-2xl text-foreground">How We Choose</h2>
+      <section className="mt-10 border border-border bg-card p-8 md:p-10">
+        <h2 className="mb-5 font-serif text-3xl text-foreground">How we choose</h2>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          We limit recommendations by design: one primary pick, one contrast
-          pick only when needed, and explicit disqualifiers. We publish slower
-          than typical affiliate blogs so each page can stay opinionated and
-          specific.
+          We limit recommendations by design: one primary pick, one contrast pick only when
+          needed, and explicit disqualifiers. We publish slower than typical affiliate blogs so
+          each page can stay opinionated and specific.
         </p>
       </section>
 
       {relatedTopics.length > 0 && (
-        <section className="border-t border-border py-8">
-          <h2 className="mb-5 font-serif text-2xl text-foreground">Topic Clusters</h2>
+        <section className="mt-10 border border-border bg-card p-8 md:p-10">
+          <h2 className="mb-5 font-serif text-3xl text-foreground">Topic clusters</h2>
           <div className="flex flex-wrap gap-3">
             {relatedTopics.map((cluster) => (
               <Link
@@ -342,28 +290,25 @@ export default async function EditorialPage({ params }: Props) {
         </section>
       )}
 
-      <section className="border-t border-border py-8">
-        <h2 className="mb-5 font-serif text-2xl text-foreground">About the Editor</h2>
+      <section className="my-10 border border-border bg-card p-8 md:p-10">
+        <h2 className="mb-5 font-serif text-3xl text-foreground">About the editor</h2>
         <p className="text-sm leading-relaxed text-muted-foreground">
           <Link href={`/editor/${author.slug}`} className="gold-underline text-foreground">
             {author.name}
           </Link>{" "}
-          writes with a clear filter: {author.optimizes}. This page follows that
-          exact standard.
+          writes with a clear filter: {author.optimizes}. This page follows that exact standard.
         </p>
       </section>
 
-      <section className="border-t border-border py-8">
-        <h2 className="mb-5 font-serif text-2xl text-foreground">FAQ</h2>
+      <section className="mb-20 border border-border bg-card p-8 md:p-10">
+        <h2 className="mb-5 font-serif text-3xl text-foreground">FAQ</h2>
         <div className="flex flex-col gap-4">
           {faqs.map((faq) => (
             <details key={faq.question} className="border border-border p-4">
               <summary className="cursor-pointer text-sm font-medium text-foreground">
                 {faq.question}
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {faq.answer}
-              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
             </details>
           ))}
         </div>

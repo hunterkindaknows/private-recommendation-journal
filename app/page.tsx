@@ -12,14 +12,14 @@ import {
 } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Decisive Product Picks for Women | The Penpal Edit",
+  title: "Decisive Editorial Picks for Women | Stonebay Journal",
   description:
     "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Decisive Product Picks for Women | The Penpal Edit",
+    title: "Decisive Editorial Picks for Women | Stonebay Journal",
     description:
       "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
     url: "/",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Decisive Product Picks for Women | The Penpal Edit",
+    title: "Decisive Editorial Picks for Women | Stonebay Journal",
     description:
       "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
   },
@@ -42,106 +42,82 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6">
-      {/* ============== HERO ============== */}
-      <section className="py-20 md:py-32">
-        <div className="editorial-prose">
-          <p className="font-script text-lg text-accent">
-            A private recommendation journal
-          </p>
-          <h1 className="mt-4 font-serif text-5xl font-light leading-tight text-foreground md:text-7xl">
-            We choose the one worth buying.
-            <br />
-            <span className="italic">You skip the overwhelm.</span>
+      <section className="py-20 md:py-28">
+        <div className="border border-border bg-card p-8 md:p-12">
+          <span className="persona-badge text-accent">Stonebay Field Desk</span>
+          <h1 className="mt-4 max-w-4xl font-serif text-5xl font-light leading-[1.05] text-foreground md:text-7xl">
+            Cold clarity for women who want one strong decision.
           </h1>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            This site is for women who want clear recommendations with a point
-            of view. One primary pick per page, practical disqualifiers, and
-            zero catalog noise.
+          <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            We publish recommendation pages with tight filters, explicit tradeoffs,
+            and a clear point of view. No catalog sprawl. No trend fog.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {primaryCta && (
               <Link
                 href={`/${primaryCta.category}/${primaryCta.slug}`}
-                className="inline-flex items-center gap-2 border border-foreground bg-foreground px-5 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 border border-foreground bg-foreground px-5 py-3 text-sm text-primary-foreground transition-colors hover:bg-secondary hover:text-foreground"
               >
-                Read this week's pick
+                Read this week&apos;s pick
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             )}
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-foreground transition-colors hover:border-accent"
+              className="inline-flex items-center gap-2 border border-border bg-background px-5 py-3 text-sm text-foreground transition-colors hover:border-accent"
             >
-              Learn our philosophy
+              Why this exists
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
             <Link
               href="/archive"
-              className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-foreground transition-colors hover:border-accent"
+              className="inline-flex items-center gap-2 border border-border bg-background px-5 py-3 text-sm text-foreground transition-colors hover:border-accent"
             >
-              See last month&apos;s picks
+              Browse past picks
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ============== HOW TO USE THIS SITE ============== */}
       <section className="border-t border-border py-16 md:py-20">
         <div className="mb-10">
-          <span className="persona-badge text-accent">How It Works</span>
+          <span className="persona-badge text-accent">Orientation</span>
           <h2 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">
-            Fast orientation, then action
+            How to use Stonebay fast
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
-          <article className="border border-border p-6">
-            <h3 className="font-serif text-xl text-foreground">1. Pick a lane</h3>
+          <article className="border border-border bg-card p-6">
+            <h3 className="font-serif text-xl text-foreground">1. Start with your friction</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Start with category, archive, or notes depending on whether you
-              want a product decision or guidance.
+              Choose category for direct decisions, or notes for practical guidance
+              when you are not ready to buy.
             </p>
           </article>
-          <article className="border border-border p-6">
-            <h3 className="font-serif text-xl text-foreground">2. Read the filter</h3>
+          <article className="border border-border bg-card p-6">
+            <h3 className="font-serif text-xl text-foreground">2. Read the disqualifier</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Every editorial states who the recommendation is for and who it
-              will annoy. That is the decision shortcut.
+              Every page states who the pick is for and who should skip it. That
+              is where indecision disappears.
             </p>
           </article>
-          <article className="border border-border p-6">
-            <h3 className="font-serif text-xl text-foreground">3. Take the next step</h3>
+          <article className="border border-border bg-card p-6">
+            <h3 className="font-serif text-xl text-foreground">3. Take one next step</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Buy the pick, save it for later, or move to a supporting note.
-              Every page should move you forward.
+              Buy now, save for later, or jump to supporting notes. Each page is
+              built to move you forward.
             </p>
           </article>
-        </div>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/who-this-is-for/"
-            className="inline-flex items-center gap-2 border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent"
-          >
-            Who this is for
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-          <Link
-            href="/editorial-philosophy/"
-            className="inline-flex items-center gap-2 border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent"
-          >
-            Editorial philosophy
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
         </div>
       </section>
 
-      {/* ============== MONTHLY FIELD NOTES ============== */}
       <section className="border-t border-border py-16 md:py-20">
         <div className="mb-10 flex items-end justify-between">
           <div>
-            <span className="persona-badge text-accent">Field Notes</span>
+            <span className="persona-badge text-accent">Monthly Desk</span>
             <h2 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">
-              February 2026 Picks
+              February 2026 picks
             </h2>
           </div>
           <Link
@@ -155,45 +131,35 @@ export default function HomePage() {
 
         <div className="grid gap-10 md:grid-cols-3">
           {monthly.map((editorial) => (
-            <EditorialCard
-              key={editorial.slug}
-              editorial={editorial}
-              showCategory
-            />
+            <EditorialCard key={editorial.slug} editorial={editorial} showCategory />
           ))}
         </div>
       </section>
 
-      {/* ============== FEATURED EDITORIALS ============== */}
       <section className="border-t border-border py-16 md:py-20">
         <div className="mb-10">
-          <span className="persona-badge text-accent">Featured</span>
+          <span className="persona-badge text-accent">Core Reads</span>
           <h2 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">
-            Editorials We Stand Behind
+            Editorials we can defend line by line
           </h2>
         </div>
 
         <div className="flex flex-col gap-10">
           {featured.map((editorial) => (
-            <EditorialCard
-              key={editorial.slug}
-              editorial={editorial}
-              showCategory
-            />
+            <EditorialCard key={editorial.slug} editorial={editorial} showCategory />
           ))}
         </div>
       </section>
 
-      {/* ============== FIELD NOTES ============== */}
       <section className="border-t border-border py-16 md:py-20">
         <div className="mb-10 flex items-end justify-between">
           <div>
             <span className="persona-badge text-accent">Field Notes</span>
             <h2 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">
-              Galentine and Practical Notes
+              Utility notes and buyer clarity
             </h2>
             <p className="mt-3 text-sm text-muted-foreground">
-              Women-first perspective, practical clarity, no performative fluff.
+              Practical guidance with the same editorial filter as product pages.
             </p>
           </div>
           <Link
@@ -210,15 +176,11 @@ export default function HomePage() {
             <Link
               key={note.slug}
               href={`/notes/${note.slug}`}
-              className="group border border-border p-6 transition-colors hover:border-accent"
+              className="group border border-border bg-card p-6 transition-colors hover:border-accent"
             >
               <span className="persona-badge text-accent">{note.category}</span>
-              <h3 className="mt-3 font-serif text-xl text-foreground">
-                {note.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {note.excerpt}
-              </p>
+              <h3 className="mt-3 font-serif text-xl text-foreground">{note.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{note.excerpt}</p>
               <span className="mt-5 inline-flex items-center gap-1 text-sm text-foreground editorial-link">
                 Read note
                 <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
@@ -228,15 +190,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============== UNIVERSAL PICKS ============== */}
       <section className="border-t border-border py-16 md:py-20">
         <div className="mb-10">
           <span className="persona-badge text-accent">Always Valid</span>
-          <h2 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">
-            Universal Picks
-          </h2>
+          <h2 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">Universal picks</h2>
           <p className="mt-3 text-sm text-muted-foreground">
-            Our default recommendations. Rarely changed.
+            Stable defaults we revisit often and change rarely.
           </p>
         </div>
 
@@ -245,15 +204,11 @@ export default function HomePage() {
             <Link
               key={pick.slug}
               href={`/${pick.category}/${pick.slug}`}
-              className="group flex items-start justify-between border border-border p-6 transition-colors hover:border-accent"
+              className="group flex items-start justify-between border border-border bg-card p-6 transition-colors hover:border-accent"
             >
               <div>
-                <h3 className="font-serif text-lg text-foreground">
-                  {pick.title}
-                </h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  {pick.oneLiner}
-                </p>
+                <h3 className="font-serif text-lg text-foreground">{pick.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{pick.oneLiner}</p>
               </div>
               <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-accent" />
             </Link>
@@ -261,16 +216,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============== MEET THE PENPALS ============== */}
       <section className="border-t border-border py-16 md:py-20">
         <div className="mb-10">
-          <span className="persona-badge text-accent">Our Voices</span>
+          <span className="persona-badge text-accent">Editorial Desk</span>
           <h2 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">
-            Meet the Penpals
+            Four editors, distinct filters
           </h2>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Four editors, four philosophies. Same commitment to one great pick.
-          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -280,26 +231,22 @@ export default function HomePage() {
               <Link
                 key={slug}
                 href={`/editor/${slug}`}
-                className="group border border-border p-8 transition-colors hover:border-accent"
+                className="group border border-border bg-card p-8 transition-colors hover:border-accent"
               >
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-foreground font-serif text-lg text-primary-foreground">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-secondary font-serif text-lg text-foreground">
                     {p.avatarInitial}
                   </div>
                   <div>
-                    <h3 className="font-serif text-xl text-foreground">
-                      {p.name}
-                    </h3>
-                    <p className="font-script text-sm text-accent">
-                      {p.tagline}
-                    </p>
+                    <h3 className="font-serif text-xl text-foreground">{p.name}</h3>
+                    <p className="persona-badge mt-1 text-muted-foreground">{p.tagline}</p>
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                   {p.bio.slice(0, 150)}...
                 </p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm text-foreground editorial-link">
-                  <span className="font-serif italic">Read about me</span>
+                  Read editor profile
                   <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
                 </span>
               </Link>
