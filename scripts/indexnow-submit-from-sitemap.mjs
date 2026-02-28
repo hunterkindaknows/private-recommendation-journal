@@ -1,10 +1,11 @@
 import { readFile } from "node:fs/promises"
 import path from "node:path"
 
-const key = "3949bc9bea5d4b259ba678a1ef0b0327"
-const host = "hunterkindaknows.github.io"
+const key = process.env.INDEXNOW_KEY ?? "3949bc9bea5d4b259ba678a1ef0b0327"
+const host = process.env.INDEXNOW_HOST ?? "hunterkindaknows.github.io"
 const keyLocation =
-  "https://hunterkindaknows.github.io/private-recommendation-journal/3949bc9bea5d4b259ba678a1ef0b0327.txt"
+  process.env.INDEXNOW_KEY_LOCATION ??
+  `https://hunterkindaknows.github.io/private-recommendation-journal/${key}.txt`
 
 function extractUrlsFromSitemap(xml) {
   const urls = []
