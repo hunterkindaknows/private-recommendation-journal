@@ -21,7 +21,7 @@ export function SiteFooter() {
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Decisive picks. Minimal noise.
-              <br />A private recommendation journal.
+              <br />A recommendation journal.
             </p>
           </div>
 

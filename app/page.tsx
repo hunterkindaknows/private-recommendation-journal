@@ -46,7 +46,7 @@ export default function HomePage() {
       <section className="py-20 md:py-32">
         <div className="editorial-prose">
           <p className="font-script text-lg text-accent">
-            A private recommendation journal
+            A recommendation journal
           </p>
           <h1 className="mt-4 font-serif text-5xl font-light leading-tight text-foreground md:text-7xl">
             We choose the one worth buying.
