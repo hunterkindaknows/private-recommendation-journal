@@ -4,11 +4,24 @@ import { ArrowRight } from "lucide-react"
 import { topicClusters } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Topic Clusters and Buying Guides",
+  title: "Topic Clusters and Buying Guides | Stonebay Journal",
   description:
     "Explore topical authority clusters that connect product editorials with practical supporting notes.",
   alternates: {
     canonical: "/topics/",
+  },
+  openGraph: {
+    title: "Topic Clusters and Buying Guides | Stonebay Journal",
+    description:
+      "Explore topical clusters that connect recommendation editorials with practical notes.",
+    url: "/topics/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Topic Clusters and Buying Guides | Stonebay Journal",
+    description:
+      "Explore topical clusters that connect recommendation editorials with practical notes.",
   },
 }
 

@@ -4,11 +4,24 @@ import { ArrowRight } from "lucide-react"
 import { editorials, personas, categoryMeta } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Editorial Archive and Monthly Picks",
+  title: "Editorial Archive and Monthly Picks | Stonebay Journal",
   description:
     "Browse all published editorials by date, persona, and category to find decisive recommendations fast.",
   alternates: {
     canonical: "/archive/",
+  },
+  openGraph: {
+    title: "Editorial Archive and Monthly Picks | Stonebay Journal",
+    description:
+      "Browse all published editorials by date, persona, and category to find decisive recommendations fast.",
+    url: "/archive/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Editorial Archive and Monthly Picks | Stonebay Journal",
+    description:
+      "Browse all published editorials by date, persona, and category to find decisive recommendations fast.",
   },
 }
 
