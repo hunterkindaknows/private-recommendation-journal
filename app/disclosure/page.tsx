@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Affiliate Disclosure and Transparency",
   description:
-    "Full affiliate disclosure for The Penpal Edit. Transparency is a non-negotiable principle.",
+    "Full affiliate disclosure for Stonebay Journal. Transparency is a non-negotiable principle.",
   alternates: {
     canonical: "/disclosure/",
   },
@@ -22,7 +22,7 @@ export default function DisclosurePage() {
       <section className="border-t border-border py-10">
         <div className="editorial-prose flex flex-col gap-6">
           <p className="text-base leading-relaxed text-foreground">
-            The Penpal Edit is a participant in the Amazon Services LLC
+            Stonebay Journal is a participant in the Amazon Services LLC
             Associates Program, an affiliate advertising program designed to
             provide a means for sites to earn advertising fees by advertising
             and linking to Amazon.com.
@@ -39,7 +39,7 @@ export default function DisclosurePage() {
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             Affiliate commissions never influence our editorial decisions. Our
-            penpals recommend products based solely on their independent
+            editors recommend products based solely on their independent
             evaluation. If we cannot find a product worth recommending in a
             category, we do not publish an editorial for that category.
           </p>
