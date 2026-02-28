@@ -2,13 +2,6 @@
 
 This project is a premium editorial recommendation website that monetizes with affiliate links while feeling curated, decisive, and low-noise.
 
-## Current Brand State
-
-- Active brand language and visual system: `Stonebay Journal`.
-- Tone: cold clarity, coastal-mineral, decisive and low-noise.
-- Positioning: unisex editorial site with feminine-forward voice (not women-only wording).
-- Domain cutover target: `stonebay.co` (not switched yet).
-
 ## Core Concept
 
 - Not a store; an editorial authority model.
@@ -108,5 +101,3 @@ Make it feel like a private recommendation journal, not an affiliate marketing s
 - `docs/11-growth-roadmap.md`
 - `docs/12-execution-checklist.md`
 - `docs/13-critical-principle.md`
-- `docs/STONEBAY_LAUNCH_QA.md`
-- `docs/STONEBAY_DOMAIN_CUTOVER_CHECKLIST.md`
