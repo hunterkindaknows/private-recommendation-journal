@@ -10,40 +10,40 @@
 
 @layer base {
   :root {
-    /* Stonebay cool-mineral palette */
-    --background: 210 18% 96%;
-    --foreground: 215 24% 12%;
-    --card: 210 20% 99%;
-    --card-foreground: 215 24% 12%;
-    --popover: 210 20% 99%;
-    --popover-foreground: 215 24% 12%;
-    --primary: 215 24% 14%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 212 16% 91%;
-    --secondary-foreground: 215 20% 20%;
-    --muted: 212 14% 93%;
-    --muted-foreground: 216 10% 40%;
-    --accent: 202 44% 42%;
-    --accent-foreground: 210 30% 98%;
+    /* Warm ivory / cream luxury palette */
+    --background: 40 33% 96%;
+    --foreground: 20 10% 12%;
+    --card: 40 30% 98%;
+    --card-foreground: 20 10% 12%;
+    --popover: 40 30% 98%;
+    --popover-foreground: 20 10% 12%;
+    --primary: 20 10% 12%;
+    --primary-foreground: 40 33% 96%;
+    --secondary: 36 20% 90%;
+    --secondary-foreground: 20 10% 20%;
+    --muted: 36 15% 92%;
+    --muted-foreground: 20 5% 45%;
+    --accent: 38 60% 52%;
+    --accent-foreground: 20 10% 12%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 214 16% 82%;
-    --input: 214 16% 82%;
-    --ring: 202 44% 42%;
-    --chart-1: 202 44% 42%;
-    --chart-2: 205 30% 54%;
-    --chart-3: 215 20% 26%;
-    --chart-4: 210 16% 65%;
-    --chart-5: 220 12% 52%;
+    --border: 36 20% 85%;
+    --input: 36 20% 85%;
+    --ring: 38 60% 52%;
+    --chart-1: 38 60% 52%;
+    --chart-2: 160 20% 45%;
+    --chart-3: 20 10% 30%;
+    --chart-4: 36 40% 60%;
+    --chart-5: 12 30% 55%;
     --radius: 0.25rem;
-    --sidebar-background: 210 18% 98%;
-    --sidebar-foreground: 215 20% 20%;
-    --sidebar-primary: 215 24% 14%;
-    --sidebar-primary-foreground: 210 20% 98%;
-    --sidebar-accent: 212 16% 91%;
-    --sidebar-accent-foreground: 215 24% 12%;
-    --sidebar-border: 214 16% 82%;
-    --sidebar-ring: 202 44% 42%;
+    --sidebar-background: 40 30% 98%;
+    --sidebar-foreground: 20 10% 20%;
+    --sidebar-primary: 20 10% 12%;
+    --sidebar-primary-foreground: 40 33% 96%;
+    --sidebar-accent: 36 20% 90%;
+    --sidebar-accent-foreground: 20 10% 12%;
+    --sidebar-border: 36 20% 85%;
+    --sidebar-ring: 38 60% 52%;
   }
 }
 
@@ -53,16 +53,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    letter-spacing: 0.005em;
-    line-height: 1.55;
-    text-rendering: geometricPrecision;
   }
 }
 
-/* Script accent utility kept for legacy components */
+/* Handwritten / script accent utility */
 .font-script {
   font-family: var(--font-script);
-  font-style: normal;
+  font-style: italic;
 }
 
 /* Editorial max-width for reading comfort */
@@ -77,21 +74,21 @@
 
 /* Smooth hover transitions */
 .editorial-link {
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
 }
 .editorial-link:hover {
-  color: hsl(var(--foreground));
+  opacity: 0.7;
 }
 
 /* Persona tag styling */
 .persona-badge {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 0.64rem;
-  font-weight: 600;
+  font-size: 0.65rem;
+  font-weight: 500;
 }
 
-/* Stone accent underline */
+/* Gold accent underline */
 .gold-underline {
   text-decoration: underline;
   text-decoration-color: hsl(var(--accent));

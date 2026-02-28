@@ -18,12 +18,17 @@ export function SiteHeader() {
     ].join(" ")
 
   return (
-    <header className="border-b border-border bg-card/70">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+    <header className="border-b border-border">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         {/* Logo / Site Name */}
-        <Link href="/" className="editorial-link flex flex-col leading-none">
-          <span className="font-serif text-2xl tracking-tight text-foreground">Stonebay</span>
-          <span className="persona-badge mt-1 text-muted-foreground">Editorial Journal</span>
+        <Link href="/" className="editorial-link">
+          <span className="font-serif text-xl tracking-tight text-foreground">
+            The&nbsp;
+          </span>
+          <span className="font-script text-2xl text-accent">Penpal</span>
+          <span className="font-serif text-xl tracking-tight text-foreground">
+            &nbsp;Edit
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -66,7 +71,7 @@ export function SiteHeader() {
 
         {/* Mobile toggle */}
         <button
-          className="rounded-sm border border-border p-1 md:hidden"
+          className="md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
@@ -80,7 +85,7 @@ export function SiteHeader() {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="border-t border-border bg-card px-6 py-6 md:hidden">
+        <div className="border-t border-border px-6 py-6 md:hidden">
           <ul className="flex flex-col gap-4">
             {categories.map((cat) => (
               <li key={cat}>

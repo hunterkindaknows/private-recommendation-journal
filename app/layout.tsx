@@ -13,25 +13,25 @@ const analyticsEndpoint = process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT ?? ""
 export const metadata: Metadata = {
   metadataBase: new URL("https://hunterkindaknows.github.io/private-recommendation-journal"),
   title: {
-    default: "Stonebay Journal \u2014 Cold Clarity, Decisive Picks",
-    template: "%s \u2014 Stonebay Journal",
+    default: "The Penpal Edit \u2014 Decisive Picks, Minimal Noise",
+    template: "%s \u2014 The Penpal Edit",
   },
   description:
-    "A coastal-cool editorial recommendation journal. One clear pick per page with hard reasoning and no clutter.",
+    "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Stonebay Journal",
+    title: "The Penpal Edit",
     description:
-      "A coastal-cool editorial recommendation journal. One clear pick per page with hard reasoning and no clutter.",
-    siteName: "Stonebay Journal",
+      "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
+    siteName: "The Penpal Edit",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stonebay Journal",
+    title: "The Penpal Edit",
     description:
-      "A coastal-cool editorial recommendation journal. One clear pick per page with hard reasoning and no clutter.",
+      "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
   },
   robots: {
     index: true,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#e8edf0",
+  themeColor: "#f5f0e8",
   width: "device-width",
   initialScale: 1,
 }
@@ -63,9 +63,9 @@ export default function RootLayout({
       style={
         {
           "--font-serif":
-            "Iowan Old Style, Georgia, Cambria, 'Times New Roman', serif",
+            "Cormorant Garamond, Garamond, Baskerville, Palatino, 'Times New Roman', serif",
           "--font-sans":
-            "'Avenir Next', Avenir, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif",
+            "Inter, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
           "--font-script":
             "'Dancing Script', 'Snell Roundhand', 'Brush Script MT', cursive",
         } as React.CSSProperties
