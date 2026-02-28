@@ -22,13 +22,10 @@ export function SiteHeader() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         {/* Logo / Site Name */}
         <Link href="/" className="editorial-link">
-          <span className="font-serif text-xl tracking-tight text-foreground">
-            The&nbsp;
+          <span className="font-serif text-2xl tracking-tight text-foreground">
+            Solmere
           </span>
-          <span className="font-script text-2xl text-accent">Penpal</span>
-          <span className="font-serif text-xl tracking-tight text-foreground">
-            &nbsp;Edit
-          </span>
+          <span className="ml-2 persona-badge text-muted-foreground">Journal</span>
         </Link>
 
         {/* Desktop Nav */}

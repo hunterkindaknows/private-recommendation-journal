@@ -14,23 +14,23 @@ const analyticsEndpoint = process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT ?? ""
 export const metadata: Metadata = {
   metadataBase: new URL("https://solmere.org"),
   title: {
-    default: "The Penpal Edit \u2014 Decisive Picks, Minimal Noise",
-    template: "%s \u2014 The Penpal Edit",
+    default: "Solmere Journal \u2014 Decisive Picks, Minimal Noise",
+    template: "%s \u2014 Solmere Journal",
   },
   description:
     "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "The Penpal Edit",
+    title: "Solmere Journal",
     description:
       "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
-    siteName: "The Penpal Edit",
+    siteName: "Solmere Journal",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Penpal Edit",
+    title: "Solmere Journal",
     description:
       "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
   },

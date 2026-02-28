@@ -13,7 +13,7 @@ This documentation set captures the full project concept and separates major dom
 - `docs/04-editorial-model.md`
   - Editorial decision framework and content style.
 - `docs/05-voice-strategy-penpal-personas.md`
-  - Penpal persona system (separate from UI).
+  - Edit persona system (separate from UI).
 - `docs/06-page-structure-premium-ui.md`
   - Premium page layout and visual/UI principles.
 - `docs/07-affiliate-integration-compliance.md`

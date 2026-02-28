@@ -31,13 +31,13 @@ function nowIso() {
 }
 
 async function publishTelegraph() {
-  const shortName = `penpaledit${Date.now().toString().slice(-5)}`
+  const shortName = `solmereedit${Date.now().toString().slice(-5)}`
   const accountResp = await fetch("https://api.telegra.ph/createAccount", {
     method: "POST",
     headers: { "content-type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
       short_name: shortName,
-      author_name: "The Penpal Edit",
+      author_name: "Solmere Journal",
     }),
   })
 
@@ -53,7 +53,7 @@ async function publishTelegraph() {
   const accessToken = accountJson.result.access_token
 
   const contentNodes = [
-    { tag: "h3", children: ["The Penpal Edit: Editorial Perspective Site"] },
+    { tag: "h3", children: ["Solmere Journal: Editorial Perspective Site"] },
     {
       tag: "p",
       children: [
@@ -75,8 +75,8 @@ async function publishTelegraph() {
     headers: { "content-type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
       access_token: accessToken,
-      title: "The Penpal Edit — Reference Links",
-      author_name: "The Penpal Edit",
+      title: "Solmere Journal — Reference Links",
+      author_name: "Solmere Journal",
       return_content: "false",
       content: JSON.stringify(contentNodes),
     }),
@@ -96,7 +96,7 @@ async function publishTelegraph() {
 
 async function publishPasteRs() {
   const body = [
-    "The Penpal Edit — independent link references",
+    "Solmere Journal — independent link references",
     `Published: ${nowIso()}`,
     "",
     ...targets.map((target) => `- ${target.label}: ${target.url}`),

@@ -12,14 +12,14 @@ import {
 } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Decisive Product Picks for Women | The Penpal Edit",
+  title: "Decisive Product Picks for Women | Solmere Journal",
   description:
     "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Decisive Product Picks for Women | The Penpal Edit",
+    title: "Decisive Product Picks for Women | Solmere Journal",
     description:
       "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
     url: "/",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Decisive Product Picks for Women | The Penpal Edit",
+    title: "Decisive Product Picks for Women | Solmere Journal",
     description:
       "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
   },
@@ -261,12 +261,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============== MEET THE PENPALS ============== */}
+      {/* ============== MEET THE EDITORS ============== */}
       <section className="border-t border-border py-16 md:py-20">
         <div className="mb-10">
           <span className="persona-badge text-accent">Our Voices</span>
           <h2 className="mt-2 font-serif text-3xl text-foreground md:text-4xl">
-            Meet the Penpals
+            Meet the Editors
           </h2>
           <p className="mt-3 text-sm text-muted-foreground">
             Four editors, four philosophies. Same commitment to one great pick.

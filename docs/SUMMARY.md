@@ -26,7 +26,7 @@ This project is a premium editorial recommendation website that monetizes with a
 - Primary recommendation with limited supporting picks.
 - Authority comes from constraint.
 
-## Personas (Penpal Strategy)
+## Personas (Edit Strategy)
 
 - Minimalist
 - Performance Analyst

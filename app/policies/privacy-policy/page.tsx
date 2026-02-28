@@ -3,22 +3,22 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Privacy policy for The Penpal Edit, including analytics, affiliate links, and data handling practices.",
+    "Privacy policy for Solmere Journal, including analytics, affiliate links, and data handling practices.",
   alternates: {
     canonical: "/policies/privacy-policy/",
   },
   openGraph: {
-    title: "Privacy Policy — The Penpal Edit",
+    title: "Privacy Policy — Solmere Journal",
     description:
-      "Privacy policy for The Penpal Edit, including analytics, affiliate links, and data handling practices.",
+      "Privacy policy for Solmere Journal, including analytics, affiliate links, and data handling practices.",
     url: "/policies/privacy-policy/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Privacy Policy — The Penpal Edit",
+    title: "Privacy Policy — Solmere Journal",
     description:
-      "Privacy policy for The Penpal Edit, including analytics, affiliate links, and data handling practices.",
+      "Privacy policy for Solmere Journal, including analytics, affiliate links, and data handling practices.",
   },
 }
 
@@ -38,7 +38,7 @@ export default function PrivacyPolicyPage() {
       <section className="border-t border-border py-10">
         <div className="editorial-prose flex flex-col gap-6">
           <p className="text-base leading-relaxed text-foreground">
-            This Privacy Policy explains how The Penpal Edit ("we", "us", "our")
+            This Privacy Policy explains how Solmere Journal ("we", "us", "our")
             handles information when you use this website.
           </p>
 

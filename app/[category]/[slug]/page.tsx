@@ -266,7 +266,7 @@ export default async function EditorialPage({ params }: Props) {
         </section>
       )}
 
-      {/* Penpal sign-off */}
+      {/* Edit sign-off */}
       <section className="border-t border-border py-8">
         <p className="font-script text-lg text-accent">
           Written by{" "}

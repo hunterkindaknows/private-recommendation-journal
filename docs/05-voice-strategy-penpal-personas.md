@@ -1,4 +1,4 @@
-# Voice Strategy: Penpal Personas
+# Voice Strategy: Edit Personas
 
 This file intentionally isolates the persona model from UI/layout.
 

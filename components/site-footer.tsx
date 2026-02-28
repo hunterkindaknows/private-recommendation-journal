@@ -11,13 +11,8 @@ export function SiteFooter() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="editorial-link">
-              <span className="font-serif text-lg text-foreground">
-                The&nbsp;
-              </span>
-              <span className="font-script text-xl text-accent">Penpal</span>
-              <span className="font-serif text-lg text-foreground">
-                &nbsp;Edit
-              </span>
+              <span className="font-serif text-2xl text-foreground">Solmere</span>
+              <span className="ml-2 persona-badge text-muted-foreground">Journal</span>
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Decisive picks. Minimal noise.
@@ -42,9 +37,9 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Penpals */}
+          {/* Editors */}
           <div>
-            <h4 className="persona-badge mb-4 text-foreground">Our Penpals</h4>
+            <h4 className="persona-badge mb-4 text-foreground">Our Editors</h4>
             <ul className="flex flex-col gap-2">
               {personaSlugs.map((slug) => (
                 <li key={slug}>
