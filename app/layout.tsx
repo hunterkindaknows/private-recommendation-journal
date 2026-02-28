@@ -7,11 +7,12 @@ import { SiteFooter } from "@/components/site-footer"
 
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? ""
 const isGithubActions = process.env.GITHUB_ACTIONS === "true"
-const basePath = isGithubActions && repoName ? `/${repoName}` : ""
+const useRepoBasePath = process.env.PAGES_USE_REPO_BASEPATH !== "false"
+const basePath = isGithubActions && repoName && useRepoBasePath ? `/${repoName}` : ""
 const analyticsEndpoint = process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT ?? ""
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hunterkindaknows.github.io/private-recommendation-journal"),
+  metadataBase: new URL("https://solmere.org"),
   title: {
     default: "The Penpal Edit \u2014 Decisive Picks, Minimal Noise",
     template: "%s \u2014 The Penpal Edit",

@@ -2,7 +2,7 @@ import { promises as fs } from "node:fs"
 import path from "node:path"
 
 const outDir = path.resolve("out")
-const siteUrl = (process.env.SITE_URL ?? "https://hunterkindaknows.github.io/private-recommendation-journal").replace(/\/+$/, "")
+const siteUrl = (process.env.SITE_URL ?? "https://solmere.org").replace(/\/+$/, "")
 
 const excludedPathPrefixes = ["/go/"]
 const excludedExactPaths = new Set([

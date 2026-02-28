@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises"
 
 const siteBase =
-  "https://hunterkindaknows.github.io/private-recommendation-journal/"
+  "https://solmere.org/"
 
 const targets = [
   {

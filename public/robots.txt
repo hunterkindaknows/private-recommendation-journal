@@ -33,4 +33,4 @@ Disallow: /
 User-agent: Meta-ExternalAgent
 Disallow: /
 
-Sitemap: https://hunterkindaknows.github.io/private-recommendation-journal/sitemap.xml
+Sitemap: https://solmere.org/sitemap.xml

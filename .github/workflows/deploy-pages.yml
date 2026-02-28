@@ -33,12 +33,13 @@ jobs:
         run: npm run build
         env:
           GITHUB_ACTIONS: "true"
+          PAGES_USE_REPO_BASEPATH: "false"
           NEXT_PUBLIC_ANALYTICS_ENDPOINT: ${{ vars.NEXT_PUBLIC_ANALYTICS_ENDPOINT }}
 
       - name: Generate sitemap from exported pages
         run: npm run sitemap:generate
         env:
-          SITE_URL: "https://hunterkindaknows.github.io/private-recommendation-journal"
+          SITE_URL: "https://solmere.org"
 
       - name: Submit URLs to IndexNow
         run: npm run indexnow:submit
