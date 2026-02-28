@@ -4,24 +4,11 @@ import { ArrowRight } from "lucide-react"
 import { glossaryEntries } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Glossary | Stonebay Journal",
+  title: "Glossary",
   description:
     "Tiny definitions for technical clothing and material terms that influence buying decisions.",
   alternates: {
     canonical: "/glossary/",
-  },
-  openGraph: {
-    title: "Glossary | Stonebay Journal",
-    description:
-      "Tiny definitions for technical clothing and material terms that influence buying decisions.",
-    url: "/glossary/",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Glossary | Stonebay Journal",
-    description:
-      "Tiny definitions for technical clothing and material terms that influence buying decisions.",
   },
 }
 

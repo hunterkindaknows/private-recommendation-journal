@@ -4,24 +4,11 @@ import { ArrowRight } from "lucide-react"
 import { fieldNotes } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Field Notes and Practical Guides | Stonebay Journal",
+  title: "Field Notes and Practical Guides",
   description:
     "Non-product editorial notes: Galentine perspective, practical how-tos, and opinion pieces that support better decisions.",
   alternates: {
     canonical: "/notes/",
-  },
-  openGraph: {
-    title: "Field Notes and Practical Guides | Stonebay Journal",
-    description:
-      "Non-product editorial notes: practical how-tos and opinion pieces that support better decisions.",
-    url: "/notes/",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Field Notes and Practical Guides | Stonebay Journal",
-    description:
-      "Non-product editorial notes: practical how-tos and opinion pieces that support better decisions.",
   },
 }
 

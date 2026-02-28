@@ -4,24 +4,11 @@ import { ArrowRight } from "lucide-react"
 import { comparisonGuides } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Comparison Guides | Stonebay Journal",
+  title: "Comparison Guides",
   description:
     "Specific confusion solved directly: side-by-side comparisons without listicle noise.",
   alternates: {
     canonical: "/comparisons/",
-  },
-  openGraph: {
-    title: "Comparison Guides | Stonebay Journal",
-    description:
-      "Specific confusion solved directly: side-by-side comparisons without listicle noise.",
-    url: "/comparisons/",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Comparison Guides | Stonebay Journal",
-    description:
-      "Specific confusion solved directly: side-by-side comparisons without listicle noise.",
   },
 }
 

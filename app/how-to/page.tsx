@@ -4,23 +4,10 @@ import { ArrowRight } from "lucide-react"
 import { howToGuides } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "How-To Guides | Stonebay Journal",
+  title: "How-To Guides",
   description:
     "Practical how-to guides for sizing, layering, care, and fit troubleshooting.",
   alternates: { canonical: "/how-to/" },
-  openGraph: {
-    title: "How-To Guides | Stonebay Journal",
-    description:
-      "Practical how-to guides for sizing, layering, care, and fit troubleshooting.",
-    url: "/how-to/",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "How-To Guides | Stonebay Journal",
-    description:
-      "Practical how-to guides for sizing, layering, care, and fit troubleshooting.",
-  },
 }
 
 export default function HowToPage() {

@@ -4,23 +4,10 @@ import { ArrowRight } from "lucide-react"
 import { useCaseGuides } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Use-Case Guides | Stonebay Journal",
+  title: "Use-Case Guides",
   description:
     "Who this is for and who this annoys, organized by real fit and lifestyle use-cases.",
   alternates: { canonical: "/use-cases/" },
-  openGraph: {
-    title: "Use-Case Guides | Stonebay Journal",
-    description:
-      "Who this is for and who this annoys, organized by real fit and lifestyle use-cases.",
-    url: "/use-cases/",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Use-Case Guides | Stonebay Journal",
-    description:
-      "Who this is for and who this annoys, organized by real fit and lifestyle use-cases.",
-  },
 }
 
 export default function UseCasesPage() {
