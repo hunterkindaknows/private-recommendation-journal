@@ -12,24 +12,24 @@ import {
 } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Decisive Product Picks for Women | Solmere Journal",
+  title: "Decisive Product Picks | Solmere Journal",
   description:
-    "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+    "An editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Decisive Product Picks for Women | Solmere Journal",
+    title: "Decisive Product Picks | Solmere Journal",
     description:
-      "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+      "An editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
     url: "/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Decisive Product Picks for Women | Solmere Journal",
+    title: "Decisive Product Picks | Solmere Journal",
     description:
-      "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+      "An editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
   },
 }
 
