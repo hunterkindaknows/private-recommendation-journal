@@ -12,24 +12,24 @@ import {
 } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Decisive Editorial Picks with Cold Clarity | Stonebay Journal",
+  title: "Decisive Editorial Picks for Women | Stonebay Journal",
   description:
-    "A unisex editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+    "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Decisive Editorial Picks with Cold Clarity | Stonebay Journal",
+    title: "Decisive Editorial Picks for Women | Stonebay Journal",
     description:
-      "A unisex editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+      "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
     url: "/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Decisive Editorial Picks with Cold Clarity | Stonebay Journal",
+    title: "Decisive Editorial Picks for Women | Stonebay Journal",
     description:
-      "A unisex editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+      "A women-first editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
   },
 }
 
@@ -46,7 +46,7 @@ export default function HomePage() {
         <div className="border border-border bg-card p-8 md:p-12">
           <span className="persona-badge text-accent">Stonebay Field Desk</span>
           <h1 className="mt-4 max-w-4xl font-serif text-5xl font-light leading-[1.05] text-foreground md:text-7xl">
-            Cold clarity for people who want one strong decision.
+            Cold clarity for women who want one strong decision.
           </h1>
           <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             We publish recommendation pages with tight filters, explicit tradeoffs,
