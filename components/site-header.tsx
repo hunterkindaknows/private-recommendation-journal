@@ -13,10 +13,8 @@ export function SiteHeader() {
 
   const navClass = (active: boolean) =>
     [
-      "persona-badge editorial-link border-b pb-1",
-      active
-        ? "border-foreground text-foreground"
-        : "border-transparent text-muted-foreground hover:border-border hover:text-foreground",
+      "persona-badge editorial-link",
+      active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
     ].join(" ")
 
   return (
@@ -35,7 +33,6 @@ export function SiteHeader() {
               <Link
                 href={`/${cat}`}
                 className={navClass(pathname === `/${cat}` || pathname.startsWith(`/${cat}/`))}
-                aria-current={pathname === `/${cat}` || pathname.startsWith(`/${cat}/`) ? "page" : undefined}
               >
                 {categoryMeta[cat].label}
               </Link>
@@ -45,7 +42,6 @@ export function SiteHeader() {
             <Link
               href="/topics"
               className={navClass(pathname === "/topics" || pathname.startsWith("/topics/"))}
-              aria-current={pathname === "/topics" || pathname.startsWith("/topics/") ? "page" : undefined}
             >
               Topics
             </Link>
@@ -54,7 +50,6 @@ export function SiteHeader() {
             <Link
               href="/notes"
               className={navClass(pathname === "/notes" || pathname.startsWith("/notes/"))}
-              aria-current={pathname === "/notes" || pathname.startsWith("/notes/") ? "page" : undefined}
             >
               Notes
             </Link>
@@ -63,7 +58,6 @@ export function SiteHeader() {
             <Link
               href="/archive"
               className={navClass(pathname === "/archive")}
-              aria-current={pathname === "/archive" ? "page" : undefined}
             >
               Archive
             </Link>

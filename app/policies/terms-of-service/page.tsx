@@ -3,22 +3,22 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms of Service for Stonebay Journal website and editorial content.",
+    "Terms of Service for The Penpal Edit website and editorial content.",
   alternates: {
     canonical: "/policies/terms-of-service/",
   },
   openGraph: {
-    title: "Terms of Service — Stonebay Journal",
+    title: "Terms of Service — The Penpal Edit",
     description:
-      "Terms of Service for Stonebay Journal website and editorial content.",
+      "Terms of Service for The Penpal Edit website and editorial content.",
     url: "/policies/terms-of-service/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Terms of Service — Stonebay Journal",
+    title: "Terms of Service — The Penpal Edit",
     description:
-      "Terms of Service for Stonebay Journal website and editorial content.",
+      "Terms of Service for The Penpal Edit website and editorial content.",
   },
 }
 
@@ -38,8 +38,8 @@ export default function TermsOfServicePage() {
       <section className="border-t border-border py-10">
         <div className="editorial-prose flex flex-col gap-6">
           <p className="text-base leading-relaxed text-foreground">
-            These Terms of Service ("Terms") govern your use of Stonebay
-            Journal website. By using this website, you agree to these Terms.
+            These Terms of Service ("Terms") govern your use of The Penpal
+            Edit website. By using this website, you agree to these Terms.
           </p>
 
           <h2 className="font-serif text-2xl text-foreground">Use of Website</h2>
@@ -65,7 +65,7 @@ export default function TermsOfServicePage() {
           <h2 className="font-serif text-2xl text-foreground">Intellectual Property</h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             Unless otherwise stated, site content, branding, and design are
-            owned by Stonebay Journal. You may not copy or redistribute content
+            owned by The Penpal Edit. You may not copy or redistribute content
             for commercial use without permission.
           </p>
 
@@ -77,7 +77,7 @@ export default function TermsOfServicePage() {
 
           <h2 className="font-serif text-2xl text-foreground">Limitation of Liability</h2>
           <p className="text-base leading-relaxed text-muted-foreground">
-            To the fullest extent allowed by law, Stonebay Journal is not liable
+            To the fullest extent allowed by law, The Penpal Edit is not liable
             for any indirect or consequential damages arising from your use of
             this website.
           </p>

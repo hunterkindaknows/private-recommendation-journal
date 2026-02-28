@@ -81,7 +81,7 @@ export default async function PersonaPage({ params }: Props) {
             {persona.avatarInitial}
           </div>
           <div>
-            <span className="persona-badge text-accent">Editor</span>
+            <span className="persona-badge text-accent">Penpal</span>
             <h1 className="font-serif text-4xl font-light text-foreground md:text-5xl">
               {persona.name}
             </h1>
@@ -153,10 +153,10 @@ export default async function PersonaPage({ params }: Props) {
         </section>
       )}
 
-      {/* See other editors */}
+      {/* See other penpals */}
       <section className="border-t border-border py-10">
         <h3 className="mb-4 font-serif text-xl text-foreground">
-          Other Editors
+          Other Penpals
         </h3>
         <div className="flex flex-wrap gap-3">
           {validSlugs

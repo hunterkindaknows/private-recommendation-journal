@@ -6,7 +6,7 @@ import { personas, type PersonaSlug } from "@/lib/data"
 export const metadata: Metadata = {
   title: "About Our Editorial Philosophy",
   description:
-    "Stonebay Journal is a premium editorial recommendation publication. One primary pick per page. We publish decisions, not lists.",
+    "The Penpal Edit is a premium editorial recommendation journal. One primary pick per page. We publish decisions, not lists.",
   alternates: {
     canonical: "/about/",
   },
@@ -29,7 +29,7 @@ export default function AboutPage() {
       <section className="border-t border-border py-10">
         <div className="editorial-prose">
           <p className="text-base leading-relaxed text-foreground md:text-lg">
-            Stonebay Journal exists because shopping shouldn{"'"}t feel like
+            The Penpal Edit exists because shopping shouldn{"'"}t feel like
             research. We publish one primary recommendation per editorial
             page, supported by a clear premise, honest rationale, and at most
             one contrast pick. That{"'"}s it.
@@ -38,7 +38,7 @@ export default function AboutPage() {
             We don{"'"}t publish {"\""}10 best{"\""}  lists. We don{"'"}t rank products
             we haven{"'"}t evaluated. We don{"'"}t add filler to hit a word count.
             Every editorial page is a decision, and every decision comes from
-            one of our four editors with distinct philosophies but
+            one of our four penpals{"—"}editors with distinct philosophies but
             a shared commitment to constraint.
           </p>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">
@@ -122,7 +122,7 @@ export default function AboutPage() {
 
       <section className="border-t border-border py-10">
         <h2 className="mb-6 font-serif text-2xl text-foreground">
-          Meet the Editorial Desk
+          Meet the Penpals
         </h2>
         <div className="flex flex-col gap-4">
           {personaSlugs.map((slug) => {

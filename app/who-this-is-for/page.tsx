@@ -4,7 +4,7 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Who This Is For",
   description:
-    "Who Stonebay Journal is for, who it is not for, and how to decide if this editorial style matches your buying behavior.",
+    "Who The Penpal Edit is for, who it is not for, and how to decide if this editorial style matches your buying behavior.",
   alternates: {
     canonical: "/who-this-is-for/",
   },
