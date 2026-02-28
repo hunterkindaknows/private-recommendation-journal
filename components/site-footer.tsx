@@ -5,23 +5,18 @@ export function SiteFooter() {
   const personaSlugs = Object.keys(personas) as PersonaSlug[]
 
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border bg-card/60">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link href="/" className="editorial-link">
-              <span className="font-serif text-lg text-foreground">
-                The&nbsp;
-              </span>
-              <span className="font-script text-xl text-accent">Penpal</span>
-              <span className="font-serif text-lg text-foreground">
-                &nbsp;Edit
-              </span>
+            <Link href="/" className="editorial-link flex flex-col leading-none">
+              <span className="font-serif text-2xl text-foreground">Stonebay</span>
+              <span className="persona-badge mt-2 text-muted-foreground">Editorial Journal</span>
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Decisive picks. Minimal noise.
-              <br />A private recommendation journal.
+              Cold clarity. Decisive picks.
+              <br />A coastal editorial recommendation journal.
             </p>
           </div>
 
@@ -42,9 +37,9 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Penpals */}
+          {/* Editors */}
           <div>
-            <h4 className="persona-badge mb-4 text-foreground">Our Penpals</h4>
+            <h4 className="persona-badge mb-4 text-foreground">Editorial Desk</h4>
             <ul className="flex flex-col gap-2">
               {personaSlugs.map((slug) => (
                 <li key={slug}>
@@ -144,7 +139,7 @@ export function SiteFooter() {
           <p className="text-xs leading-relaxed text-muted-foreground">
             As an Amazon Associate I earn from qualifying purchases. All
             editorial opinions are our own. We only recommend products we have
-            independently evaluated and genuinely stand behind.
+            independently evaluated and can defend in plain language.
           </p>
         </div>
       </div>

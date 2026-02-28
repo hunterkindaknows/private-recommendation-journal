@@ -13,25 +13,25 @@ const analyticsEndpoint = process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT ?? ""
 export const metadata: Metadata = {
   metadataBase: new URL("https://hunterkindaknows.github.io/private-recommendation-journal"),
   title: {
-    default: "The Penpal Edit \u2014 Decisive Picks, Minimal Noise",
-    template: "%s \u2014 The Penpal Edit",
+    default: "Stonebay Journal \u2014 Cold Clarity, Decisive Picks",
+    template: "%s \u2014 Stonebay Journal",
   },
   description:
-    "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
+    "A coastal-cool editorial recommendation journal. One clear pick per page with hard reasoning and no clutter.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "The Penpal Edit",
+    title: "Stonebay Journal",
     description:
-      "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
-    siteName: "The Penpal Edit",
+      "A coastal-cool editorial recommendation journal. One clear pick per page with hard reasoning and no clutter.",
+    siteName: "Stonebay Journal",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Penpal Edit",
+    title: "Stonebay Journal",
     description:
-      "A premium editorial recommendation journal. One primary pick per page. No endless lists. Just decisions you can trust.",
+      "A coastal-cool editorial recommendation journal. One clear pick per page with hard reasoning and no clutter.",
   },
   robots: {
     index: true,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#f5f0e8",
+  themeColor: "#e8edf0",
   width: "device-width",
   initialScale: 1,
 }
@@ -63,9 +63,9 @@ export default function RootLayout({
       style={
         {
           "--font-serif":
-            "Cormorant Garamond, Garamond, Baskerville, Palatino, 'Times New Roman', serif",
+            "Iowan Old Style, Georgia, Cambria, 'Times New Roman', serif",
           "--font-sans":
-            "Inter, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+            "'Avenir Next', Avenir, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif",
           "--font-script":
             "'Dancing Script', 'Snell Roundhand', 'Brush Script MT', cursive",
         } as React.CSSProperties
