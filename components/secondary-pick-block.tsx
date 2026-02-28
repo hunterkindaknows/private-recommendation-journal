@@ -11,7 +11,7 @@ export function SecondaryPickBlock({ pick }: SecondaryPickBlockProps) {
   const isInternalGoLink = product.affiliateUrl.startsWith("/")
 
   return (
-    <section className="my-10 border border-border bg-secondary/50 p-6 md:p-8">
+    <section className="my-8 border-l-2 border-accent bg-secondary/50 p-6 md:p-8">
       <span className="persona-badge text-muted-foreground">
         Contrast Pick
       </span>
@@ -27,7 +27,7 @@ export function SecondaryPickBlock({ pick }: SecondaryPickBlockProps) {
         <Link
           href={product.affiliateUrl}
           rel="noopener noreferrer nofollow sponsored"
-          className="mt-5 inline-flex items-center gap-2 text-sm text-foreground underline decoration-accent underline-offset-4 editorial-link"
+          className="mt-4 inline-flex items-center gap-2 text-sm text-foreground underline decoration-accent underline-offset-4 editorial-link"
         >
           See details
           <ExternalLink className="h-3 w-3" />
@@ -36,7 +36,7 @@ export function SecondaryPickBlock({ pick }: SecondaryPickBlockProps) {
         <a
           href={product.affiliateUrl}
           rel="noopener noreferrer nofollow sponsored"
-          className="mt-5 inline-flex items-center gap-2 text-sm text-foreground underline decoration-accent underline-offset-4 editorial-link"
+          className="mt-4 inline-flex items-center gap-2 text-sm text-foreground underline decoration-accent underline-offset-4 editorial-link"
         >
           See details
           <ExternalLink className="h-3 w-3" />

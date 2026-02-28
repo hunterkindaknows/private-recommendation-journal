@@ -11,7 +11,7 @@ export function PrimaryPickBlock({ pick }: PrimaryPickBlockProps) {
   const isInternalGoLink = product.affiliateUrl.startsWith("/")
 
   return (
-    <section className="my-14 border border-border bg-card p-8 md:p-10">
+    <section className="my-12 border border-border bg-card p-8 md:p-10">
       {/* Header */}
       <div className="mb-6 flex items-start justify-between">
         <div>
@@ -29,7 +29,7 @@ export function PrimaryPickBlock({ pick }: PrimaryPickBlockProps) {
       {/* Reasons */}
       <ul className="mb-8 flex flex-col gap-3">
         {reasons.map((reason, i) => (
-          <li key={i} className="flex items-start gap-3 border-l border-border pl-3">
+          <li key={i} className="flex items-start gap-3">
             <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
             <span className="text-sm leading-relaxed text-card-foreground">
               {reason}
@@ -55,7 +55,7 @@ export function PrimaryPickBlock({ pick }: PrimaryPickBlockProps) {
         <Link
           href={product.affiliateUrl}
           rel="noopener noreferrer nofollow sponsored"
-          className="inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm text-primary-foreground transition-colors hover:bg-secondary hover:text-foreground"
+          className="inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
         >
           Check price on Amazon
           <ExternalLink className="h-3.5 w-3.5" />
@@ -64,7 +64,7 @@ export function PrimaryPickBlock({ pick }: PrimaryPickBlockProps) {
         <a
           href={product.affiliateUrl}
           rel="noopener noreferrer nofollow sponsored"
-          className="inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm text-primary-foreground transition-colors hover:bg-secondary hover:text-foreground"
+          className="inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
         >
           Check price on Amazon
           <ExternalLink className="h-3.5 w-3.5" />

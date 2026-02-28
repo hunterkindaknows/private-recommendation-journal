@@ -14,7 +14,7 @@ export function EditorialCard({
   const persona = personas[editorial.persona]
 
   return (
-    <article className="group flex flex-col border border-border bg-card p-7 md:p-8">
+    <article className="group flex flex-col border-b border-border pb-8">
       {/* Meta row */}
       <div className="mb-3 flex items-center gap-3">
         <span className="persona-badge text-accent">
@@ -50,10 +50,10 @@ export function EditorialCard({
       {/* Read link */}
       <Link
         href={`/${editorial.category}/${editorial.slug}`}
-        className="mt-5 inline-flex items-center gap-2 text-sm text-foreground editorial-link group-hover:gap-3"
+        className="mt-4 inline-flex items-center gap-2 text-sm text-foreground editorial-link group-hover:gap-3"
         style={{ transition: "gap 0.2s ease" }}
       >
-        <span>Read editorial</span>
+        <span className="font-serif italic">Read the editorial</span>
         <ArrowRight className="h-3.5 w-3.5" />
       </Link>
     </article>
