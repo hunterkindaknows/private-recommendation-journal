@@ -30,6 +30,8 @@ This documentation set captures the full project concept and separates major dom
   - Phase-based to-do list and implementation order.
 - `docs/13-critical-principle.md`
   - Final guiding principle for brand feel and conversion.
+- `docs/NICHE_EDITORIAL_STANDARD.md`
+  - Long-tail publishing standard so new pages are specific, useful, and rankable.
 
 ## Intent Summary
 

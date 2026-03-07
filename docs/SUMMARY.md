@@ -83,7 +83,7 @@ Each has distinct tone and category ownership, while sharing common formatting.
 
 ## Master Principle
 
-Make it feel like a private recommendation journal, not an affiliate marketing site.
+Make it feel like a recommendation journal, not an affiliate marketing site.
 
 ## Detailed Docs Index
 
@@ -101,3 +101,4 @@ Make it feel like a private recommendation journal, not an affiliate marketing s
 - `docs/11-growth-roadmap.md`
 - `docs/12-execution-checklist.md`
 - `docs/13-critical-principle.md`
+- `docs/NICHE_EDITORIAL_STANDARD.md`

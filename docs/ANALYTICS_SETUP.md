@@ -51,7 +51,7 @@ wrangler secret put SITE_ORIGIN
 
 Use this value:
 
-`https://hunterkindaknows.github.io`
+`https://solmere.org`
 
 ## 3) Deploy the Worker
 
