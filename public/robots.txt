@@ -34,3 +34,4 @@ User-agent: Meta-ExternalAgent
 Disallow: /
 
 Sitemap: https://solmere.org/sitemap.xml
+Host: solmere.org

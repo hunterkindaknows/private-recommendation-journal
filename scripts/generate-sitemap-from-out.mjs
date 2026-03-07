@@ -103,10 +103,14 @@ async function main() {
   )
 
   const xml = buildSitemapXml(finalEntries)
-  const sitemapPath = path.join(outDir, "sitemap.xml")
-  await fs.writeFile(sitemapPath, xml, "utf8")
+  const outSitemapPath = path.join(outDir, "sitemap.xml")
+  const publicSitemapPath = path.resolve("public", "sitemap.xml")
+  await fs.writeFile(outSitemapPath, xml, "utf8")
+  await fs.writeFile(publicSitemapPath, xml, "utf8")
 
-  console.log(`Generated sitemap with ${finalEntries.length} URLs at ${sitemapPath}`)
+  console.log(
+    `Generated sitemap with ${finalEntries.length} URLs at ${outSitemapPath} and ${publicSitemapPath}`
+  )
 }
 
 main().catch((error) => {

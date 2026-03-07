@@ -1,22 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-<url><loc>https://solmere.org/</loc></url>
-<url><loc>https://solmere.org/about/</loc></url>
-<url><loc>https://solmere.org/archive/</loc></url>
-<url><loc>https://solmere.org/disclosure/</loc></url>
-<url><loc>https://solmere.org/notes/</loc></url>
-<url><loc>https://solmere.org/topics/</loc></url>
-
-<url><loc>https://solmere.org/men/only-black-tee/</loc></url>
-<url><loc>https://solmere.org/men/one-belt-no-crack/</loc></url>
-<url><loc>https://solmere.org/men/socks-for-walking/</loc></url>
-
-<url><loc>https://solmere.org/women/everyday-chain/</loc></url>
-<url><loc>https://solmere.org/women/white-sneaker-women/</loc></url>
-
-<url><loc>https://solmere.org/jewelry/daily-earrings/</loc></url>
-<url><loc>https://solmere.org/maternity/maternity-bra-no-compromise/</loc></url>
-<url><loc>https://solmere.org/baby/baby-monitor-worth-it/</loc></url>
-
+  <url>
+    <loc>https://solmere.org/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/about/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/archive/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/baby/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/baby/baby-monitor-worth-it/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/disclosure/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/editor/luxury-curator/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/editor/minimalist/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/editor/performance-analyst/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/editor/practicalist/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/editorial-philosophy/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/jewelry/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/jewelry/daily-earrings/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/maternity/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/maternity/maternity-bra-no-compromise/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/men/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/men/one-belt-no-crack/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/men/only-black-tee/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/men/socks-for-walking/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/notes/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/notes/fabric-weight-explained-without-jargon/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/notes/first-date-fit-notes-women/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/notes/galentines-woman-gaze-gift-standard/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/notes/how-sneaker-leather-ages-over-time/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/notes/how-to-find-ring-size-with-string/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/notes/who-this-is-for-who-this-annoys/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/notes/why-cotton-tees-fail-after-washing/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/notes/why-jewelry-plating-wears-off/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/notes/why-leather-cracks-and-how-to-slow-it/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/topics/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/topics/daily-jewelry-without-regret/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/topics/maternity-and-baby-essentials/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/topics/minimal-wardrobe-basics/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/who-this-is-for/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/women/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/women/everyday-chain/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://solmere.org/women/white-sneaker-women/</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
 </urlset>
