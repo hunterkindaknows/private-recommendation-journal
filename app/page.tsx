@@ -14,14 +14,14 @@ import {
 export const metadata: Metadata = {
   title: "Decisive Product Picks | Solmere Journal",
   description:
-    "An editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+    "A sharp recommendation journal with one clear pick per page, strong disqualifiers, and high-trust notes worth exploring.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Decisive Product Picks | Solmere Journal",
     description:
-      "An editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+      "A sharp recommendation journal with one clear pick per page, strong disqualifiers, and high-trust notes worth exploring.",
     url: "/",
     type: "website",
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Decisive Product Picks | Solmere Journal",
     description:
-      "An editorial journal with one clear recommendation per page, practical disqualifiers, and zero listicle clutter.",
+      "A sharp recommendation journal with one clear pick per page, strong disqualifiers, and high-trust notes worth exploring.",
   },
 }
 
@@ -51,12 +51,12 @@ export default function HomePage() {
           <h1 className="mt-4 font-serif text-5xl font-light leading-tight text-foreground md:text-7xl">
             We choose the one worth buying.
             <br />
-            <span className="italic">You skip the overwhelm.</span>
+            <span className="italic">You skip the spiral.</span>
           </h1>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            This site is for women who want clear recommendations with a point
-            of view. One primary pick per page, practical disqualifiers, and
-            zero catalog noise.
+            A decisive recommendation journal for readers who want clarity fast.
+            One primary pick per page, practical disqualifiers, and notes that
+            teach you how to judge quality on your own.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {primaryCta && (
@@ -72,14 +72,14 @@ export default function HomePage() {
               href="/about"
               className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-foreground transition-colors hover:border-accent"
             >
-              Learn our philosophy
+              Why Solmere works
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
             <Link
               href="/archive"
               className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm text-foreground transition-colors hover:border-accent"
             >
-              See last month&apos;s picks
+              Explore the archive
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -98,8 +98,8 @@ export default function HomePage() {
           <article className="border border-border p-6">
             <h3 className="font-serif text-xl text-foreground">1. Pick a lane</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Start with category, archive, or notes depending on whether you
-              want a product decision or guidance.
+              Start with category pages for a product decision, or field notes
+              for practical guidance and standards.
             </p>
           </article>
           <article className="border border-border p-6">
@@ -112,8 +112,8 @@ export default function HomePage() {
           <article className="border border-border p-6">
             <h3 className="font-serif text-xl text-foreground">3. Take the next step</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Buy the pick, save it for later, or move to a supporting note.
-              Every page should move you forward.
+              Move forward immediately: buy, save, or jump into related notes
+              and topic clusters for deeper context.
             </p>
           </article>
         </div>
@@ -130,6 +130,13 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent"
           >
             Editorial philosophy
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+          <Link
+            href="/notes/solmere-meaning-philosophy/"
+            className="inline-flex items-center gap-2 border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-accent"
+          >
+            Solmere meaning
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>

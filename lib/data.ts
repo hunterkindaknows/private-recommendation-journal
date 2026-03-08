@@ -1255,6 +1255,28 @@ export interface FieldNote {
 
 export const fieldNotes: FieldNote[] = [
   {
+    slug: "solmere-meaning-philosophy",
+    title: "Solmere Meaning: The Idea Behind the Solmere Philosophy",
+    published: "2026-03-07",
+    updated: "2026-03-07",
+    excerpt:
+      "Solmere is a decision standard: fewer options, stronger filters, and recommendations built to hold up in real life.",
+    category: "culture",
+    featured: true,
+    tags: ["solmere", "editorial-method", "decision-framework", "philosophy"],
+    body: [
+      "Solmere is two ideas in one word. Sol is clarity. Mere is the edge where land meets water. Together, it means clear judgment at the line where daily life actually happens.",
+      "This is not a catalog and it is not a trend feed. It is a recommendation journal built for people who are tired of fake choice. We do not publish ten options to look thorough. We publish one primary recommendation when we can defend it under real use.",
+      "The core rule is simple: reduce decision drag. Every page should help you move from uncertainty to action quickly. That means explicit tradeoffs, explicit disqualifiers, and direct language about who a pick is for and who it will annoy.",
+      "Solmere is also a quality filter. If a product cannot survive ordinary wear patterns, inconsistent weather, and repeat use, it does not pass. If seller quality is unstable, we either choose a safer default or we do not publish yet.",
+      "Authority here comes from constraint, not volume. We publish slower than list sites because we would rather be useful than noisy. If a page cannot lower your cognitive load, it does not belong on the site.",
+      "If you want the fastest way to use Solmere: start with a category page, read one recommendation end-to-end, then follow the Continue Reading links. You should leave with a decision, not another research loop.",
+    ],
+    relatedCategory: "women",
+    relatedTopicSlug: "minimal-wardrobe-basics",
+    relatedEditorialSlug: "only-black-tee",
+  },
+  {
     slug: "galentines-woman-gaze-gift-standard",
     title: "Galentine's Standard: Gifts Through the Woman Gaze",
     published: "2026-02-14",
@@ -1597,7 +1619,11 @@ export const topicClusters: TopicCluster[] = [
       "one-belt-no-crack",
       "white-sneaker-women",
     ],
-    noteSlugs: ["who-this-is-for-who-this-annoys", "first-date-fit-notes-women"],
+    noteSlugs: [
+      "who-this-is-for-who-this-annoys",
+      "first-date-fit-notes-women",
+      "solmere-meaning-philosophy",
+    ],
   },
   {
     slug: "daily-jewelry-without-regret",
