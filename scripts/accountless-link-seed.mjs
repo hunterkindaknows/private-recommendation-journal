@@ -113,9 +113,10 @@ async function publishPasteRs() {
     ...targets.map((target) => `- ${target.label}: ${target.url}`),
   ].join("\n")
 
+  // paste.rs is strict for some clients; raw text body with no explicit
+  // content-type tends to be accepted more reliably.
   const resp = await fetch("https://paste.rs", {
     method: "POST",
-    headers: { "content-type": "text/plain; charset=utf-8" },
     body,
   })
 
