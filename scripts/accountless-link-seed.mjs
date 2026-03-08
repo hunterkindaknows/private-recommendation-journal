@@ -7,22 +7,27 @@ const targets = [
   {
     label: "Homepage",
     url: siteBase,
-    note: "Editorial hub and site-level perspective.",
+    note: "Start here if you want one decisive recommendation instead of another endless list.",
   },
   {
     label: "Who This Is For",
     url: `${siteBase}who-this-is-for/`,
-    note: "Reader-fit signal page (non-commercial).",
+    note: "Fast fit-check page so visitors know immediately if the journal matches their decision style.",
   },
   {
     label: "Editorial Philosophy",
     url: `${siteBase}editorial-philosophy/`,
-    note: "Method and selection standard page (non-commercial).",
+    note: "Method page explaining why Solmere recommends fewer products with stronger boundaries.",
   },
   {
     label: "Field Notes Index",
     url: `${siteBase}notes/`,
-    note: "Informational note cluster index.",
+    note: "Practical non-commercial notes on quality, materials, fit, and maintenance.",
+  },
+  {
+    label: "Solmere Meaning",
+    url: `${siteBase}notes/solmere-meaning-philosophy/`,
+    note: "Brand philosophy and decision standard in one page for first-time visitors.",
   },
 ]
 
@@ -53,11 +58,17 @@ async function publishTelegraph() {
   const accessToken = accountJson.result.access_token
 
   const contentNodes = [
-    { tag: "h3", children: ["Solmere Journal: Editorial Perspective Site"] },
+    { tag: "h3", children: ["Solmere Journal: Decisive Recommendation Editorial"] },
     {
       tag: "p",
       children: [
-        "This is an independent mention of a women-first editorial recommendation journal focused on constrained, opinionated buying decisions.",
+        "Solmere Journal publishes high-conviction product recommendations and practical field notes. The model is simple: fewer options, clearer tradeoffs, faster decisions.",
+      ],
+    },
+    {
+      tag: "p",
+      children: [
+        "If you are tired of listicle shopping pages, this is the cleaner alternative: one primary pick, explicit disqualifiers, and supporting guidance for real use.",
       ],
     },
     ...targets.flatMap((target) => [
@@ -155,6 +166,7 @@ async function main() {
     "## Next Steps",
     "- Submit successful external URLs in Google Search Console URL Inspection.",
     "- Submit successful external URLs in Bing Webmaster URL Inspection.",
+    "- If publisher endpoints fail, run again from your local machine/network (this script is designed to be accountless).",
     "- Re-run this script only when you add meaningful new content (avoid spammy frequency).",
   ].join("\n")
 
