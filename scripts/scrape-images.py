@@ -82,22 +82,55 @@ def amazon_image_with_size(url: str, width: int = 1500) -> str:
 # ── HTML parsing ───────────────────────────────────────────────────────
 
 def extract_images_from_gallery_json(html: str) -> list[str]:
-    """Parse the 'colorImages' JSON from Amazon's page scripts."""
+    """Parse the 'colorImages' JSON from Amazon's page scripts.
+    Handles both single-quoted and double-quoted JSON, and the
+    nested 'initial' array structure."""
     images: list[str] = []
-    # Find script blocks containing colorImages
-    for script_match in re.finditer(
-        r'<script[^>]*>\s*(.*?)\s*</script>', html, re.DOTALL
-    ):
-        text = script_match.group(1)
-        if "colorImages" not in text:
-            continue
-        # Extract hiRes URLs (priority) then large URLs
-        hires = re.findall(r"'hiRes':\s*'([^']+)'", text)
-        if hires:
-            images.extend(hires)
-        else:
-            large = re.findall(r"'large':\s*'([^']+)'", text)
-            images.extend(large)
+
+    # Strategy 1: Search the entire HTML for hiRes/large patterns near colorImages
+    # Find the colorImages block and extract a big chunk of context
+    for m in re.finditer(r"colorImages", html):
+        start = max(0, m.start() - 200)
+        end = min(len(html), m.end() + 8000)
+        chunk = html[start:end]
+
+        # Match both single and double quoted hiRes/large URLs
+        for pat in [
+            r"""["']hiRes["']\s*:\s*["']([^"']+)["']""",
+            r"""["']large["']\s*:\s*["']([^"']+)["']""",
+            r"""'hiRes'\s*:\s*'([^']+)'""",
+            r"""'large'\s*:\s*'([^']+)'""",
+            r'"hiRes"\s*:\s*"([^"]+)"',
+            r'"large"\s*:\s*"([^"]+)"',
+        ]:
+            found = re.findall(pat, chunk)
+            for url in found:
+                url = url.replace("\\", "")
+                if url not in images and "m.media-amazon.com" in url:
+                    images.append(url)
+
+        if images:
+            break  # Got images from colorImages block, stop
+
+    # Strategy 2: Fall back to searching all script tags
+    if not images:
+        for script_match in re.finditer(
+            r'<script[^>]*type="text/javascript"[^>]*>(.*?)</script>',
+            html, re.DOTALL,
+        ):
+            text = script_match.group(1)
+            if "colorImages" not in text and "ImageGallery" not in text:
+                continue
+            for pat in [
+                r"""["']hiRes["']\s*:\s*["']([^"']+)["']""",
+                r"""["']large["']\s*:\s*["']([^"']+)["']""",
+            ]:
+                found = re.findall(pat, text)
+                for url in found:
+                    url = url.replace("\\", "")
+                    if url not in images and "m.media-amazon.com" in url:
+                        images.append(url)
+
     return images
 
 
