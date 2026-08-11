@@ -1,14 +1,16 @@
-# v0 runtime files (should only exist in preview, not in git)
-__v0_runtime_loader.js
-__v0_devtools.tsx
-__v0_jsx-dev-runtime.ts
-
-# Common ignores
+# Dependencies
 node_modules/
+
+# Build cache
 .next/
-.env*.local
+
+# Environment
+.env
+.env.local
+
+# SEO Seed agent — stays local, only its generated HTML in out/seed/ gets pushed
+seo_seed/
+
+# OS files
 .DS_Store
-.wrangler/
-worker/analytics/.wrangler/
-pinterest-8fd69.html
-tiktokwoxBdA2kWzdGHLRRNF0MZCIY111UzIlJ.txt
+Thumbs.db

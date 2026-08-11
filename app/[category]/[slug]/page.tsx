@@ -6,6 +6,7 @@ import { PrimaryPickBlock } from "@/components/primary-pick-block"
 import { SecondaryPickBlock } from "@/components/secondary-pick-block"
 import { PersonaTag } from "@/components/persona-tag"
 import { DisclosureStrip } from "@/components/disclosure-strip"
+import { ProductImages } from "@/components/product-images"
 import {
   editorials,
   getAllCategories,
@@ -232,6 +233,24 @@ export default async function EditorialPage({ params }: Props) {
             "Material and construction notes are based on listed specs, wear behavior, and repeat-use fit stability."}
         </p>
       </section>
+
+      {/* Product Images (collapsible, for SEO) */}
+      <ProductImages
+        primaryImages={
+          editorial.primaryPick.product.images?.map((img) => ({
+            ...img,
+            affiliateUrl: editorial.primaryPick.product.affiliateUrl,
+          })) ?? []
+        }
+        secondaryImages={
+          editorial.secondaryPick?.product.images?.map((img) => ({
+            ...img,
+            affiliateUrl: editorial.secondaryPick?.product.affiliateUrl,
+          })) ?? []
+        }
+        primaryLabel="Product Images"
+        secondaryLabel="Contrast Pick Images"
+      />
 
       {/* Secondary Pick */}
       {editorial.secondaryPick && (
