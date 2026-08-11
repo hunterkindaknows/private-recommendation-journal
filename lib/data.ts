@@ -203,7 +203,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/only-black-tee/primary/",
         images: [
           {
-            src: "/images/only-black-tee-calvin-klein-men-s-cotton-classics-3-pack.webp",
+            src: "/images/only-black-tee-calvin-klein-cotton-classics-3-pack.webp",
             alt: "Men's Cotton Classics 3-Pack Undershirts by Calvin Klein — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Only Black Tee",
             caption: "Our top pick: Men's Cotton Classics 3-Pack Undershirts. Read the full review for our verdict.",
@@ -233,7 +233,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/only-black-tee/secondary/",
         images: [
           {
-            src: "/images/only-black-tee-hanes-men-s-short-sleeve-beefy-t.webp",
+            src: "/images/only-black-tee-hanes-beefy-t.webp",
             alt: "Men's Short Sleeve Beefy-T by Hanes — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Only Black Tee",
             caption: "Contrast pick: Men's Short Sleeve Beefy-T. See the full breakdown.",
@@ -300,7 +300,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/one-belt-no-crack/primary/",
         images: [
           {
-            src: "/images/one-belt-no-crack-levi-s-men-s-2-in-1-reversible-belt.webp",
+            src: "/images/one-belt-no-crack-levis-reversible-belt.webp",
             alt: "Men's 2-in-1 Reversible Belt – by Levi's — product photo from Solmere Journal review",
             title: "Solmere Journal product image — One Belt No Crack",
             caption: "Our top pick: Men's 2-in-1 Reversible Belt –. Read the full review for our verdict.",
@@ -363,7 +363,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/socks-for-walking/primary/",
         images: [
           {
-            src: "/images/socks-for-walking-darn-tough-vermont-men-s-hiker-midweight.webp",
+            src: "/images/socks-for-walking-darn-tough-hiker-sock.webp",
             alt: "Vermont Men's Hiker Midweight Micro by Darn Tough — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Socks For Walking",
             caption: "Our top pick: Vermont Men's Hiker Midweight Micro. Read the full review for our verdict.",
@@ -428,7 +428,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/everyday-chain/primary/",
         images: [
           {
-            src: "/images/everyday-chain-dearmay-14k-gold-plated-dainty.webp",
+            src: "/images/everyday-chain-dearmay-herringbone-chain.webp",
             alt: "14K Gold Plated Dainty Herringbone by DEARMAY — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Everyday Chain",
             caption: "Our top pick: 14K Gold Plated Dainty Herringbone. Read the full review for our verdict.",
@@ -491,7 +491,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/white-sneaker-women/primary/",
         images: [
           {
-            src: "/images/white-sneaker-women-adidas-women-s-grand-court-2-0.webp",
+            src: "/images/white-sneaker-women-adidas-grand-court.webp",
             alt: "Women's Grand Court 2.0 Tennis by adidas — product photo from Solmere Journal review",
             title: "Solmere Journal product image — White Sneaker Women",
             caption: "Our top pick: Women's Grand Court 2.0 Tennis. Read the full review for our verdict.",
@@ -556,7 +556,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/daily-earrings/primary/",
         images: [
           {
-            src: "/images/daily-earrings-pavoi-14k-gold-plated-lightweight.webp",
+            src: "/images/daily-earrings-pavoi-chunky-hoops.webp",
             alt: "14K Gold Plated Lightweight Chunky by PAVOI — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Daily Earrings",
             caption: "Our top pick: 14K Gold Plated Lightweight Chunky. Read the full review for our verdict.",
@@ -621,7 +621,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/maternity-bra-no-compromise/primary/",
         images: [
           {
-            src: "/images/maternity-bra-no-compromise-kindred-bravely-french-terry-nursing-bra.webp",
+            src: "/images/maternity-bra-no-compromise-kindred-bravely-nursing-bra.webp",
             alt: "French Terry Nursing Bra for by Kindred Bravely — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Maternity Bra No Compromise",
             caption: "Our top pick: French Terry Nursing Bra for. Read the full review for our verdict.",
@@ -687,7 +687,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/baby-monitor-worth-it/primary/",
         images: [
           {
-            src: "/images/baby-monitor-worth-it-eufy-security-video-baby-monitor.webp",
+            src: "/images/baby-monitor-worth-it-eufy-baby-monitor.webp",
             alt: "Security Video Baby Monitor 720P by eufy — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Baby Monitor Worth It",
             caption: "Our top pick: Security Video Baby Monitor 720P. Read the full review for our verdict.",
@@ -753,7 +753,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/car-coat-between-seasons-men/primary/",
         images: [
           {
-            src: "/images/car-coat-between-seasons-men-cole-haan-men-s-button-up-wool.webp",
+            src: "/images/car-coat-between-seasons-men-cole-haan-wool-car-coat.webp",
             alt: "Men's Button Up Wool Plush by Cole Haan — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Car Coat Between Seasons Men",
             caption: "Our top pick: Men's Button Up Wool Plush. Read the full review for our verdict.",
@@ -818,7 +818,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/waxed-jacket-transitional-men/primary/",
         images: [
           {
-            src: "/images/waxed-jacket-transitional-men-huckberry-flint-and-tinder-men-s-flannel-lined-waxed-trucker.webp",
+            src: "/images/waxed-jacket-transitional-men-flint-tinder-waxed-trucker.webp",
             alt: "Men's Flannel-Lined Waxed Trucker Jacket, by Huckberry / Flint and Tinder — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Waxed Jacket Transitional Men",
             caption: "Our top pick: Men's Flannel-Lined Waxed Trucker Jacket,. Read the full review for our verdict.",
@@ -881,7 +881,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/trench-for-between-seasons-women/primary/",
         images: [
           {
-            src: "/images/trench-for-between-seasons-women-london-fog-women-s-single-breasted-long.webp",
+            src: "/images/trench-for-between-seasons-women-london-fog-trench-coat.webp",
             alt: "Women's Single Breasted Long Trench by LONDON FOG — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Trench For Between Seasons Women",
             caption: "Our top pick: Women's Single Breasted Long Trench. Read the full review for our verdict.",
@@ -945,7 +945,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/boots-for-cold-ground-men/primary/",
         images: [
           {
-            src: "/images/boots-for-cold-ground-men-thursday-boot-company-captain-men-s-lace-up-boot.webp",
+            src: "/images/boots-for-cold-ground-men-thursday-boot-captain.webp",
             alt: "Captain Men's Lace-up Boot by Thursday Boot Company — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Boots For Cold Ground Men",
             caption: "Our top pick: Captain Men's Lace-up Boot. Read the full review for our verdict.",
@@ -1007,7 +1007,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/henry-topcoat-work-rotation-men/primary/",
         images: [
           {
-            src: "/images/henry-topcoat-work-rotation-men-dockers-men-s-the-henry-wool.webp",
+            src: "/images/henry-topcoat-work-rotation-men-dockers-henry-topcoat.webp",
             alt: "Men's The Henry Wool Blend by Dockers — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Henry Topcoat Work Rotation Men",
             caption: "Our top pick: Men's The Henry Wool Blend. Read the full review for our verdict.",
@@ -1069,7 +1069,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/dakota-waxed-jacket-men/primary/",
         images: [
           {
-            src: "/images/dakota-waxed-jacket-men-legendary-whitetails-men-s-casual-coat-with.webp",
+            src: "/images/dakota-waxed-jacket-men-legendary-whitetails-waxed-coat.webp",
             alt: "Men's Casual Coat with Hood by Legendary Whitetails — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Dakota Waxed Jacket Men",
             caption: "Our top pick: Men's Casual Coat with Hood. Read the full review for our verdict.",
@@ -1132,7 +1132,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/cashmere-set-cold-mornings-women/primary/",
         images: [
           {
-            src: "/images/cashmere-set-cold-mornings-women-fishers-finery-women-s-3-piece-100.webp",
+            src: "/images/cashmere-set-cold-mornings-women-fishers-finery-cashmere-set.webp",
             alt: "Women's 3 Piece 100% Cashmere by Fishers Finery — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Cashmere Set Cold Mornings Women",
             caption: "Our top pick: Women's 3 Piece 100% Cashmere. Read the full review for our verdict.",
@@ -1194,7 +1194,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/budget-chukka-men-transitional/primary/",
         images: [
           {
-            src: "/images/budget-chukka-men-transitional-bruno-marc-men-s-classic-dress-casual.webp",
+            src: "/images/budget-chukka-men-transitional-bruno-marc-chukka-boots.webp",
             alt: "Men's Classic Dress Casual Chukka by Bruno Marc — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Budget Chukka Men Transitional",
             caption: "Our top pick: Men's Classic Dress Casual Chukka. Read the full review for our verdict.",
@@ -1256,7 +1256,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/pinch-penny-loafer-cold-dry-days/primary/",
         images: [
           {
-            src: "/images/pinch-penny-loafer-cold-dry-days-cole-haan-men-s-pinch-penny-loafer.webp",
+            src: "/images/pinch-penny-loafer-cold-dry-days-cole-haan-pinch-penny.webp",
             alt: "Men's Pinch Penny Loafer by Cole Haan — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Pinch Penny Loafer Cold Dry Days",
             caption: "Our top pick: Men's Pinch Penny Loafer. Read the full review for our verdict.",
@@ -1318,7 +1318,7 @@ export const editorials: Editorial[] = [
         affiliateUrl: "/go/grid-base-layer-men-core-warmth/primary/",
         images: [
           {
-            src: "/images/grid-base-layer-men-core-warmth-carhartt-men-s-ul0171m-force-lightweight.webp",
+            src: "/images/grid-base-layer-men-core-warmth-carhartt-grid-base-layer.webp",
             alt: "Men's UL0171M Force Lightweight Stretch by Carhartt — product photo from Solmere Journal review",
             title: "Solmere Journal product image — Grid Base Layer Men Core Warmth",
             caption: "Our top pick: Men's UL0171M Force Lightweight Stretch. Read the full review for our verdict.",

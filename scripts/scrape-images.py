@@ -2,154 +2,252 @@
 """
 Amazon Product Image Scraper for Solmere Journal
 =================================================
-Downloads product images, renames them with SEO-friendly slugs,
-converts to WebP, and saves to public/images/.
+Scrapes full-resolution product images from Amazon product pages.
+Uses async HTTP, rotating user agents, gallery JSON parsing, and
+size-parameter stripping to get the highest quality images.
 
 Usage:
-    # Scrape by ASIN (attempts to find images on Amazon page)
-    python scripts/scrape-images.py B085HQD385 only-black-tee "calvin-klein-black-tee"
-
-    # Download from direct image URLs
-    python scripts/scrape-images.py --url "https://m.media-amazon.com/..." only-black-tee "calvin-klein-black-tee"
-
-    # Batch mode from a file (one ASIN/URL per line)
+    python scripts/scrape-images.py B085HQD385 only-black-tee calvin-klein-black-tee
     python scripts/scrape-images.py --batch asin-list.txt
-
-    # Generate data.ts snippets for all images in public/images/
     python scripts/scrape-images.py --snippets
-
-Output:
-    public/images/{slug}-{keyword}.webp    (primary image)
-    public/images/{slug}-{keyword}-alt.webp (alternate angles)
-
-Each image gets proper SEO metadata embedded in the file.
 """
 
 from __future__ import annotations
 
 import argparse
+import asyncio
 import json
-import os
+import random
 import re
 import sys
 import time
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from typing import Any
+from urllib.parse import urlencode
 
-import httpx
+import aiohttp
 from PIL import Image
 
 # ── Constants ──────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 IMAGES_DIR = PROJECT_ROOT / "public" / "images"
 WEBP_QUALITY = 85
-MAX_IMAGE_WIDTH = 1200
-REQUEST_TIMEOUT = 30
-USER_AGENT = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-)
+MAX_IMAGE_WIDTH = 1500
+MAX_CONCURRENT = 2
+DELAY_SECONDS = 2.5
 
-# ── Amazon image URL patterns ─────────────────────────────────────────
-AMAZON_IMAGE_RE = re.compile(
-    r'https?://m\.media-amazon\.com/images/I/[^"\'\s]+\.(?:jpg|png|jpeg)',
-    re.IGNORECASE,
-)
-AMAZON_LANDING_IMAGE_RE = re.compile(
-    r'"landingImage":\s*\{\s*"src":\s*"([^"]+)"',
-)
-AMAZON_HIRES_RE = re.compile(
-    r'"hiRes":\s*"([^"]+)"',
-)
+USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0",
+    "Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.6778.135 Mobile Safari/537.36",
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 18_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Mobile/15E148 Safari/604.1",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Safari/605.1.15",
+]
 
+# ── Image URL manipulation ─────────────────────────────────────────────
 
-def slugify(text: str) -> str:
-    """Convert text to URL-safe slug."""
-    text = text.lower().strip()
-    text = re.sub(r"[^\w\s-]", "", text)
-    text = re.sub(r"[\s_]+", "-", text)
-    text = re.sub(r"-+", "-", text)
-    return text[:80]
+def strip_amazon_size(url: str) -> str:
+    """Strip Amazon's size parameter to get the full-resolution original."""
+    # Remove ._AC_SX342_, ._SL1500_, ._SS40_, etc.
+    return re.sub(r"\._[A-Z]{2}\d+_\.", ".", url)
 
 
-def fetch_page(url: str) -> str | None:
-    """Fetch a webpage with retries."""
-    for attempt in range(3):
-        try:
-            resp = httpx.get(
-                url,
-                headers={"User-Agent": USER_AGENT},
-                timeout=REQUEST_TIMEOUT,
-                follow_redirects=True,
-            )
-            resp.raise_for_status()
-            return resp.text
-        except Exception as e:
-            if attempt == 2:
-                print(f"  Failed to fetch {url}: {e}", file=sys.stderr)
-                return None
-            time.sleep(2 ** attempt)
-    return None
+def amazon_image_base(url: str) -> str | None:
+    """Extract the base image ID from any Amazon image URL."""
+    m = re.search(r"images/I/([A-Za-z0-9.]+)", url)
+    if not m:
+        return None
+    base_id = m.group(1).split(".")[0]
+    # Find the file extension
+    ext = "jpg"
+    for fmt in [".jpg", ".jpeg", ".png", ".webp"]:
+        if fmt in url.lower():
+            ext = fmt.lstrip(".")
+            break
+    return f"https://m.media-amazon.com/images/I/{base_id}.{ext}"
 
 
-def find_amazon_images(html: str) -> list[str]:
-    """Extract image URLs from Amazon product page HTML."""
+def amazon_image_with_size(url: str, width: int = 1500) -> str:
+    """Force an Amazon image to a specific width."""
+    base = amazon_image_base(url)
+    if not base:
+        return url
+    base_id = re.search(r"images/I/([A-Za-z0-9]+)", base).group(1)
+    ext = base.rsplit(".", 1)[-1]
+    return f"https://m.media-amazon.com/images/I/{base_id}._AC_SX{width}_.{ext}"
+
+
+# ── HTML parsing ───────────────────────────────────────────────────────
+
+def extract_images_from_gallery_json(html: str) -> list[str]:
+    """Parse the 'colorImages' JSON from Amazon's page scripts."""
     images: list[str] = []
-
-    # Try landingImage / hiRes JSON patterns first (highest quality)
-    for pattern in [AMAZON_HIRES_RE, AMAZON_LANDING_IMAGE_RE]:
-        matches = pattern.findall(html)
-        for m in matches:
-            img = m.replace("\\", "")
-            if img not in images:
-                images.append(img)
-
-    # Fall back to generic media-amazon URLs
-    if not images:
-        matches = AMAZON_IMAGE_RE.findall(html)
-        seen = set()
-        for m in matches:
-            # Prefer larger variants: replace scaling suffixes
-            m = re.sub(r"\._.*?_\.", ".", m)
-            if m not in seen:
-                seen.add(m)
-                images.append(m)
-
+    # Find script blocks containing colorImages
+    for script_match in re.finditer(
+        r'<script[^>]*>\s*(.*?)\s*</script>', html, re.DOTALL
+    ):
+        text = script_match.group(1)
+        if "colorImages" not in text:
+            continue
+        # Extract hiRes URLs (priority) then large URLs
+        hires = re.findall(r"'hiRes':\s*'([^']+)'", text)
+        if hires:
+            images.extend(hires)
+        else:
+            large = re.findall(r"'large':\s*'([^']+)'", text)
+            images.extend(large)
     return images
 
 
-def download_image(url: str, dest: Path) -> bool:
-    """Download an image to the given path."""
-    try:
-        resp = httpx.get(
-            url,
-            headers={"User-Agent": USER_AGENT},
-            timeout=REQUEST_TIMEOUT,
-            follow_redirects=True,
-        )
-        resp.raise_for_status()
-        dest.write_bytes(resp.content)
-        return True
-    except Exception as e:
-        print(f"  Download failed: {e}", file=sys.stderr)
+def extract_product_data(html: str) -> dict[str, Any]:
+    """Extract all image URLs + title from a product page."""
+    result: dict[str, Any] = {
+        "main": None,
+        "main_hires": None,
+        "gallery": [],
+        "title": None,
+        "all": [],
+    }
+
+    # ── Gallery JSON (most reliable, highest quality) ──
+    gallery = extract_images_from_gallery_json(html)
+    if gallery:
+        result["gallery"] = gallery
+        result["main"] = gallery[0]
+
+    # ── Main image from HTML ──
+    for pattern in [
+        r'data-old-hires="([^"]+)"',
+        r'"landingImage":\s*\{\s*"src":\s*"([^"]+)"',
+        r'"hiRes":\s*"([^"]+)"',
+        r'id="landingImage"[^>]*src="([^"]+)"',
+        r'id="imgBlkFront"[^>]*src="([^"]+)"',
+        r'id="landingImage"[^>]*data-old-hires="([^"]+)"',
+    ]:
+        m = re.search(pattern, html)
+        if m:
+            url = m.group(1).replace("\\", "")
+            if not result["main"]:
+                result["main"] = url
+            if "hires" in pattern or "old-hires" in pattern:
+                result["main_hires"] = url
+            break
+
+    # ── Title ──
+    title_m = re.search(r'id="productTitle"[^>]*>\s*(.*?)\s*<', html, re.DOTALL)
+    if title_m:
+        result["title"] = re.sub(r"<[^>]+>", "", title_m.group(1)).strip()
+
+    # ── All images on page ──
+    seen = set()
+    for m in re.finditer(
+        r'https?://m\.media-amazon\.com/images/I/[^"\'\s)]+\.(?:jpg|jpeg|png)',
+        html, re.IGNORECASE,
+    ):
+        url = m.group(0)
+        if url not in seen:
+            seen.add(url)
+            result["all"].append(url)
+
+    return result
+
+
+# ── Async scraper ──────────────────────────────────────────────────────
+
+class AmazonScraper:
+    def __init__(self, delay: float = DELAY_SECONDS):
+        self.delay = delay
+        self._last_request = 0.0
+
+    async def _rate_limit(self):
+        elapsed = asyncio.get_event_loop().time() - self._last_request
+        if elapsed < self.delay:
+            await asyncio.sleep(self.delay - elapsed + random.uniform(0, 1))
+        self._last_request = asyncio.get_event_loop().time()
+
+    def _headers(self) -> dict:
+        return {
+            "User-Agent": random.choice(USER_AGENTS),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+            "DNT": "1",
+            "Upgrade-Insecure-Requests": "1",
+            "Sec-Fetch-Dest": "document",
+            "Sec-Fetch-Mode": "navigate",
+            "Sec-Fetch-Site": "none",
+        }
+
+    async def fetch_page(self, session: aiohttp.ClientSession, url: str) -> str | None:
+        """Fetch a page with retries and backoff."""
+        for attempt in range(4):
+            await self._rate_limit()
+            try:
+                async with session.get(
+                    url,
+                    headers=self._headers(),
+                    timeout=aiohttp.ClientTimeout(total=30),
+                ) as resp:
+                    if resp.status == 503:
+                        wait = 10 * (attempt + 1)
+                        print(f"  503 — backing off {wait}s...", file=sys.stderr)
+                        await asyncio.sleep(wait)
+                        continue
+                    if resp.status != 200:
+                        if attempt < 3:
+                            await asyncio.sleep(3)
+                            continue
+                        return None
+                    html = await resp.text()
+                    if len(html) < 2000 or "Type the characters you see" in html:
+                        if attempt < 3:
+                            print(f"  Captcha/bot detection — retrying...", file=sys.stderr)
+                            await asyncio.sleep(5 * (attempt + 1))
+                            continue
+                        return None
+                    return html
+            except Exception as e:
+                if attempt < 3:
+                    await asyncio.sleep(2 ** attempt)
+                    continue
+                print(f"  Failed: {e}", file=sys.stderr)
+                return None
+        return None
+
+    async def download_image(
+        self, session: aiohttp.ClientSession, url: str, dest: Path
+    ) -> bool:
+        """Download an image to a file."""
+        try:
+            await self._rate_limit()
+            headers = {
+                "User-Agent": random.choice(USER_AGENTS),
+                "Referer": "https://www.amazon.com/",
+            }
+            async with session.get(
+                url, headers=headers, timeout=aiohttp.ClientTimeout(total=20)
+            ) as resp:
+                if resp.status == 200:
+                    dest.write_bytes(await resp.read())
+                    return True
+        except Exception:
+            pass
         return False
 
 
-def optimize_image(src: Path, dest: Path, max_width: int = MAX_IMAGE_WIDTH) -> bool:
-    """
-    Convert image to WebP, resize if needed, and optimize.
-    Returns True on success.
-    """
+# ── Image optimization ─────────────────────────────────────────────────
+
+def optimize_image(src: Path, dest: Path) -> bool:
+    """Convert to WebP, resize if > MAX_IMAGE_WIDTH."""
     try:
         img = Image.open(src)
         if img.mode in ("RGBA", "P"):
             img = img.convert("RGB")
-
         w, h = img.size
-        if w > max_width:
-            ratio = max_width / w
-            img = img.resize((max_width, int(h * ratio)), Image.LANCZOS)
-
+        if w > MAX_IMAGE_WIDTH:
+            ratio = MAX_IMAGE_WIDTH / w
+            img = img.resize((MAX_IMAGE_WIDTH, int(h * ratio)), Image.LANCZOS)
         dest.parent.mkdir(parents=True, exist_ok=True)
         img.save(dest, "WEBP", quality=WEBP_QUALITY, optimize=True)
         return True
@@ -158,63 +256,78 @@ def optimize_image(src: Path, dest: Path, max_width: int = MAX_IMAGE_WIDTH) -> b
         return False
 
 
-def scrape_by_asin(asin: str, slug: str, keyword: str) -> list[Path]:
-    """
-    Scrape product images from an Amazon ASIN page.
-    Returns list of saved file paths.
-    """
+# ── Main scraping flow ─────────────────────────────────────────────────
+
+async def scrape_product(
+    scraper: AmazonScraper,
+    session: aiohttp.ClientSession,
+    asin: str,
+    slug: str,
+    keyword_slug: str,
+    max_images: int = 3,
+) -> list[Path]:
+    """Scrape images for a single product ASIN."""
     url = f"https://www.amazon.com/dp/{asin}"
-    print(f"Fetching {url}...")
-    html = fetch_page(url)
-    if not html:
-        # Try the product page directly as a fallback
-        url = f"https://www.amazon.com/gp/product/{asin}"
-        print(f"Retrying with {url}...")
-        html = fetch_page(url)
+    print(f"  {slug}: fetching {url}...")
 
+    html = await scraper.fetch_page(session, url)
     if not html:
-        print("  Could not fetch Amazon page. Try providing a direct image URL with --url.")
+        print(f"  {slug}: could not fetch page (Amazon may be blocking)")
         return []
 
-    images = find_amazon_images(html)
-    if not images:
-        print("  No images found on page. Amazon may be blocking the request.")
-        print("  Try providing a direct image URL with --url.")
+    data = extract_product_data(html)
+    title = data.get("title", "")
+
+    # Collect image URLs — prefer hi-res, then gallery, then main
+    urls: list[str] = []
+    if data.get("main_hires"):
+        urls.append(data["main_hires"])
+    if data.get("gallery"):
+        for u in data["gallery"]:
+            if u not in urls:
+                urls.append(u)
+    if data.get("main") and data["main"] not in urls:
+        urls.append(data["main"])
+
+    # Strip size params for full-res originals
+    urls = [strip_amazon_size(u) for u in urls]
+    urls = list(dict.fromkeys(urls))  # deduplicate
+
+    if not urls:
+        print(f"  {slug}: no images found on page")
         return []
 
-    print(f"  Found {len(images)} image(s)")
-    return _download_and_save(images[:3], slug, keyword)  # max 3 per product
+    print(f"  {slug}: found {len(urls)} image(s), downloading up to {max_images}...")
+    urls = urls[:max_images]
 
-
-def scrape_by_url(image_url: str, slug: str, keyword: str) -> list[Path]:
-    """Download from a direct image URL."""
-    return _download_and_save([image_url], slug, keyword)
-
-
-def _download_and_save(urls: list[str], slug: str, keyword: str) -> list[Path]:
-    """Download images and save as optimized WebP."""
     IMAGES_DIR.mkdir(parents=True, exist_ok=True)
     saved: list[Path] = []
 
-    for i, url in enumerate(urls):
+    for i, img_url in enumerate(urls):
         suffix = f"-{i + 1}" if i > 0 else ""
-        filename = f"{slug}-{keyword}{suffix}"
-        temp_path = IMAGES_DIR / f"_temp_{filename}"
+        filename = f"{slug}-{keyword_slug}{suffix}"
+        temp_path = IMAGES_DIR / f"_tmp_{filename}"
         final_path = IMAGES_DIR / f"{filename}.webp"
 
         if final_path.exists():
-            print(f"  Already exists: {final_path.name}")
+            print(f"    Already exists: {final_path.name}")
             saved.append(final_path)
             continue
 
-        print(f"  Downloading: {url[:80]}...")
-        if not download_image(url, temp_path):
+        # Try download with different size params
+        for size_url in [img_url, amazon_image_with_size(img_url, 1500)]:
+            if await scraper.download_image(session, size_url, temp_path):
+                break
+        else:
+            print(f"    Download failed for {filename}")
+            temp_path.unlink(missing_ok=True)
             continue
 
+        # Optimize to WebP
         if optimize_image(temp_path, final_path):
             temp_path.unlink(missing_ok=True)
             size_kb = final_path.stat().st_size / 1024
-            print(f"  Saved: {final_path.name} ({size_kb:.0f} KB)")
+            print(f"    Saved: {final_path.name} ({size_kb:.0f} KB)")
             saved.append(final_path)
         else:
             temp_path.unlink(missing_ok=True)
@@ -222,101 +335,109 @@ def _download_and_save(urls: list[str], slug: str, keyword: str) -> list[Path]:
     return saved
 
 
-def generate_data_snippets() -> str:
-    """
-    Scan public/images/ and generate TypeScript data snippets
-    that can be pasted into lib/data.ts.
-    """
+async def scrape_all(
+    products: list[dict[str, str]],
+    max_per_product: int = 3,
+) -> dict[str, list[Path]]:
+    """Scrape images for multiple products."""
+    scraper = AmazonScraper()
+    results: dict[str, list[Path]] = {}
+
+    sem = asyncio.Semaphore(MAX_CONCURRENT)
+
+    async def scrape_one(p: dict[str, str]):
+        async with sem:
+            saved = await scrape_product(
+                scraper, session, p["asin"], p["slug"], p["keyword_slug"], max_per_product
+            )
+            results[p["slug"]] = saved
+
+    async with aiohttp.ClientSession() as session:
+        tasks = [scrape_one(p) for p in products]
+        await asyncio.gather(*tasks)
+
+    return results
+
+
+# ── Snippets generator ─────────────────────────────────────────────────
+
+def generate_snippets() -> str:
+    """Generate TypeScript image data for lib/data.ts."""
     if not IMAGES_DIR.exists():
-        return "// No images found in public/images/"
+        return "// No images found"
 
     images = sorted(IMAGES_DIR.glob("*.webp"))
     if not images:
-        return "// No .webp images found in public/images/"
+        return "// No .webp images found"
 
-    lines = ["// Auto-generated image data — paste into Product interface", ""]
-    by_slug: dict[str, list[str]] = {}
+    lines = ["// Auto-generated — paste into Product.images[]", ""]
     for img in images:
         stem = img.stem
-        # Extract slug prefix: "only-black-tee-calvin-klein" -> "only-black-tee"
-        parts = stem.split("-")
-        slug = None
-        for editorial_slugs in [
-            "only-black-tee", "one-belt-no-crack", "socks-for-walking",
-            "everyday-chain", "white-sneaker-women", "daily-earrings",
-            "maternity-bra-no-compromise", "baby-monitor-worth-it",
-            "car-coat-between-seasons-men", "waxed-jacket-transitional-men",
-            "trench-for-between-seasons-women", "boots-for-cold-ground-men",
-            "henry-topcoat-work-rotation-men", "dakota-waxed-jacket-men",
-            "cashmere-set-cold-mornings-women", "budget-chukka-men-transitional",
-            "pinch-penny-loafer-cold-dry-days", "grid-base-layer-men-core-warmth",
-        ]:
-            if stem.startswith(editorial_slugs):
-                slug = editorial_slugs
-                break
-        if not slug:
-            slug = stem
-        by_slug.setdefault(slug, []).append(f"/images/{img.name}")
-
-    for slug, image_paths in sorted(by_slug.items()):
-        lines.append(f"// {slug}")
-        lines.append(f'images: {json.dumps(image_paths)}')
+        slug = stem.split("-")[0]  # rough
+        lines.append(f'// {stem}')
+        lines.append(f'{{ src: "/images/{img.name}", alt: "Product image for {stem}", title: "Solmere Journal", caption: "Read the full review." }},')
         lines.append("")
-
     return "\n".join(lines)
-
-
-def process_batch(batch_file: str) -> None:
-    """Process a batch file with one entry per line."""
-    path = Path(batch_file)
-    if not path.exists():
-        print(f"File not found: {batch_file}", file=sys.stderr)
-        sys.exit(1)
-
-    lines = [l.strip() for l in path.read_text().splitlines() if l.strip() and not l.startswith("#")]
-    for line in lines:
-        parts = line.split()
-        if len(parts) < 3:
-            print(f"Skipping malformed line: {line}")
-            continue
-        identifier, slug, keyword = parts[0], parts[1], parts[2]
-        print(f"\n{'=' * 60}")
-        if identifier.startswith("http"):
-            scrape_by_url(identifier, slug, keyword)
-        elif identifier.startswith("B"):
-            scrape_by_asin(identifier, slug, keyword)
-        else:
-            print(f"Unknown identifier: {identifier}")
 
 
 # ── CLI ────────────────────────────────────────────────────────────────
 
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Amazon product image scraper for Solmere Journal"
-    )
-    parser.add_argument(
-        "identifier", nargs="?",
-        help="ASIN (e.g. B085HQD385) or direct image URL"
-    )
-    parser.add_argument("slug", nargs="?", help="Editorial slug (e.g. only-black-tee)")
-    parser.add_argument("keyword", nargs="?", help="SEO keyword slug (e.g. calvin-klein-black-tee)")
-    parser.add_argument("--url", action="store_true", help="Treat identifier as a direct image URL")
-    parser.add_argument("--batch", help="Process a batch file (one entry per line)")
-    parser.add_argument("--snippets", action="store_true", help="Generate data.ts snippets from existing images")
+def parse_batch_file(path: str) -> list[dict[str, str]]:
+    """Parse a batch file with format: ASIN slug keyword-slug (one per line)."""
+    products = []
+    for line in Path(path).read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split()
+        if len(parts) >= 3 and parts[0].startswith("B"):
+            products.append({
+                "asin": parts[0],
+                "slug": parts[1],
+                "keyword_slug": parts[2],
+            })
+    return products
+
+
+async def amain() -> None:
+    parser = argparse.ArgumentParser(description="Amazon product image scraper for Solmere Journal")
+    parser.add_argument("identifier", nargs="?", help="ASIN (e.g. B085HQD385)")
+    parser.add_argument("slug", nargs="?", help="Editorial slug")
+    parser.add_argument("keyword", nargs="?", help="SEO keyword slug")
+    parser.add_argument("--batch", help="Process a batch file")
+    parser.add_argument("--max", type=int, default=3, help="Max images per product (default: 3)")
+    parser.add_argument("--snippets", action="store_true", help="Generate data.ts snippets")
     args = parser.parse_args()
 
     if args.snippets:
-        print(generate_data_snippets())
-    elif args.batch:
-        process_batch(args.batch)
+        print(generate_snippets())
+        return
+
+    if args.batch:
+        products = parse_batch_file(args.batch)
+        if not products:
+            print(f"No valid ASINs found in {args.batch}", file=sys.stderr)
+            return
+        print(f"Scraping {len(products)} products (max {args.max} images each)...\n")
+        results = await scrape_all(products, max_per_product=args.max)
+        total = sum(len(v) for v in results.values())
+        print(f"\nDone: {total} images saved.")
+        for slug, paths in results.items():
+            status = f"{len(paths)} images" if paths else "FAILED"
+            print(f"  {slug}: {status}")
     elif args.identifier and args.slug and args.keyword:
-        if args.url or args.identifier.startswith("http"):
-            scrape_by_url(args.identifier, args.slug, args.keyword)
-        else:
-            scrape_by_asin(args.identifier, args.slug, args.keyword)
+        products = [{
+            "asin": args.identifier,
+            "slug": args.slug,
+            "keyword_slug": args.keyword,
+        }]
+        results = await scrape_all(products, max_per_product=args.max)
     else:
         parser.print_help()
+
+
+def main():
+    asyncio.run(amain())
 
 
 if __name__ == "__main__":
