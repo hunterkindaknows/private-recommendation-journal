@@ -1,34 +1,141 @@
 "use client"
 
-import { useState } from "react"
-import { Image, ChevronDown } from "lucide-react"
+import { useState, useCallback, useEffect } from "react"
+import { Image, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
+import useEmblaCarousel from "embla-carousel-react"
+import Autoplay from "embla-carousel-autoplay"
 
 export interface ProductImage {
-  /** Path relative to public/, e.g. "/images/only-black-tee-calvin-klein.webp" */
   src: string
-  /** Descriptive alt text — include primary keyword naturally */
   alt: string
-  /** Tooltip / title attribute */
   title?: string
-  /** Image width hint (defaults to 800) */
   width?: number
-  /** Image height hint (defaults to 600) */
   height?: number
-  /** Brief caption — include affiliate link if relevant */
   caption?: string
-  /** Affiliate link for caption CTA */
   affiliateUrl?: string
 }
 
 interface ProductImagesProps {
-  /** Primary pick images */
   primaryImages: ProductImage[]
-  /** Optional contrast/alt pick images */
   secondaryImages?: ProductImage[]
-  /** Product name for labeling */
   primaryLabel?: string
   secondaryLabel?: string
+}
+
+function ImageCarousel({ images }: { images: ProductImage[] }) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 4000, stopOnInteraction: false }),
+  ])
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    emblaApi.on("select", onSelect)
+    onSelect()
+  }, [emblaApi, onSelect])
+
+  if (images.length === 0) return null
+
+  const current = images[selectedIndex]
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Carousel viewport */}
+      <div ref={emblaRef} className="overflow-hidden border border-border">
+        <div className="flex">
+          {images.map((img, i) => (
+            <div key={i} className="min-w-0 flex-[0_0_100%]">
+              <figure className="product-featured">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  title={img.title ?? img.alt}
+                  width={img.width ?? 800}
+                  height={img.height ?? 600}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchPriority={i === 0 ? "high" : "auto"}
+                  className="h-auto w-full object-cover"
+                />
+              </figure>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Arrow buttons — visible on hover */}
+      <button
+        onClick={scrollPrev}
+        className={
+          "absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-1.5 text-foreground shadow-sm backdrop-blur transition-opacity " +
+          (isHovered ? "opacity-100" : "opacity-0")
+        }
+        aria-label="Previous image"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+      <button
+        onClick={scrollNext}
+        className={
+          "absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-1.5 text-foreground shadow-sm backdrop-blur transition-opacity " +
+          (isHovered ? "opacity-100" : "opacity-0")
+        }
+        aria-label="Next image"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
+
+      {/* Dot indicators — always visible */}
+      <div className="mt-3 flex items-center justify-center gap-1.5">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => emblaApi?.scrollTo(i)}
+            className={
+              "h-2 rounded-full transition-all " +
+              (i === selectedIndex
+                ? "w-5 bg-accent"
+                : "w-2 bg-border hover:bg-muted-foreground")
+            }
+            aria-label={`Go to image ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Caption for current image */}
+      {current.caption && (
+        <figcaption className="mt-2 text-center text-xs leading-relaxed text-muted-foreground">
+          {current.caption}
+          {current.affiliateUrl && (
+            <>
+              {" "}
+              <Link
+                href={current.affiliateUrl}
+                className="underline decoration-accent underline-offset-2 hover:text-foreground"
+                rel="noopener noreferrer nofollow sponsored"
+              >
+                Check price on Amazon →
+              </Link>
+            </>
+          )}
+        </figcaption>
+      )}
+    </div>
+  )
 }
 
 export function ProductImages({
@@ -56,7 +163,7 @@ export function ProductImages({
         </summary>
 
         <div className="mt-6">
-          {/* Tab bar — only show if both tabs have content */}
+          {/* Tab bar */}
           {hasPrimary && hasSecondary && (
             <div className="mb-6 flex border-b border-border">
               <button
@@ -84,41 +191,7 @@ export function ProductImages({
             </div>
           )}
 
-          {/* Image grid */}
-          <div className="grid gap-8">
-            {currentImages.map((img, i) => (
-              <figure key={i} className="product-featured">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  title={img.title ?? img.alt}
-                  width={img.width ?? 800}
-                  height={img.height ?? 600}
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority={i === 0 ? "high" : "auto"}
-                  className="h-auto w-full border border-border object-cover"
-                />
-                {img.caption && (
-                  <figcaption className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                    {img.caption}
-                    {img.affiliateUrl && (
-                      <>
-                        {" "}
-                        <Link
-                          href={img.affiliateUrl}
-                          className="underline decoration-accent underline-offset-2 hover:text-foreground"
-                          rel="noopener noreferrer nofollow sponsored"
-                        >
-                          Check price on Amazon →
-                        </Link>
-                      </>
-                    )}
-                  </figcaption>
-                )}
-              </figure>
-            ))}
-          </div>
+          <ImageCarousel images={currentImages} />
         </div>
       </details>
     </section>
