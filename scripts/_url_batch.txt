@@ -1,0 +1,61 @@
+# PASTE IMAGE URLS BELOW (one per line): URL slug keyword
+# Get URLs by: right-click Amazon product image → Copy image address
+# Then run: python scripts/scrape-images.py --batch scripts/_url_batch.txt
+
+# Calvin Klein — Men's Cotton Classics 3-Pack Undershirts
+PASTE_URL_HERE only-black-tee calvin-klein-men-s-cotton-classics-3-pack
+
+# Hanes — Men's Short Sleeve Beefy-T
+PASTE_URL_HERE only-black-tee hanes-men-s-short-sleeve-beefy-t
+
+# Levi's — Men's 2-in-1 Reversible Belt – Everyday Casual Jea
+PASTE_URL_HERE one-belt-no-crack levi-s-men-s-2-in-1-reversible-belt
+
+# Darn Tough — Vermont Men's Hiker Midweight Micro Crew Sock (Sty
+PASTE_URL_HERE socks-for-walking darn-tough-vermont-men-s-hiker-midweight
+
+# DEARMAY — 14K Gold Plated Dainty Herringbone Choker Snake Ch
+PASTE_URL_HERE everyday-chain dearmay-14k-gold-plated-dainty
+
+# adidas — Women's Grand Court 2.0 Tennis Shoe
+PASTE_URL_HERE white-sneaker-women adidas-women-s-grand-court-2-0
+
+# PAVOI — 14K Gold Plated Lightweight Chunky Open Hoops for 
+PASTE_URL_HERE daily-earrings pavoi-14k-gold-plated-lightweight
+
+# Kindred Bravely — French Terry Nursing Bra for Breastfeeding and Sle
+PASTE_URL_HERE maternity-bra-no-compromise kindred-bravely-french-terry-nursing-bra
+
+# eufy — Security Video Baby Monitor 720P
+PASTE_URL_HERE baby-monitor-worth-it eufy-security-video-baby-monitor
+
+# Cole Haan — Men's Button Up Wool Plush Car Coat
+PASTE_URL_HERE car-coat-between-seasons-men cole-haan-men-s-button-up-wool
+
+# Huckberry / Flint and Tinder — Men's Flannel-Lined Waxed Trucker Jacket, Water & 
+PASTE_URL_HERE waxed-jacket-transitional-men huckberry-flint-and-tinder-men-s-flannel-lined-waxed-trucker
+
+# LONDON FOG — Women's Single Breasted Long Trench Coat with Epau
+PASTE_URL_HERE trench-for-between-seasons-women london-fog-women-s-single-breasted-long
+
+# Thursday Boot Company — Captain Men's Lace-up Boot
+PASTE_URL_HERE boots-for-cold-ground-men thursday-boot-company-captain-men-s-lace-up-boot
+
+# Dockers — Men's The Henry Wool Blend Top Coat
+PASTE_URL_HERE henry-topcoat-work-rotation-men dockers-men-s-the-henry-wool
+
+# Legendary Whitetails — Men's Casual Coat with Hood Waxed Cotton Water Res
+PASTE_URL_HERE dakota-waxed-jacket-men legendary-whitetails-men-s-casual-coat-with
+
+# Fishers Finery — Women's 3 Piece 100% Cashmere Pom Beanie Hat Glove
+PASTE_URL_HERE cashmere-set-cold-mornings-women fishers-finery-women-s-3-piece-100
+
+# Bruno Marc — Men's Classic Dress Casual Chukka Boots 2.0
+PASTE_URL_HERE budget-chukka-men-transitional bruno-marc-men-s-classic-dress-casual
+
+# Cole Haan — Men's Pinch Penny Loafer
+PASTE_URL_HERE pinch-penny-loafer-cold-dry-days cole-haan-men-s-pinch-penny-loafer
+
+# Carhartt — Men's UL0171M Force Lightweight Stretch Grid Base 
+PASTE_URL_HERE grid-base-layer-men-core-warmth carhartt-men-s-ul0171m-force-lightweight
+
