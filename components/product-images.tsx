@@ -55,11 +55,11 @@ function ImageCarousel({ images }: { images: ProductImage[] }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Carousel viewport */}
-      <div ref={emblaRef} className="overflow-hidden border border-border">
+      <div ref={emblaRef} className="overflow-hidden border border-border bg-[#fafaf5]">
         <div className="flex">
           {images.map((img, i) => (
             <div key={i} className="min-w-0 flex-[0_0_100%]">
-              <figure className="product-featured">
+              <figure className="product-featured flex items-center justify-center" style={{ maxHeight: 520 }}>
                 <img
                   src={img.src}
                   alt={img.alt}
@@ -69,7 +69,7 @@ function ImageCarousel({ images }: { images: ProductImage[] }) {
                   loading={i === 0 ? "eager" : "lazy"}
                   decoding="async"
                   fetchPriority={i === 0 ? "high" : "auto"}
-                  className="h-auto w-full object-cover"
+                  className="h-auto max-h-[520px] w-full object-contain"
                 />
               </figure>
             </div>
