@@ -11,6 +11,9 @@ node_modules/
 # SEO Seed agent — stays local, only its generated HTML in out/seed/ gets pushed
 seo_seed/
 
+# Keyword bet agent — runtime state changes constantly, keep it local
+keyword_bet_agent/state.json
+
 # OS files
 .DS_Store
 Thumbs.db
